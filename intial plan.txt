@@ -1,0 +1,36 @@
+-html,css,JavaScript,canvas
+
+NODE {
+-circle with number++
+-intial color
+-connected with Array
+-postion
+-on click after being created
+-toggle
+}
+Edge{
+-starting point (object ref)
+-ending point  (object ref)
+-directed or undirected
+-weight
+-color
+-multiple edges (with fixed padding)
+}
+
+-onClick ->for creating nodes
+-onClick ->for erasing nodes (IF EXISTS)
+
+/*
+as a user when i click on empty area -> create a new node
+as a user when i click on a node and fe node already md5oda-> be ready for connect with another node otherwise create edge between those two nodes  if they are not the same otherwise togggle
+as a user if i click on delete button delete the node and all edges connected with 
+ 
+
+
+
+
+
+
+
+
+*/
