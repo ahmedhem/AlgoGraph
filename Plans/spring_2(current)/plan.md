@@ -35,7 +35,7 @@
   - edge :
     - startNode
     - end Node
-    - number 
+    - number ---> (don't know what this is)
 - pair :
     - 2 nodes 
     
