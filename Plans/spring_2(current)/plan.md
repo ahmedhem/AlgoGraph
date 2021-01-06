@@ -8,7 +8,7 @@
 -----
 2. toggle :
     - if the node in the pair :
-        - `remove()`
+        - `remove()` 
     - else :
         - add it to the pair
     

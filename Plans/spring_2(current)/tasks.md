@@ -1,9 +1,12 @@
 ### (did not start) (in progress) (finished)
-## Eid
-- handleClick (did not start)
-- Toggle (did not start)
-- remove (did not start)
-- Data Storage  (Done):
+## Eid (Done)
+
+---- 
+- remove _**>>> not needed anymore**_
+---------------------
+- handleClick (finished)
+- Toggle (finished)
+- Data Storage  (finished):
     - pair >>>> done (need the drawEdge to test)
     - edges >>> done
     - nodes >>> done
@@ -15,3 +18,5 @@
 - drawNode (did not start)
 - drawEdge (did not start)
 - isPointInNode (did not start)
+  - note(Eid) :
+    - should return the node that contain the point else return (null or -1 or false)

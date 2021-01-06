@@ -1,10 +1,10 @@
 /*
-* Node class (x, y, equals())
-* Edge class (start<Node>, end<Node>, equals())
+* CanvasNode class (x, y, equals())
+* CanvasEdge class (start<CanvasNode>, end<CanvasNode>, equals())
 *
 * */
 
-class Node {
+class CanvasNode {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -17,7 +17,9 @@ class Node {
 
 }
 
-class Edge {
+
+
+class CanvasEdge {
     constructor(statingNode, endingNode) {
         this.start = statingNode;
         this.end = endingNode
@@ -45,51 +47,52 @@ pair = {
         } else {
             this.nodes.push(point);
         }
-    }
+    },
 }
 /*
 * nodeList : to store all the nodes
-* addNode : add a Node to the nodeList
-* removeNode : remove a node if it is inside the nodeList
+* addNode : add a CanvasNode to the nodeList
+* removeNode : remove a CanvasNode if it is inside the nodeList
 */
 nodes = {
     nodeList: [],
-    addNode: function (node) {
-        this.nodeList.push(node);
+    addNode: function (CanvasNode) {
+        this.nodeList.push(CanvasNode);
         this.notifier.fire();
     },
-    removeNode: function (node) {
+    removeNode: function (CanvasNode) {
         // TODO :: optimize performance
         for (let i = 0; i < this.nodeList.length; i++) {
-            if (node.equals(this.nodeList[i])){
+            if (CanvasNode.equals(this.nodeList[i])){
                 this.nodeList.splice(i, 1);
                 this.notifier.fire();
             }
         }
     },
-// allowing other to get notify when a node is added or deleted
+
+// allowing other to get notify when a CanvasNode is added or deleted
     notifier: new Notifier(),
 }
 /*
 * edgeList : to store all the edges
-* addEdge : add an edge to the edgeList
-* removeEdge : remove an edge if it is inside the edgeList
+* addEdge : add an CanvasEdge to the edgeList
+* removeEdge : remove an CanvasEdge if it is inside the edgeList
 */
 edges = {
     edgeList: [],
-    addEdge: function (edge){
-        this.edgeList.push(edge);
+    addEdge: function (CanvasEdge){
+        this.edgeList.push(CanvasEdge);
         this.notifier.fire();
     },
-    removeEdge: function (edge) {
+    removeEdge: function (CanvasEdge) {
         // TODO :: optimize performance
         for (let i = 0; i < this.edgeList.length; i++) {
-            if (edge.equals(this.edgeList[i])){
+            if (CanvasEdge.equals(this.edgeList[i])){
                 this.edgeList.splice(i, 1);
                 this.notifier.fire();
             }
         }
     },
-// allowing other to get notify when an edge is created or removed
+// allowing other to get notify when an CanvasEdge is created or removed
     notifier: new Notifier(),
 }
