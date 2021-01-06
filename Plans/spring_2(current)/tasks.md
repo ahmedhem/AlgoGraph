@@ -3,8 +3,12 @@
 - handleClick (did not start)
 - Toggle (did not start)
 - remove (did not start)
-- Data Storage  (in progress):
-    - TODO :: implement the observer pattern to notify other when the edgeList, or the NodeList Change 
+- Data Storage  (Done):
+    - pair >>>> done (need the drawEdge to test)
+    - edges >>> done
+    - nodes >>> done
+  - **_Note_** 
+    - an edge has a number || in the implementation only start node and end node
 
 ## magdy
 
