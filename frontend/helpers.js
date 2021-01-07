@@ -34,3 +34,11 @@ function checkNodes(clickedNode) {
     }
     return false;
 }
+
+function isPointInNode(x, y){
+    for (let i = 0; i < nodes.nodeList.length; i++) {
+        var d = getDist(x,y,nodes.nodeList[i].x,nodes.nodeList[i].y);
+        if(d<=18)return nodes.nodeList[i];
+    }
+    return false;
+}
