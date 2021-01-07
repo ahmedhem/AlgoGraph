@@ -6,4 +6,4 @@
 1. Styling
 2. drawing
 3. remove
-4. clear
+4. clear and fix the bug

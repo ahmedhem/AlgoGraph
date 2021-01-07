@@ -7,7 +7,7 @@
     - clear
     - delete
 
-### Organizing the project files
+### Organizing the project files (import, export, write module code)
 
 ### New Functionality
 1. save 
@@ -16,6 +16,8 @@
 4. edges: 
     - storage (weight, directed or undircted)
     - drawing (weight, directed or undircted)
+   
+### Fix the draw over nodes bug
 
 
 
