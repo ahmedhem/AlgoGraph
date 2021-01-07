@@ -15,8 +15,8 @@
 
 ## magdy
 
-- drawNode (did not start)
-- drawEdge (did not start)
-- isPointInNode (did not start)
+- drawNode (done)
+- drawEdge (done)
+- isPointInNode (done)
   - note(Eid) :
     - should return the node that contain the point else return (null or -1 or false)
