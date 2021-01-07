@@ -16,7 +16,7 @@ function toggleNode(node) {
     for (let i = 0; i < 2; i++) {
         if (node.equals(pair.nodes[i])) {
             pair.nodes = [];
-            return
+            return;
         }
     }
 
@@ -37,8 +37,9 @@ function checkNodes(clickedNode) {
 
 function isPointInNode(x, y){
     for (let i = 0; i < nodes.nodeList.length; i++) {
-        var d = getDist(x,y,nodes.nodeList[i].x,nodes.nodeList[i].y);
-        if(d<=18)return nodes.nodeList[i];
+        const d = getDist(x, y, nodes.nodeList[i].x, nodes.nodeList[i].y);
+        if(d<=18)
+            return nodes.nodeList[i];
     }
-    return false;
+    return null;
 }

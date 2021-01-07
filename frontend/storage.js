@@ -42,7 +42,7 @@ pair = {
     add: function (point) {
         if (this.pair.length === 1) {
             this.pair.push(point)
-            // TODO :: call drawEdge(pair[0], pair[1])
+            drawEdge(pair[0], pair[1])
             this.nodes = [];
         } else {
             this.nodes.push(point);
@@ -80,11 +80,11 @@ nodes = {
 */
 edges = {
     edgeList: [],
-    addEdge: function (CanvasEdge){
+    add: function (CanvasEdge){
         this.edgeList.push(CanvasEdge);
         this.notifier.fire();
     },
-    removeEdge: function (CanvasEdge) {
+    remove: function (CanvasEdge) {
         // TODO :: optimize performance
         for (let i = 0; i < this.edgeList.length; i++) {
             if (CanvasEdge.equals(this.edgeList[i])){

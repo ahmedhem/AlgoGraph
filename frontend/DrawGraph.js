@@ -1,8 +1,6 @@
-var canvas = document.getElementById("Container");
-
 function DrawNode(node, num) {
-    var x = node.x, y = node.y;
-    var ctx = canvas.getContext("2d");
+    const x = node.x, y = node.y;
+    const ctx = canvas.getContext("2d");
     ctx.beginPath();
 
     /* Properties of the circle*/
@@ -27,12 +25,13 @@ function getDist(x, y, x1, y1) {
     return Math.sqrt((x1 - x) * (x1 - x) + (y1 - y) * (y1 - y));
 }
 
-function DrawEdge(node1, node2) {
-    var x = node1.x, y = node1.y,
+function drawEdge(node1, node2) {
+    const x = node1.x, y = node1.y,
         x1 = node2.x, y1 = node2.y;
 
-    var ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d");
     ctx.beginPath();
+
     /* change the points from be on the center to be on the border */
     var d = getDist(x, y, x1, y1);
     var t = 18 / d, t1 = (d - 18) / d;
