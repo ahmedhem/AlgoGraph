@@ -8,11 +8,11 @@
 function handleClick(a_canvas ,e) {
     const clickedPoint = point_in_canvas(a_canvas, e)
     // TODO :: check isPointInNode()
-    const clickedNode = isPointInNode(clickedPoint)
+    const clickedNode = isPointInNode(clickedPoint.x, clickedPoint.y)
     if (clickedNode) {
         toggleNode(clickedNode)
     } else {
         // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
-        nodes.addNode(clickedNode)
+        nodes.addNode(clickedPoint)
     }
 }

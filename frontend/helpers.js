@@ -14,7 +14,7 @@ function point_in_canvas(a_canvas ,e) {
 * */
 function toggleNode(node) {
     for (let i = 0; i < 2; i++) {
-        if (node.equals(pair.nodes[i])) {
+        if (pair.nodes[i] && node.equals(pair.nodes[i])) {
             pair.nodes = [];
             return;
         }
@@ -42,4 +42,19 @@ function isPointInNode(x, y){
             return nodes.nodeList[i];
     }
     return null;
+}
+
+
+
+let drawNodes = function(ctx) {
+    for (let i=0; i < nodes.nodeList.length; i++) {
+        drawNode(ctx, nodes.nodeList[i], i+1);
+    }
+}
+
+
+let drawEdges = function(ctx) {
+    for (let i=0; i < edges.edgeList.length; i++) {
+        drawEdge(ctx, edges.edgeList[i].start, edges.edgeList[i].end);
+    }
 }

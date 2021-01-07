@@ -40,9 +40,9 @@ class CanvasEdge {
 pair = {
     nodes: [],
     add: function (point) {
-        if (this.pair.length === 1) {
-            this.pair.push(point)
-            drawEdge(pair[0], pair[1])
+        if (this.nodes.length === 1) {
+            this.nodes.push(point)
+            edges.add(new CanvasEdge(this.nodes[0], this.nodes[1]));
             this.nodes = [];
         } else {
             this.nodes.push(point);
