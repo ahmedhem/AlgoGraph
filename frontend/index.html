@@ -2,12 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="static/style/index.css" rel="stylesheet">
+
     <title>Home Page</title>
 </head>
 <body>
-    <canvas id="main_canvas">
-        you browser does not support Canvas please change to a modern browser
-    </canvas>
+    <nav id="navBar">
+        <ul id="navList">
+            <li class="navElement"><a href="#">Home</a></li>
+        </ul>
+    </nav>
+
+    <main>
+            <div class="canvas_buttons">
+                <button class="example_a">Save</button>
+                <button class="example_a">Clear Canvas</button>
+                <button class="delete">Delete Node</button>
+            </div>
+
+                <canvas id="main_canvas" >
+                    you browser does not support Canvas please change to a modern browser
+                </canvas>
+
+
+    </main>
 
     <script src="helpers.js"></script>
     <script src="UILogic.js"></script>

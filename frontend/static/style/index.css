@@ -1,0 +1,64 @@
+/*  ^the nav style^ */
+#navList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    background-color: #333;
+}
+
+
+.navElement {
+    float: left;
+}
+
+
+.navElement a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navElement a:hover {
+    background-color: #111;
+}
+/*  ^the nav style^ */
+
+/* the buttons style */
+.delete {
+    color: #fff;
+    text-transform: uppercase;
+    background: #ed3330;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.delete:hover {
+    background: #434343;
+    letter-spacing: 1px;
+    box-shadow: 5px 40px 10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}
+
+/* the buttons style */
+
+#main_canvas {
+    border: 3px black solid;
+    background: whitesmoke;
+    width: 50%;
+    height: 500px;
+}
+
+@media only screen and (max-width: 660px) {
+ #main_canvas {
+     height: 200px;
+ }
+}
+
+
