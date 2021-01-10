@@ -1,24 +1,25 @@
-function Notifier(){
-    this.ctx = null;
-    this.observers = [];
-}
+class UiNotifier {
+    constructor() {
+        this.ctx = null;
+        this.canvas = null;
+        this.observers = [];
+    }
 
-Notifier.prototype = {
-    subscribe: function(fn)
-    {
+    subscribe(fn) {
         this.observers.push(fn);
-    },
-    unsubscribe: function(fnToRemove)
-    {
+    }
+
+    unsubscribe(fnToRemove) {
         this.observers = this.observers.filter( fn => {
             if (fn !== fnToRemove)
                 return fn;
-        })
-    },
-    fire: function()
-    {
-        this.observers.forEach( fn => {
-            fn(this.ctx);
-        })
+        });
     }
+
+    fire() {
+        this.observers.forEach( fn => {
+            fn(this.canvas, this.ctx);
+        });
+    }
+
 }

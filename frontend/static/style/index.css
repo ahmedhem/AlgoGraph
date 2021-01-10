@@ -1,3 +1,7 @@
+body {
+    background: #AAAAAA;
+}
+
 /*  ^the nav style^ */
 #navList {
     list-style-type: none;
@@ -28,10 +32,10 @@
 /*  ^the nav style^ */
 
 /* the buttons style */
-.delete {
+.canvas_button {
     color: #fff;
     text-transform: uppercase;
-    background: #ed3330;
+    background: forestgreen;
     padding: 20px;
     border-radius: 5px;
     display: inline-block;
@@ -39,13 +43,24 @@
     transition: all 0.4s ease 0s;
 }
 
-.delete:hover {
+.canvas_button:hover {
     background: #434343;
     letter-spacing: 1px;
     box-shadow: 5px 40px 10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
 }
 
+.delete {
+    background: #ed3330;
+}
+
+.deleteCursor {
+    cursor: no-drop;
+}
+
+.clicked {
+    background: #434343;
+}
 /* the buttons style */
 
 #main_canvas {
@@ -60,5 +75,7 @@
      height: 200px;
  }
 }
+
+/*********************************/
 
 

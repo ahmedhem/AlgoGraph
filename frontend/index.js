@@ -1,5 +1,3 @@
-
-
 const the_canvas = document.getElementById('main_canvas');
 
 the_canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
@@ -10,13 +8,19 @@ if (the_canvas && the_canvas.getContext) {
 
     let ctx = the_canvas.getContext('2d');
     if (ctx) {
-        drawNodes(ctx);
-        drawEdges(ctx);
-        nodes.notifier.ctx = ctx;
-        edges.notifier.ctx = ctx;
-        nodes.notifier.observers.push(drawNodes);
-        edges.notifier.observers.push(drawEdges);
+        drawUI(the_canvas, ctx);
+        UI.canvas = the_canvas;
+        UI.ctx = ctx;
+        UI.subscribe(drawUI);
     }
 }
 
+
+// the delete button style
+const deleteButton = document.querySelector('.delete');
+deleteButton.addEventListener('click', (e) => deleteClickedHandler(e, the_canvas));
+
+// the save button handler
+const saveButton = document.querySelector('.save');
+saveButton.addEventListener('click', (e) => saveClickedHandler(e));
 

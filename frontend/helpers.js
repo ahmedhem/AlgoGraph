@@ -58,3 +58,27 @@ let drawEdges = function(ctx) {
         drawEdge(ctx, edges.edgeList[i].start, edges.edgeList[i].end);
     }
 }
+
+
+let drawUI = function (canvas, ctx) {
+    // TODO :: call ClearCanvas here
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawNodes(ctx);
+    drawEdges(ctx);
+}
+
+//-----------------
+const deleteClickedHandler = (e, canvas) => {
+    canvas.classList.toggle('deleteCursor')
+    e.target.classList.toggle('clicked');
+};
+
+function saveGraph() {
+    const saved_nodes = {...nodes};
+    const saved_edges = {...edges};
+    console.log(saved_nodes, saved_edges);
+}
+
+const saveClickedHandler = (e) => {
+    saveGraph();
+}

@@ -20,14 +20,17 @@ class CanvasNode {
 
 
 class CanvasEdge {
-    constructor(statingNode, endingNode) {
+    constructor(statingNode, endingNode, weight=0, directed=false) {
         this.start = statingNode;
-        this.end = endingNode
+        this.end = endingNode;
+        this.weight = weight;
+        this.directed = directed;
     }
 
+    // two edges are equal if the have the same start and end and the same weight <AE>
     equals(otherEdge) {
-        return this.start.equals(otherEdge.start) && this.end.equals(otherEdge.end)
-    }
+        return (this.start.equals(otherEdge.start) && this.end.equals(otherEdge.end) && this.weight === otherEdge.weight)
+}
 
 }
 
@@ -49,6 +52,10 @@ pair = {
         }
     },
 }
+
+// the UI notifier
+const UI = new UiNotifier();
+
 /*
 * nodeList : to store all the nodes
 * addNode : add a CanvasNode to the nodeList
@@ -58,20 +65,18 @@ nodes = {
     nodeList: [],
     addNode: function (CanvasNode) {
         this.nodeList.push(CanvasNode);
-        this.notifier.fire();
+        UI.fire();
     },
     removeNode: function (CanvasNode) {
         // TODO :: optimize performance
         for (let i = 0; i < this.nodeList.length; i++) {
             if (CanvasNode.equals(this.nodeList[i])){
                 this.nodeList.splice(i, 1);
-                this.notifier.fire();
+                UI.fire();
             }
         }
     },
 
-// allowing other to get notify when a CanvasNode is added or deleted
-    notifier: new Notifier(),
 }
 /*
 * edgeList : to store all the edges
@@ -82,17 +87,16 @@ edges = {
     edgeList: [],
     add: function (CanvasEdge){
         this.edgeList.push(CanvasEdge);
-        this.notifier.fire();
+        UI.fire();
     },
     remove: function (CanvasEdge) {
         // TODO :: optimize performance
         for (let i = 0; i < this.edgeList.length; i++) {
             if (CanvasEdge.equals(this.edgeList[i])){
                 this.edgeList.splice(i, 1);
-                this.notifier.fire();
+                UI.fire();
             }
         }
     },
-// allowing other to get notify when an CanvasEdge is created or removed
-    notifier: new Notifier(),
+
 }
