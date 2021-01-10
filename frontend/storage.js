@@ -44,7 +44,7 @@ const UI = new UiNotifier();
 * once two are stored call drawEdge on them and empty the pair again
 *
 * */
-pair = {
+let pair = {
     nodes: [],
     add: function (point) {
         if (this.nodes.length === 1) {
@@ -63,7 +63,7 @@ pair = {
 * addNode : add a CanvasNode to the nodeList
 * removeNode : remove a CanvasNode if it is inside the nodeList
 */
-nodes = {
+let nodes = {
     nodeList: [],
     addNode: function (CanvasNode) {
         this.nodeList.push(CanvasNode);
@@ -84,7 +84,7 @@ nodes = {
 * addEdge : add an CanvasEdge to the edgeList
 * removeEdge : remove an CanvasEdge if it is inside the edgeList
 */
-edges = {
+let edges = {
     edgeList: [],
     add: function (CanvasEdge){
         this.edgeList.push(CanvasEdge);
