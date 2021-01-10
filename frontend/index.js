@@ -12,6 +12,7 @@ if (the_canvas && the_canvas.getContext) {
         UI.canvas = the_canvas;
         UI.ctx = ctx;
         UI.subscribe(drawUI);
+
     }
 }
 
@@ -23,4 +24,9 @@ deleteButton.addEventListener('click', (e) => deleteClickedHandler(e, the_canvas
 // the save button handler
 const saveButton = document.querySelector('.save');
 saveButton.addEventListener('click', (e) => saveClickedHandler(e));
+
+
+// redraw for smaller screens
+window.addEventListener('resize', (e) => { updateCanvas(the_canvas)});
+
 

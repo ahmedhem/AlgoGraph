@@ -1,7 +1,6 @@
 ##Eid
 1. Styling (Done)
 
-
 2. Storage (in progress)
       - the edge :(weight, directed or undirected) `[done]`
       - one notifier for both nodes and edges and  `[done]`
@@ -15,8 +14,11 @@
         - should copy the nodes and edges arrays and return them
             - return them where ?
                 - console log them for now...?
-4. the redrw after resizing and the toggle style
+4. the redraw after resizing, and the toggle style
+    - redraw `[done]`
+    - toggle `[done]`
     
+
 ##Magdy
 1. Styling
 2. drawing
@@ -33,3 +35,7 @@
 - _AE >>>_ updating the notifier of the nodes and edges to use the same notifier `UiNotifier`
 ---
 -  _AE >>>_ the clear bug fixed `important!`
+---
+-  _AE >>>_ **if the canvas resize**     
+    -  **all the nodes(x, y) stored become invalid** 
+        - _**so for now all the nodes and edges get removed when you resize**_

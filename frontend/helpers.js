@@ -5,7 +5,6 @@ function point_in_canvas(a_canvas ,e) {
     let the_canvas = a_canvas.getBoundingClientRect();
     let x = e.clientX - the_canvas.left;
     let y = e.clientY - the_canvas.top;
-
     return new CanvasNode(x, y);
 }
 
@@ -16,11 +15,13 @@ function toggleNode(node) {
     for (let i = 0; i < 2; i++) {
         if (pair.nodes[i] && node.equals(pair.nodes[i])) {
             pair.nodes = [];
+            UI.fire();
             return;
         }
     }
 
     pair.add(node);
+    UI.fire();
 }
 
 
@@ -65,6 +66,9 @@ let drawUI = function (canvas, ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawNodes(ctx);
     drawEdges(ctx);
+    if (pair.nodes[0]){
+        drawNode(ctx, pair.nodes[0], "", 'green');
+    }
 }
 
 //-----------------
@@ -82,3 +86,14 @@ function saveGraph() {
 const saveClickedHandler = (e) => {
     saveGraph();
 }
+
+
+//------------
+const updateCanvas = (canvas) => {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    nodes.nodeList = [];
+    edges.edgeList = [];
+    pair.nodes = [];
+}
+

@@ -1,10 +1,10 @@
-function drawNode(ctx, node, num) {
+function drawNode(ctx, node, num, color=null) {
     const x = node.x, y = node.y;
     ctx.beginPath();
 
     /* Properties of the circle*/
     ctx.lineWidth = 1.5;
-    ctx.strokeStyle = "#000";
+    ctx.strokeStyle = color? color: "#000";
 
     /* Properties of the number inside the center*/
     ctx.textAlign = 'center';

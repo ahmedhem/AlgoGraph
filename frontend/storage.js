@@ -34,6 +34,10 @@ class CanvasEdge {
 
 }
 
+
+// the UI notifier
+const UI = new UiNotifier();
+
 /*
 *
 * the pair store nodes that had been clicked
@@ -53,8 +57,6 @@ pair = {
     },
 }
 
-// the UI notifier
-const UI = new UiNotifier();
 
 /*
 * nodeList : to store all the nodes
@@ -68,7 +70,6 @@ nodes = {
         UI.fire();
     },
     removeNode: function (CanvasNode) {
-        // TODO :: optimize performance
         for (let i = 0; i < this.nodeList.length; i++) {
             if (CanvasNode.equals(this.nodeList[i])){
                 this.nodeList.splice(i, 1);
