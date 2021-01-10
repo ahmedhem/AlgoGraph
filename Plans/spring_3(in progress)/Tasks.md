@@ -15,6 +15,7 @@
         - should copy the nodes and edges arrays and return them
             - return them where ?
                 - console log them for now...?
+4. the redrw after resizing and the toggle style
     
 ##Magdy
 1. Styling
