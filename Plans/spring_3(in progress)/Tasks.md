@@ -19,11 +19,11 @@
     - toggle `[done]`
     
 
-##Magdy
-1. Styling(postponde)
-2. drawing(done except the direction)
-3. remove(done)
-4. clear and fix the bug (done)
+##Magdy(Done)
+1. Styling(Postponde)
+2. drawing(Done)
+3. remove(Done)
+4. clear and fix the bug (Done)
 
 ------------
 
@@ -38,5 +38,6 @@
 ---
 -  _AE >>>_ **if the canvas resize**     
     -  **all the nodes(x, y) stored become invalid** 
-        - _**so for now all the nodes and edges get removed when you resize**_
-
+        - _**so for now all the nodes and edges get removed when you resize**
+    
+- _Magz >>>_ ***Direction added and the edges need to be priortize depend on the user story***
