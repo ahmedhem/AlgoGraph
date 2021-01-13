@@ -1,7 +1,7 @@
 /*
 * return x,y in respect to the given canvas (could work with other elements)
 * */
-function point_in_canvas(a_canvas ,e) {
+function point_in_canvas(a_canvas, e) {
     let the_canvas = a_canvas.getBoundingClientRect();
     let x = e.clientX - the_canvas.left;
     let y = e.clientY - the_canvas.top;
@@ -24,7 +24,6 @@ function toggleNode(node) {
     UI.fire();
 }
 
-
 // not used but might be helpful
 function checkNodes(clickedNode) {
     // TODO :: optimise
@@ -36,46 +35,57 @@ function checkNodes(clickedNode) {
     return false;
 }
 
-function isPointInNode(x, y){
+function isPointInNode(x, y) {
     for (let i = 0; i < nodes.nodeList.length; i++) {
         const d = getDist(x, y, nodes.nodeList[i].x, nodes.nodeList[i].y);
-        if(d<=18)
+        if (d <= 18)
             return nodes.nodeList[i];
     }
     return null;
 }
 
 
-
-let drawNodes = function(ctx) {
-    for (let i=0; i < nodes.nodeList.length; i++) {
-        drawNode(ctx, nodes.nodeList[i], i+1);
+let drawNodes = function (ctx) {
+    for (let i = 0; i < nodes.nodeList.length; i++) {
+        drawNode(ctx, nodes.nodeList[i], i + 1);
     }
 }
 
 
-let drawEdges = function(ctx) {
-    for (let i=0; i < edges.edgeList.length; i++) {
+let drawEdges = function (ctx) {
+    for (let i = 0; i < edges.edgeList.length; i++) {
         drawEdge(ctx, edges.edgeList[i].start, edges.edgeList[i].end);
     }
 }
 
 
 let drawUI = function (canvas, ctx) {
-    // TODO :: call ClearCanvas here
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawNodes(ctx);
     drawEdges(ctx);
-    if (pair.nodes[0]){
+    if (pair.nodes[0]) {
         drawNode(ctx, pair.nodes[0], "", 'green');
     }
 }
 
 //-----------------
 const deleteClickedHandler = (e, canvas) => {
-    canvas.classList.toggle('deleteCursor')
+    canvas.classList.toggle('deleteCursor');
     e.target.classList.toggle('clicked');
+
+    //Transfrom to Deletion Mode by removing all green node
+    const canvasClasses = document.querySelector('canvas');
+    UI.delete = canvasClasses.classList.contains('deleteCursor');
+    pair.nodes=[];
+    UI.fire();
 };
+
+/*delete the node and all edges connected with*/
+function deleteElements(node){
+    nodes.removeNode(node);
+    edges.remove(node);
+    UI.fire();
+}
 
 function saveGraph() {
     const saved_nodes = {...nodes};
@@ -96,4 +106,3 @@ const updateCanvas = (canvas) => {
     edges.edgeList = [];
     pair.nodes = [];
 }
-

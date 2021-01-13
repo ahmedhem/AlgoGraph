@@ -90,14 +90,22 @@ let edges = {
         this.edgeList.push(CanvasEdge);
         UI.fire();
     },
-    remove: function (CanvasEdge) {
+    remove: function (CanvasNode) {
         // TODO :: optimize performance
-        for (let i = 0; i < this.edgeList.length; i++) {
-            if (CanvasEdge.equals(this.edgeList[i])){
-                this.edgeList.splice(i, 1);
-                UI.fire();
+        let ok=true;
+        while (ok) {
+            ok=false;
+            // don't forget to talk about splice issue
+            for (let i = 0; i < this.edgeList.length; i++) {
+                if (CanvasNode.equals(this.edgeList[i].start) || CanvasNode.equals(this.edgeList[i].end)) {
+                    ok=true;
+                    this.edgeList.splice(i, 1);
+                    break;
+                }
             }
         }
+        UI.fire();
+
     },
 
 }

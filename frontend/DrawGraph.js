@@ -28,20 +28,40 @@ function drawEdge(ctx, node1, node2) {
     const x = node1.x, y = node1.y,
         x1 = node2.x, y1 = node2.y;
 
-
+ /****Line***/
     ctx.beginPath();
-
     /* change the points from be on the center to be on the border */
-    var d = getDist(x, y, x1, y1);
-    var t = 18 / d, t1 = (d - 18) / d;
-    var xt = (1 - t) * x + t * x1,
+    let d = getDist(x, y, x1, y1);
+    let t = 18 / d, t1 = (d - 18) / d;
+    let xt = (1 - t) * x + t * x1,
         x1t = (1 - t1) * x + t1 * x1,
         yt = (1 - t) * y + t * y1,
         y1t = (1 - t1) * y + t1 * y1;
-
     ctx.moveTo(xt, yt);
     ctx.lineTo(x1t, y1t);
     ctx.stroke();
     ctx.closePath();
+    ctx.beginPath();
+    /**** weight****/
+    let txt="151";
+    ctx.font = "15px arial";
+    ctx.fillStyle="#d7d7d7";
+    ctx.strokeStyle = "#fff";
+
+    ctx.fill();
+    ctx.fillRect((xt+x1t)/2-ctx.measureText(txt).width/2,(yt+y1t)/2-10,ctx.measureText(txt).width+1,16*1.286);
+    ctx.fillStyle="black";
+    ctx.strokeStyle="black";
+
+    ctx.stroke();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(txt,(xt+x1t)/2,(yt+y1t)/2);
+    ctx.stroke();
+    ctx.closePath();
+/***/
+
 }
 

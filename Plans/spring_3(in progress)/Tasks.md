@@ -20,22 +20,23 @@
     
 
 ##Magdy
-1. Styling
-2. drawing
-3. remove
-4. clear and fix the bug
+1. Styling(postponde)
+2. drawing(done except the direction)
+3. remove(done)
+4. clear and fix the bug (done)
 
 ------------
 
 ### notes:
+- Direction feature need to be done
 - _AE >>>_ the canvas width and height need to be taking from the css and there for if the css size changes (the screen resizing)
     - the canvas width and height need to be updated
         - `the refresh need to be added`
 ----
 - _AE >>>_ updating the notifier of the nodes and edges to use the same notifier `UiNotifier`
 ---
--  _AE >>>_ the clear bug fixed `important!`
 ---
 -  _AE >>>_ **if the canvas resize**     
     -  **all the nodes(x, y) stored become invalid** 
         - _**so for now all the nodes and edges get removed when you resize**_
+
