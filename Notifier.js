@@ -2,8 +2,8 @@ class UiNotifier {
     constructor() {
         this.ctx = null;
         this.canvas = null;
-        this.observers = [];
         this.delete=false;
+        this.observers = [];
     }
 
     subscribe(fn) {

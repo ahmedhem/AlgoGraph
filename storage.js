@@ -95,8 +95,8 @@ let edges = {
         let ok=true;
         while (ok) {
             ok=false;
-            // don't forget to talk about splice issue
-            for (let i = 0; i < this.edgeList.length; i++) {
+            let len = this.edgeList.length;
+            for (let i = 0; i < len; i++) {
                 if (CanvasNode.equals(this.edgeList[i].start) || CanvasNode.equals(this.edgeList[i].end)) {
                     ok=true;
                     this.edgeList.splice(i, 1);

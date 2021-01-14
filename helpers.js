@@ -73,7 +73,7 @@ const deleteClickedHandler = (e, canvas) => {
     canvas.classList.toggle('deleteCursor');
     e.target.classList.toggle('clicked');
 
-    //Transfrom to Deletion Mode by removing all green node
+    //Transform to Deletion Mode by removing all green node
     const canvasClasses = document.querySelector('canvas');
     UI.delete = canvasClasses.classList.contains('deleteCursor');
     pair.nodes=[];

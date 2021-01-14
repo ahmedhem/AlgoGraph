@@ -7,12 +7,12 @@
  */
 function handleClick(a_canvas, e) {
     const clickedPoint = point_in_canvas(a_canvas, e);
-    console.log(UI.delete);
+
     const clickedNode = isPointInNode(clickedPoint.x, clickedPoint.y)
-    //seprate the delete from drawing
+    //separate the delete from drawing
     if(UI.delete){
-            if(clickedNode){
-               deleteElements(clickedNode);
+        if(clickedNode){
+            deleteElements(clickedNode);
         }
     }
     else {
@@ -23,4 +23,18 @@ function handleClick(a_canvas, e) {
             nodes.addNode(clickedPoint)
         }
     }
+
+
+    // if (clickedNode) {
+    //     if(UI.delete)
+    //         deleteElements(clickedNode);
+    //     else
+    //         toggleNode(clickedNode)
+    // }
+    // else {
+    //     // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
+    //     if (!UI.delete)
+    //         nodes.addNode(clickedPoint)
+    // }
+
 }

@@ -5,7 +5,6 @@ function drawNode(ctx, node, num, color=null) {
     /* Properties of the circle*/
     ctx.lineWidth = 1.5;
     ctx.strokeStyle = color? color: "#000";
-
     /* Properties of the number inside the center*/
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -15,7 +14,12 @@ function drawNode(ctx, node, num, color=null) {
     ctx.arc(x, y, 18, 0, 2 * Math.PI);
     ctx.fillText(num, x, y);
     ctx.stroke();
-
+    // if the node is clicked then change the background
+    if (color) {
+        ctx.fillStyle = 'rgba(0,255,0,.2)';
+        ctx.fill();
+        ctx.fillStyle = 'black'
+    }
     ctx.closePath();
 
 }
