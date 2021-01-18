@@ -10,12 +10,12 @@
 
     - the structure of files
     - edges :
-        - check if edge exist before adding it
-        - logic of drawing edges
+        - check if edge exist before adding it (Done)
+        - logic of drawing edges(Done)
     - GUI :
         - weight for every edge + directed or undirected 
-
-  
+          
+_MAGZ >>_  weights are disabled untill the gui is completed.
 
 
 

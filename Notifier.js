@@ -3,6 +3,7 @@ class UiNotifier {
         this.ctx = null;
         this.canvas = null;
         this.delete=false;
+        this.isDirected=true;
         this.observers = [];
     }
 

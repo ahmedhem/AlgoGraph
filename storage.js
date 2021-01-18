@@ -18,19 +18,17 @@ class CanvasNode {
 }
 
 
-
 class CanvasEdge {
-    constructor(statingNode, endingNode, weight=0, directed=false) {
-        this.start = statingNode;
+    constructor(startingNode, endingNode, weight = 0) {
+        this.start = startingNode;
         this.end = endingNode;
         this.weight = weight;
-        this.directed = directed;
     }
 
     // two edges are equal if the have the same start and end and the same weight <AE>
     equals(otherEdge) {
         return (this.start.equals(otherEdge.start) && this.end.equals(otherEdge.end) && this.weight === otherEdge.weight)
-}
+    }
 
 }
 
@@ -48,8 +46,13 @@ let pair = {
     nodes: [],
     add: function (point) {
         if (this.nodes.length === 1) {
-            this.nodes.push(point)
-            edges.add(new CanvasEdge(this.nodes[0], this.nodes[1]));
+            this.nodes.push(point);
+            let newEdge = new CanvasEdge(this.nodes[0], this.nodes[1]);
+            let oppEdge = new CanvasEdge(this.nodes[1], this.nodes[0]);
+            if (!edges.checkEqual(newEdge)){
+                if(UI.isDirected||(!UI.isDirected&&!edges.checkEqual(oppEdge)))
+                edges.add(newEdge);
+            }
             this.nodes = [];
         } else {
             this.nodes.push(point);
@@ -71,7 +74,7 @@ let nodes = {
     },
     removeNode: function (CanvasNode) {
         for (let i = 0; i < this.nodeList.length; i++) {
-            if (CanvasNode.equals(this.nodeList[i])){
+            if (CanvasNode.equals(this.nodeList[i])) {
                 this.nodeList.splice(i, 1);
                 UI.fire();
             }
@@ -86,26 +89,33 @@ let nodes = {
 */
 let edges = {
     edgeList: [],
-    add: function (CanvasEdge){
+    add: function (CanvasEdge) {
         this.edgeList.push(CanvasEdge);
         UI.fire();
     },
     remove: function (CanvasNode) {
         // TODO :: optimize performance
-        let ok=true;
+        let ok = true;
         while (ok) {
-            ok=false;
+            ok = false;
             let len = this.edgeList.length;
             for (let i = 0; i < len; i++) {
                 if (CanvasNode.equals(this.edgeList[i].start) || CanvasNode.equals(this.edgeList[i].end)) {
-                    ok=true;
+                    ok = true;
                     this.edgeList.splice(i, 1);
                     break;
                 }
             }
         }
-        UI.fire();
-
     },
+    checkEqual: function (edge) {
+        for (let i = 0; i < this.edgeList.length; i++) {
+            if ( this.edgeList[i].equals(edge) ) {
+                return 1;
+            }
+        }
+
+        return 0;
+    }
 
 }
