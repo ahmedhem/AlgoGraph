@@ -18,13 +18,26 @@
                 <button class="canvas_button save">Save</button>
                 <button class="canvas_button clear">Clear Canvas</button>
                 <button class="canvas_button delete">Delete Node</button>
+                <div class="canvas_button direct-graph">
+                    <label for="edge-direction" >Directed Graph?</label>
+                    <input id="edge-direction" type="checkbox">
+                </div>
+
             </div>
 
-                <canvas id="main_canvas" >
-                    you browser does not support Canvas please change to a modern browser
-                </canvas>
+            <canvas id="main_canvas" >
+                you browser does not support Canvas please change to a modern browser
+            </canvas>
 
     </main>
+
+    <div class="weight-popup" id="myForm">
+        <div class="weight-container">
+            <label for="weight-input">Want to Add a weight?</label>
+            <input id="weight-input" class="" type="number" min="0" value="0">
+            <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+        </div>
+    </div>
 
     <script src="helpers.js"></script>
     <script src="UILogic.js"></script>

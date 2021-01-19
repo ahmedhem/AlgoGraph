@@ -76,12 +76,12 @@ const deleteClickedHandler = (e, canvas) => {
     //Transform to Deletion Mode by removing all green node
     const canvasClasses = document.querySelector('canvas');
     UI.delete = canvasClasses.classList.contains('deleteCursor');
-    pair.nodes=[];
+    pair.nodes = [];
     UI.fire();
 };
 
 /*delete the node and all edges connected with*/
-function deleteElements(node){
+function deleteElements(node) {
     nodes.removeNode(node);
     edges.remove(node);
     UI.fire();
@@ -106,3 +106,64 @@ const updateCanvas = (canvas) => {
     edges.edgeList = [];
     pair.nodes = [];
 }
+
+//....Types of edges
+const LINE = 'LINE';
+const CURVE = 'CURVE';
+//...find the type of an edge
+const checkEdgeType = (edge) => {
+    if (UI.isDirected && checkifoppEdgeExist(edge.start.x, edge.start.y, edge.end.x, edge.end.y)) {
+        return CURVE;
+    } else {
+        return LINE;
+    }
+};
+//...Calc. the distance between two points
+const distance = (point1, point2) => {
+    return Math.sqrt(Math.pow((point1.x - point2.x), 2) + Math.pow((point1.y - point2.y), 2));
+};
+//...check if point is on a line
+const pointOnLine = (point, start, end) => {
+    const fromLine = distance(point, start) + distance(point, end) - distance(start, end);
+    return fromLine < 0.1;
+};
+//...check if a point is on a curve
+const checkCurve = (point, edge, ctx) => {
+    drawEdge(ctx, edge.start, edge.end);
+    const found = ctx.isPointInStroke(point.x, point.y);
+    UI.fire()
+    return found;
+};
+//...check if the point clicked is on an edge
+const pointOnEdge = (point, edge) => {
+    let [startX, startY, endX, endY] = getCorrectPoints(edge.start.x, edge.start.y, edge.end.x, edge.end.y);
+    const start = new CanvasNode(startX, startY);
+    const end = new CanvasNode(endX, endY)
+
+    const type = checkEdgeType(edge);
+
+    if (type === LINE){
+        if (pointOnLine(point, start, end)) {
+            alert("edge Clicked");
+            return true;
+        }
+    } else if (type === CURVE) {
+        if (checkCurve(point, edge, UI.ctx)){
+            alert("curve edge");
+            return true;
+        }
+    }
+    return false;
+}
+
+//...check all edges for a click
+const edgeClicked = (clickedPoint) => {
+    let found = false;
+    edges.edgeList.forEach((edge) => {
+        if (pointOnEdge(clickedPoint, edge))
+            found = true;
+    });
+    return found;
+}
+
+

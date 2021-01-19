@@ -55,12 +55,14 @@ function getCorrectPoints(x, y, x1, y1) {
         y1t = (1 - t1) * y + t1 * y1;
     return [xt, yt, x1t, y1t];
 }
+
 function checkifoppEdgeExist(x,y,x1,y1){
     let c1=new CanvasNode(x,y);
     let c2=new CanvasNode(x1,y1);
     return edges.checkEqual(new CanvasEdge(c2,c1))
 
 }
+
 function drawEdge(ctx, node1, node2)
 {
     const x = node1.x, y = node1.y,
@@ -70,7 +72,7 @@ function drawEdge(ctx, node1, node2)
     let xt = points[0], yt = points[1], x1t = points[2], y1t = points[3];
 
     drawLineWithArrows(ctx, xt, yt, x1t, y1t, 7, 7, UI.isDirected,checkifoppEdgeExist(x,y,x1,y1));
-    let txt = "10";
+    // let txt = "10";
     // DrawWeight(ctx, xt, yt, x1t, y1t, (xt + x1t) / 2 - ctx.measureText(txt).width / 2, (yt + y1t) / 2 - 10, ctx.measureText(txt).width + 1, 16 * 1.286, "10");
 
 }
@@ -88,7 +90,8 @@ function drawLineWithArrows(ctx, x0, y0, x1, y1, aWidth, aLength, arrow,opp) {
     if (arrow) {
         if(opp)
         ctx.quadraticCurveTo(length / 3, length / 3, length - 3, 0);
-        else         ctx.lineTo(length,0);
+        else
+            ctx.lineTo(length,0);
 
         ctx.moveTo(length - aLength, -aWidth + 3);
         ctx.lineTo(length, 0);

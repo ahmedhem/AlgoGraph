@@ -49,9 +49,14 @@ let pair = {
             this.nodes.push(point);
             let newEdge = new CanvasEdge(this.nodes[0], this.nodes[1]);
             let oppEdge = new CanvasEdge(this.nodes[1], this.nodes[0]);
+
             if (!edges.checkEqual(newEdge)){
-                if(UI.isDirected||(!UI.isDirected&&!edges.checkEqual(oppEdge)))
-                edges.add(newEdge);
+                if(UI.isDirected||(!UI.isDirected&&!edges.checkEqual(oppEdge))){
+                    UI.popupEdge = newEdge;
+                    openPopup();
+                    edges.add(newEdge);
+
+                }
             }
             this.nodes = [];
         } else {

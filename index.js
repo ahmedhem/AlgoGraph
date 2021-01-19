@@ -28,4 +28,36 @@ document.querySelector(".canvas_button.clear").addEventListener('click',(e) => {
 // redraw for smaller screens
 window.addEventListener('resize', (e) => { updateCanvas(the_canvas)});
 
+// choosing between Directed and undirected edge
+const checkbox = document.querySelector("#edge-direction[type=checkbox]");
+const checkButton = document.querySelector(".canvas_button.direct-graph")
 
+checkButton.addEventListener('clicked', () => {
+    checkbox.checked = !checkbox.checked;
+})
+
+checkbox.addEventListener('change', () => {
+    UI.isDirected = !UI.isDirected;
+    UI.fire();
+})
+
+//..................
+function openPopup(edge) {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+
+}
+
+document.querySelector('#weight-input').addEventListener('keyup', (e) => {
+    if (e.keyCode === 13){
+        const value = e.target.value ? e.target.value : 0;
+        UI.popupEdge.weight = Number(value);
+        console.log(e.target.value)
+        e.target.value = 0;
+        UI.popupEdge = 0;
+        closeForm();
+    }
+});

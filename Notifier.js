@@ -2,8 +2,9 @@ class UiNotifier {
     constructor() {
         this.ctx = null;
         this.canvas = null;
-        this.delete=false;
-        this.isDirected=true;
+        this.delete = false;
+        this.isDirected = false;
+        this.popupEdge = null;
         this.observers = [];
     }
 
