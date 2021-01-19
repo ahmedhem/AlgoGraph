@@ -1,19 +1,30 @@
-const the_canvas = document.getElementById('main_canvas');
-the_canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
+//...listen to the canvas and handle clicks
+const canvas = document.getElementById('main_canvas');
+//...the canvas logic
+function handleClick(a_canvas, e) {
+    const clickedPoint = point_in_canvas(a_canvas, e);
+    //..close the popup
+    closeForm()
+    //...check if the clicked is an edge
+    if (edgeClicked(clickedPoint))
+        return;
 
-if (the_canvas && the_canvas.getContext) {
-    the_canvas.width = the_canvas.offsetWidth;
-    the_canvas.height = the_canvas.offsetHeight;
-
-    let ctx = the_canvas.getContext('2d');
-    if (ctx) {
-        drawUI(the_canvas, ctx);
-        UI.canvas = the_canvas;
-        UI.ctx = ctx;
-        UI.subscribe(drawUI);
+    //...check if the clicked is a node
+    const clickedNode = isPointInNode(clickedPoint.x, clickedPoint.y)
+    //separate the delete from drawing
+    if (clickedNode) {
+        if(UI.delete)
+            deleteElements(clickedNode);
+        else
+            toggleNode(clickedNode)
+    }
+    else {
+        // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
+        if (!UI.delete)
+            nodes.addNode(clickedPoint)
     }
 }
-
+canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
 
 // the delete button style
 const deleteButton = document.querySelector('.delete');
@@ -31,26 +42,15 @@ window.addEventListener('resize', (e) => { updateCanvas(the_canvas)});
 // choosing between Directed and undirected edge
 const checkbox = document.querySelector("#edge-direction[type=checkbox]");
 const checkButton = document.querySelector(".canvas_button.direct-graph")
-
 checkButton.addEventListener('clicked', () => {
     checkbox.checked = !checkbox.checked;
 })
-
 checkbox.addEventListener('change', () => {
     UI.isDirected = !UI.isDirected;
     UI.fire();
 })
 
-//..................
-function openPopup(edge) {
-    document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-
-}
-
+//..listing for enter clicks in the popup input field
 document.querySelector('#weight-input').addEventListener('keyup', (e) => {
     if (e.keyCode === 13){
         const value = e.target.value ? e.target.value : 0;

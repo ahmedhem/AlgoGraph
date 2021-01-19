@@ -1,6 +1,7 @@
 - Eid :
 
-    - the structure of the projects
+    - the structure of the projects (Done)
+      - `(Note)` initial structure till the refactoring process
     - edges : (Done)
         - allowing user to choose between directed and undirected and add weight
             - directed and undirected (done using the checkbox)
