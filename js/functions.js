@@ -131,7 +131,7 @@ const pointOnLine = (point, start, end) => {
 const checkCurve = (point, edge, ctx) => {
     drawEdge(ctx, edge.start, edge.end);
     const found = ctx.isPointInStroke(point.x, point.y);
-    UI.fire()
+    UI.fire();
     return found;
 };
 //...check if the point clicked is on an edge

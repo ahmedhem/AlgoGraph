@@ -12,12 +12,9 @@
 
 - Magdy :
 
-    - the structure of files
     - edges :
         - check if edge exist before adding it (Done)
         - logic of drawing edges(Done)
-    - GUI :
-        - weight for every edge + directed or undirected 
           
 _MAGZ >>_  weights are disabled until the gui is completed.
 
