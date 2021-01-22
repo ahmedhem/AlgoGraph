@@ -7,28 +7,44 @@ list of nodes
     ->erasing the edge m[start][end].split(45)
     if(m[start][end].empty())m[node].erase(end);
    ---------------------------------------------------------
-- Graph{   
+- Graph {   
     - set of nodes;
     - addNode(); 
     - removeNode();
     - addEdge(start,end);
     - removeEdge(start,end);
     - getEdge(start,end);
-    - getNode(number); }
+    - getNode(number)
+}
 
-Node{ set of edges; point p; number; addEdge(); removeEdge(); removeConnection();
+- Node{ 
+    - point position;
+    - number;
+    - set of edges;
+    - addEdge(); 
+    - removeEdge();
+    - removeConnection();
+}
 
-    }
-
-Edge{ Node start,end; list of weights; Equal();
+- Edge{ 
+    - Node start, end (number);
+        - could be saved as the number of the node and then use the `find` method to find the node if you need it
+    - list of weights; 
+        - a set that does not allow duplicate values
+    - addWeight()
+    - Equal();
+        - ##### _**used for ?!**_
+        - two edge are equals if :
+            - has the same start and end
+            - the weight sets are equals (size & elements)
 
 }
 
 point{ x,y; Equal(); }
       
+----------------
 
 
-    
   
   
   
