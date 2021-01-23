@@ -21,11 +21,10 @@ function handleClick(a_canvas, e) {
     else {
         // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
         if (!UI.delete)
-            nodes.addNode(clickedPoint)
+            graph.addNode(new GraphPoint(clickedPoint.x, clickedPoint.y));
     }
 }
 canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
-
 // the delete button style
 const deleteButton = document.querySelector('.delete');
 deleteButton.addEventListener('click', (e) => deleteClickedHandler(e, the_canvas));

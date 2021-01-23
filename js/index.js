@@ -6,6 +6,9 @@ if (the_canvas && the_canvas.getContext) {
 
     const ctx = the_canvas.getContext('2d');
     if (ctx) {
+        //...the graph
+        graph = new Graph();
+
         drawUI(the_canvas, ctx);
         UI.canvas = the_canvas;
         UI.ctx = ctx;

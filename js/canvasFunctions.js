@@ -1,5 +1,5 @@
 function drawNode(ctx, node, num, color = null) {
-    const x = node.x, y = node.y;
+    const x = node.position.x, y = node.position.y;
     ctx.beginPath();
 
     /* Properties of the circle*/
@@ -39,23 +39,19 @@ function getCorrectPoints(x, y, x1, y1) {
     return [xt, yt, x1t, y1t];
 }
 
-function checkifoppEdgeExist(x,y,x1,y1){
-    let c1=new CanvasNode(x,y);
-    let c2=new CanvasNode(x1,y1);
-    return edges.checkEqual(new CanvasEdge(c2,c1))
-
+function checkIfOppEdgeExist(node1, node2){
+    return node2.getEdge(node1.number);
 }
 
-function drawEdge(ctx, node1, node2)
-{
-    const x = node1.x, y = node1.y,
-        x1 = node2.x, y1 = node2.y;
+function drawEdge(ctx, node1, node2, width=null) {
+    const x = node1.position.x, y = node1.position.y,
+        x1 = node2.position.x, y1 = node2.position.y;
     let points = getCorrectPoints(x, y, x1, y1);
 
     let xt = points[0], yt = points[1], x1t = points[2], y1t = points[3];
-
-    drawLineWithArrows(ctx, xt, yt, x1t, y1t, 7, 7, UI.isDirected,checkifoppEdgeExist(x,y,x1,y1));
-
+    if (!width)
+        width = 7;
+    drawLineWithArrows(ctx, xt, yt, x1t, y1t, width, 7, UI.isDirected,checkIfOppEdgeExist(node1, node2));
 }
 
 function drawLineWithArrows(ctx, x0, y0, x1, y1, aWidth, aLength, arrow,opp) {

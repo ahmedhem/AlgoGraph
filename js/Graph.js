@@ -53,13 +53,11 @@ class GraphNode {
 
     addEdge(endNodeNumber, weight = 1) {
         const edge = this.getEdge(endNodeNumber);
-
         if (!edge) {
             const newEdge = new GraphEdge(this.number, endNodeNumber);
             newEdge.addWeight(weight);
 
             this.edges.add(newEdge);
-
             return true;
         }
 
@@ -117,6 +115,7 @@ class Graph {
         const nodeNumber = this.nodes.size + 1;
         const newNode = new GraphNode(position, nodeNumber);
         this.nodes.add(newNode);
+        UI.fire();
     }
 
     getNode(number) {
@@ -133,6 +132,7 @@ class Graph {
     removeNode(number) {
         const node = this.getNode(number);
         this.nodes.remove(node);
+        UI.fire();
     }
 
     addEdge(startNodeNumber, endNodeNumber, weight = 1) {
@@ -140,7 +140,8 @@ class Graph {
         const end = this.getNode(endNodeNumber);
 
         if (start && end) {
-            start.addEdge(end, weight);
+            start.addEdge(end.number, weight);
+            UI.fire();
             return true;
         }
         return false;
@@ -150,7 +151,10 @@ class Graph {
         const start = this.getNode(startNodeNumber);
         const end = this.getNode(endNodeNumber);
 
-        return start.removeEdge(end, weight);
+        const removed = start.removeEdge(end, weight);
+        if (removed)
+            UI.fire();
+        return removed;
 
     }
 
@@ -158,7 +162,7 @@ class Graph {
         const start = this.getNode(startNodeNumber);
         const end = this.getNode(endNodeNumber);
 
-        return start.getEdge(end);
+        return start.getEdge(end.number);
     }
 
 }
