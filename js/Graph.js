@@ -35,7 +35,7 @@ class GraphEdge {
     }
 
     removeWeight(weight) {
-        return this.weights.remove(weight);
+        return this.weights.delete(weight);
     }
 
     equals (otherEdge) {
@@ -76,7 +76,7 @@ class GraphNode {
                 edge.removeWeight(weight);
             }
             else {
-                this.edges.remove(edge);
+                this.edges.delete(edge);
             }
             return true;
         }
@@ -131,7 +131,15 @@ class Graph {
 
     removeNode(number) {
         const node = this.getNode(number);
-        this.nodes.remove(node);
+        const nodeNumber = node.number;
+        for (let n of this.nodes.keys()){
+            for (let e of n.edges.keys()){
+                if (e.end === nodeNumber){
+                    this.removeEdge(e.start, e.end);
+                }
+            }
+        }
+        this.nodes.delete(node);
         UI.fire();
     }
 
@@ -150,8 +158,7 @@ class Graph {
     removeEdge(startNodeNumber, endNodeNumber, weight=null) {
         const start = this.getNode(startNodeNumber);
         const end = this.getNode(endNodeNumber);
-
-        const removed = start.removeEdge(end, weight);
+        const removed = start.removeEdge(end.number, weight);
         if (removed)
             UI.fire();
         return removed;

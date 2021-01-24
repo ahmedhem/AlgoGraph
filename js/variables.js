@@ -41,6 +41,8 @@ let pair = {
 
             if (!graph.getEdge(this.nodes[0].number, this.nodes[1].number)){
                 graph.addEdge(this.nodes[0].number, this.nodes[1].number);
+                UI.popupEdge = graph.getEdge(this.nodes[0].number, this.nodes[1].number);
+                openPopup();
             }
             this.nodes = [];
         } else {

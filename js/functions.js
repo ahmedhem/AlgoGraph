@@ -25,7 +25,7 @@ function toggleNode(node) {
 }
 
 
-
+// (check after refactoring >>> done)
 function isPointInNode(x, y) {
     for (let node of graph.nodes.keys()) {
         const d = getDist(x, y, node.position.x, node.position.y);
@@ -35,14 +35,14 @@ function isPointInNode(x, y) {
     return false;
 }
 
-
+// (check after refactoring >>> done)
 let drawNodes = function (ctx) {
     for (let node of graph.nodes.keys()) {
         drawNode(ctx, node, node.number);
     }
 }
 
-
+// (check after refactoring >>> done)
 let drawEdges = function (ctx) {
     for (let node of graph.nodes.keys()){
         for (let edge of node.edges){
@@ -75,12 +75,12 @@ const deleteClickedHandler = (e, canvas) => {
 };
 
 /*delete the node and all edges connected with*/
+// (check after refactoring >>> done)
 function deleteElements(node) {
-    nodes.removeNode(node);
-    edges.remove(node);
+    graph.removeNode(node.number)
     UI.fire();
 }
-
+// (check after refactoring >>> done)
 function saveGraph() {
     const saved_nodes = [];
     const saved_edges = [];
@@ -97,11 +97,11 @@ const saveClickedHandler = (e) => {
 }
 
 
-//------------
+//---(check after refactoring >>> done)
 const updateCanvas = (canvas) => {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
-    // do not declare (already declared in index)
+    // note : do not declare (already declared in index)
     graph = new Graph();
     pair.nodes = [];
 }
@@ -109,7 +109,7 @@ const updateCanvas = (canvas) => {
 //....Types of edges
 const LINE = 'LINE';
 const CURVE = 'CURVE';
-//...find the type of an edge
+//...find the type of an edge (check after refactoring >>> done)
 const checkEdgeType = (edge) => {
     if (UI.isDirected && checkIfOppEdgeExist(graph.getNode(edge.start), graph.getNode(edge.end))) {
         return CURVE;
@@ -126,14 +126,14 @@ const pointOnLine = (point, start, end) => {
     const fromLine = distance(point, start) + distance(point, end) - distance(start, end);
     return fromLine < 0.1;
 };
-//...check if a point is on a curve
+//...check if a point is on a curve (check after refactoring >>> done)
 const checkCurve = (point, edge, ctx) => {
     drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), 60);
     const found = ctx.isPointInStroke(point.x, point.y);
     UI.fire();
     return found;
 };
-//...check if the point clicked is on an edge
+//...check if the point clicked is on an edge (check after refactoring >>> done)
 const pointOnEdge = (point, edge) => {
     let start = graph.getNode(edge.start);
     let end = graph.getNode(edge.end);
@@ -157,7 +157,7 @@ const pointOnEdge = (point, edge) => {
     return false;
 }
 
-//...check all edges for a click
+//...check all edges for a click (check after refactoring >>> done)
 const edgeClicked = (clickedPoint) => {
     for (let node of graph.nodes.keys()){
         for (let edge of node.edges.keys()){

@@ -54,7 +54,6 @@ document.querySelector('#weight-input').addEventListener('keyup', (e) => {
     if (e.keyCode === 13){
         const value = e.target.value ? e.target.value : 0;
         UI.popupEdge.weight = Number(value);
-        console.log(e.target.value)
         e.target.value = 0;
         UI.popupEdge = 0;
         closeForm();
