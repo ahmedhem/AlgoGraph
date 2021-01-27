@@ -109,12 +109,21 @@ class GraphNode {
 class Graph {
     constructor() {
         this.nodes = new Set();
+        this.nodeCount = 1;
+        this.availableNum = [];
     }
 
     addNode(position) {
-        const nodeNumber = this.nodes.size + 1;
+        let nodeNumber = null;
+        if (this.availableNum.length !== 0){
+            nodeNumber = this.availableNum[0];
+            this.availableNum.splice(0, 1);
+        } else {
+            nodeNumber = this.nodeCount;
+        }
         const newNode = new GraphNode(position, nodeNumber);
         this.nodes.add(newNode);
+        this.nodeCount++;
         UI.fire();
     }
 
@@ -139,7 +148,9 @@ class Graph {
                 }
             }
         }
+        this.availableNum.push(nodeNumber)
         this.nodes.delete(node);
+        this.nodeCount--;
         UI.fire();
     }
 
