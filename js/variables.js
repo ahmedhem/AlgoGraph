@@ -38,12 +38,12 @@ let pair = {
     add: function (point) {
         if (this.nodes.length === 1) {
             this.nodes.push(point);
+            graph.addEdge(this.nodes[0].number, this.nodes[1].number);
+            if (!UI.isDirected)
+                graph.addEdge(this.nodes[1].number, this.nodes[0].number);
 
-            if (!graph.getEdge(this.nodes[0].number, this.nodes[1].number)){
-                graph.addEdge(this.nodes[0].number, this.nodes[1].number);
-                UI.popupEdge = graph.getEdge(this.nodes[0].number, this.nodes[1].number);
-                openPopup();
-            }
+            UI.popupEdge = graph.getEdge(this.nodes[0].number, this.nodes[1].number);
+            openPopup();
             this.nodes = [];
         } else {
             this.nodes.push(point);
