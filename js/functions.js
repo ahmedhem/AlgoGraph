@@ -44,8 +44,8 @@ let drawNodes = function (ctx) {
 
 // (check after refactoring >>> done)
 let drawEdges = function (ctx) {
-    for (let node of graph.nodes.keys()){
-        for (let edge of node.edges){
+    for (let node of graph.nodes.keys()) {
+        for (let edge of node.edges) {
             drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end))
         }
     }
@@ -75,19 +75,21 @@ const deleteClickedHandler = (e, canvas) => {
 };
 
 /*delete the node and all edges connected with*/
+
 // (check after refactoring >>> done)
 function deleteElements(node) {
     graph.removeNode(node.number)
     UI.fire();
 }
+
 // (check after refactoring >>> done)
 function saveGraph() {
     const saved_nodes = [];
     const saved_edges = [];
-    for (let node of graph.nodes){
+    for (let node of graph.nodes) {
         saved_nodes.push(node);
         for (let edge of node.edges)
-                saved_edges.push(edge);
+            saved_edges.push(edge);
     }
     console.log(saved_nodes, saved_edges);
 }
@@ -143,14 +145,14 @@ const pointOnEdge = (point, edge) => {
 
     const type = checkEdgeType(edge);
 
-    if (type === LINE){
+    if (type === LINE) {
         if (pointOnLine(point, start, end)) {
-            alert("edge Clicked");
+            edgePopup(edge);
             return true;
         }
     } else if (type === CURVE) {
-        if (checkCurve(point, edge, UI.ctx)){
-            alert("curve edge");
+        if (checkCurve(point, edge, UI.ctx)) {
+            edgePopup(edge);
             return true;
         }
     }
@@ -159,14 +161,23 @@ const pointOnEdge = (point, edge) => {
 
 //...check all edges for a click (check after refactoring >>> done)
 const edgeClicked = (clickedPoint) => {
-    for (let node of graph.nodes.keys()){
-        for (let edge of node.edges.keys()){
-            if (pointOnEdge(clickedPoint, edge)){
+    for (let node of graph.nodes.keys()) {
+        for (let edge of node.edges.keys()) {
+            if (pointOnEdge(clickedPoint, edge)) {
                 return true;
             }
         }
     }
     return false;
+}
+
+function handleWeightInput(value) {
+    UI.popupEdge.addWeight(Number(value));
+    graph.addEdge(UI.popupEdge.start, UI.popupEdge.end, Number(value));
+    if (!UI.isDirected)
+        graph.addEdge(UI.popupEdge.end, UI.popupEdge.start, Number(value));
+    UI.popupEdge = 0;
+    closeForm();
 }
 
 

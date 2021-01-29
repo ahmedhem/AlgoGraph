@@ -1,5 +1,63 @@
 body {
     background: #AAAAAA;
+    pointer-events: auto;
+    opacity: 100%;
+    font-family: sans-serif;
+}
+.edges-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+}
+
+.edge {
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+
+}
+.edge-info.removeEdgeBtn,.confirm {
+    border: none;
+    background-color: #018786;
+    font-weight: bold;
+    color: #fff;
+    padding: 5px;
+    font-size: 15px;
+
+}
+.edge-info, .header {
+    padding: 5px;
+    width: 100%;
+    color: #222222;
+    background-color: #f3f3f3;
+    text-align: center;
+    border-bottom: 1px solid #009879;
+}
+
+
+.edge-info.removeEdgeBtn:hover,.confirm:hover{
+    background-color: #009879;
+}
+.confirm{
+    padding: 10px;
+}
+
+
+
+
+.header {
+    width: 100%;
+    color: #fff;
+
+    background-color: #009879;
+
 }
 
 /*  ^the nav style^ */
@@ -29,6 +87,7 @@ body {
 .navElement a:hover {
     background-color: #111;
 }
+
 /*  ^the nav style^ */
 
 /* the buttons style */
@@ -47,7 +106,7 @@ body {
 .canvas_button:hover {
     background: #434343;
     letter-spacing: 1px;
-    box-shadow: 5px 40px 10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px 10px rgba(0, 0, 0, 0.57);
     transition: all 0.4s ease 0s;
 }
 
@@ -62,6 +121,7 @@ body {
 .clicked {
     background: #434343;
 }
+
 /* the buttons style */
 
 #main_canvas {
@@ -72,41 +132,48 @@ body {
 }
 
 @media only screen and (max-width: 660px) {
- #main_canvas {
-     height: 200px;
- }
+    #main_canvas {
+        height: 200px;
+    }
 }
 
 /*********************************/
-{box-sizing: border-box;}
+{
+    box-sizing: border-box
+;
+}
 /* The Weight Popup - hidden by default */
-.weight-popup {
+.weight-popup, .edge-popup {
     display: none;
-    position: fixed;
-    bottom: 50%;
-    right: 50%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
     border: 3px solid #f1f1f1;
     z-index: 9;
 }
+
 /* Add styles to the container */
-.weight-container {
+.weight-container, .edge-container {
     max-width: 300px;
     padding: 10px;
     background-color: white;
 }
+
 /* Full-width input fields */
-.weight-container input[type=number]{
+.weight-container input[type=number] {
     width: 90%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
     background: #f1f1f1;
 }
+
 /* When the inputs get focus, do something */
 .weight-container input[type=number]:focus {
     background-color: #ddd;
     outline: none;
 }
+
 /* Set a style for the button */
 .weight-container .btn {
     background-color: #4CAF50;
@@ -115,15 +182,18 @@ body {
     border: none;
     cursor: pointer;
     width: 100%;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     opacity: 0.8;
 }
+
 /* Add a red background color to the cancel button */
 .weight-container .cancel {
     background-color: red;
 }
+
 /* Add some hover effects to buttons */
 .weight-container .btn:hover, .open-button:hover {
     opacity: 1;
 }
+
 /*********************************/

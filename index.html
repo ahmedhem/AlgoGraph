@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,43 +7,51 @@
     <title>Home Page</title>
 </head>
 <body>
+<main id="container">
     <nav id="navBar">
         <ul id="navList">
             <li class="navElement"><a href="#">Home</a></li>
         </ul>
     </nav>
 
-    <main>
-            <div class="canvas_buttons">
-                <button class="canvas_button save">Save</button>
-                <button class="canvas_button clear">Clear Canvas</button>
-                <button class="canvas_button delete">Delete Node</button>
-                <div class="canvas_button direct-graph">
-                    <label for="edge-direction" >Directed Graph?</label>
-                    <input id="edge-direction" type="checkbox">
-                </div>
-
-            </div>
-
-            <canvas id="main_canvas" >
-                you browser does not support Canvas please change to a modern browser
-            </canvas>
-
-    </main>
-
-    <div class="weight-popup" id="myForm">
-        <div class="weight-container">
-            <label for="weight-input">Want to Add a weight?</label>
-            <input id="weight-input" class="" type="number" min="0" value="0">
-            <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+    <div class="canvas_buttons">
+        <button class="canvas_button save">Save</button>
+        <button class="canvas_button clear">Clear Canvas</button>
+        <button class="canvas_button delete">Delete Node</button>
+        <div class="canvas_button checkbox">
+            <label for="edge-direction">Directed Graph?</label>
+            <input id="edge-direction" type="checkbox">
         </div>
+        <div class="canvas_button checkbox">
+            <label for="isWeighted">Weighted Graph?</label>
+            <input id="isWeighted" type="checkbox">
+        </div>
+
     </div>
 
-    <script src="js/Graph.js"></script>
-    <script src="js/variables.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/canvasFunctions.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/listeners.js"></script>
+    <canvas id="main_canvas">
+        you browser does not support Canvas please change to a modern browser
+    </canvas>
+
+</main>
+
+<div class="weight-popup" id="myForm">
+    <div class="weight-container">
+        <label id="weight-label-1">Want to Add a weight?</label>
+        <input id="weight-input" class="" type="number" min="0" value="1">
+        <button type="submit" class="btn cancel" onclick="closeForm()">Confirm</button>
+    </div>
+</div>
+
+<div class="edge-popup-container">
+
+</div>
+
+<script src="js/Graph.js"></script>
+<script src="js/variables.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/canvasFunctions.js"></script>
+<script src="js/index.js"></script>
+<script src="js/listeners.js"></script>
 </body>
 </html>

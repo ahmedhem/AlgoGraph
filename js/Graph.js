@@ -35,10 +35,11 @@ class GraphEdge {
     }
 
     removeWeight(weight) {
-        return this.weights.delete(weight);
+        this.weights.delete(weight);
+        if (this.weights.size == 0) return -1;
     }
 
-    equals (otherEdge) {
+    equals(otherEdge) {
         return this.start === otherEdge.start && this.end === otherEdge.end;
     }
 }
@@ -68,16 +69,15 @@ class GraphNode {
 
     //...if called without a weight remove the entire edge
     //...with a weight remove the weight
-    removeEdge(endNodeNumber, weight = null){
+    removeEdge(endNodeNumber, weight) {
         const edge = this.getEdge(endNodeNumber);
-
         if (edge) {
             if (weight) {
-                edge.removeWeight(weight);
+                let rem = edge.removeWeight(weight);
+                if (rem == -1) this.edges.delete(edge);
+
             }
-            else {
-                this.edges.delete(edge);
-            }
+
             return true;
         }
 
@@ -94,6 +94,7 @@ class GraphNode {
         }
         return edge;
     }
+
     //...remove all the edges between two nodes
     removeConnection(endNode) {
         this.removeEdge(endNode);
@@ -115,7 +116,7 @@ class Graph {
 
     addNode(position) {
         let nodeNumber = null;
-        if (this.availableNum.length !== 0){
+        if (this.availableNum.length !== 0) {
             nodeNumber = this.availableNum[0];
             this.availableNum.splice(0, 1);
         } else {
@@ -130,7 +131,7 @@ class Graph {
     getNode(number) {
         let node = null;
 
-        for (let n of this.nodes.keys()){
+        for (let n of this.nodes.keys()) {
             if (n.number === number)
                 node = n;
         }
@@ -141,9 +142,9 @@ class Graph {
     removeNode(number) {
         const node = this.getNode(number);
         const nodeNumber = node.number;
-        for (let n of this.nodes.keys()){
-            for (let e of n.edges.keys()){
-                if (e.end === nodeNumber){
+        for (let n of this.nodes.keys()) {
+            for (let e of n.edges.keys()) {
+                if (e.end === nodeNumber) {
                     this.removeEdge(e.start, e.end);
                 }
             }
@@ -166,7 +167,7 @@ class Graph {
         return false;
     }
 
-    removeEdge(startNodeNumber, endNodeNumber, weight=null) {
+    removeEdge(startNodeNumber, endNodeNumber, weight) {
         const start = this.getNode(startNodeNumber);
         const end = this.getNode(endNodeNumber);
         const removed = start.removeEdge(end.number, weight);
