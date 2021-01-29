@@ -20,7 +20,9 @@ if (the_canvas && the_canvas.getContext) {
 function openPopup(edge) {
     document.getElementById("myForm").style.display = "block";
     switch_to_focus_mode();
-}function closeForm() {
+}
+
+function closeForm() {
     document.getElementById("myForm").style.display = "none";
     switch_to_normal_mode();
 }
@@ -51,7 +53,7 @@ function edgePopup(edge) {
     /*****Weights******/
     let weight = edge.weights;
     for (let i of weight) {
-        addElements("div", "button", i, "Delete Weight", ["edge-info"], ["edge-info", "removeEdgeBtn"],edge);
+        addElements("div", "button", i, "Delete Weight", ["edge-info"], ["edge-info", "removeEdgeBtn"], edge);
     }
 
     /********Close Button *********/
@@ -66,7 +68,8 @@ function edgePopup(edge) {
     document.querySelector(".edges-container").appendChild(CloseButton);
 
 }
-function addElements(left, right, leftText, rightText, leftClass, rightClass,edge) {
+
+function addElements(left, right, leftText, rightText, leftClass, rightClass, edge) {
     let container = document.createElement("div");
     container.classList.add("edge");
     let startNode1 = document.createElement(left);
@@ -82,10 +85,12 @@ function addElements(left, right, leftText, rightText, leftClass, rightClass,edg
         for (let i of rightClass)
             EndNode.classList.add(i);
         EndNode.innerText = rightText;
-        if(right=="button"){
-            EndNode.addEventListener("click",()=>{
+        if (right == "button") {
+            EndNode.addEventListener("click", () => {
                 container.remove();
-                graph.removeEdge(edge.start,edge.end,leftText);
+                graph.removeEdge(edge.start, edge.end, leftText);
+                if (!UI.isDirected) graph.removeEdge(edge.end, edge.start, leftText);
+
             });
         }
 
