@@ -75,7 +75,8 @@ class GraphNode {
             if (weight) {
                 let rem = edge.removeWeight(weight);
                 if (rem == -1) this.edges.delete(edge);
-
+            }else {
+                this.edges.delete(edge);
             }
 
             return true;
