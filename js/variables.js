@@ -8,6 +8,10 @@ class UiNotifier {
         this.isWighted = false;
         this.popupEdge = null;
         this.observers = [];
+        // context menu
+        this.MENU_STATUS = 0;
+        this.MovingNode = null;
+        this.MovingMode = false;
     }
 
     subscribe(fn) {

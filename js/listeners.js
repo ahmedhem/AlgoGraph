@@ -3,6 +3,11 @@ const canvas = document.getElementById('main_canvas');
 
 //...the canvas logic
 function handleClick(a_canvas, e) {
+    // if context-menu open >> close it
+    if (UI.MENU_STATUS === 1)
+        return toggleMenu();
+
+
     const clickedPoint = point_in_canvas(a_canvas, e);
     //..close the popup
     // closeForm()
@@ -25,6 +30,30 @@ function handleClick(a_canvas, e) {
     }
 }
 
+// deals with the canvas-context-menu
+const handleRightClick = (a_canvas, e) => {
+    // don`t  show the default context menu
+    e.preventDefault();
+    //...check if the clicked is a node
+    const clickedPoint = point_in_canvas(a_canvas, e);
+    const clickedNode = isPointInNode(clickedPoint.x, clickedPoint.y)
+    //separate the delete from drawing
+    if (clickedNode) {
+        toggleMenu();
+        position_menu(e);
+        UI.MovingNode = clickedNode;
+    }
+}
+
+// Listen for the start and end of move mode + update the node position during it
+document.querySelector('#move').addEventListener('click', startMoveMode)
+UI.canvas.addEventListener('mousemove', (e) => updateNodePosition(e));
+UI.canvas.addEventListener("click", stopMovingMode)
+
+
+// handle right click (used for the moving of nodes)
+canvas.addEventListener('contextmenu', (e) => handleRightClick(the_canvas, e))
+// handle left click
 canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
 // the delete button style
 const deleteButton = document.querySelector('.delete');

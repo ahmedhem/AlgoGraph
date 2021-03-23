@@ -197,3 +197,30 @@ body {
 }
 
 /*********************************/
+
+/* context-menu style */
+.context-menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    list-style: none;
+    background-color: white;
+    align-items: center;
+}
+
+.context-menu-active {
+    display: block;
+}
+
+.context-menu_item {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    user-select: none;
+}
+
+.context-menu_item:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+/******************/

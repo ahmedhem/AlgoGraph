@@ -180,4 +180,47 @@ function handleWeightInput(value) {
     closeForm();
 }
 
+// functions for the context menu for nodes
 
+function toggleMenu() {
+    if ( UI.MENU_STATUS !== 1 ) {
+        UI.MENU_STATUS = 1;
+        document.querySelector('#context-menu').classList.add("context-menu-active");
+    } else {
+        document.querySelector('#context-menu').classList.remove("context-menu-active");
+        UI.MENU_STATUS = 0;
+    }
+}
+
+const position_menu = (e) => {
+    let menuPositionX = e.clientX + "px";
+    let menuPositionY = e.clientY + "px";
+    const menu = document.querySelector('#context-menu');
+    menu.style.left = menuPositionX;
+    menu.style.top = menuPositionY;
+}
+
+const startMoveMode = () => {
+    toggleMenu();
+    UI.MovingMode = true;
+}
+
+const updateNodePosition = (e) => {
+    if (UI.MovingMode) {
+        UI.MovingNode.position = point_in_canvas(UI.canvas, e);
+        UI.fire();
+    }
+}
+
+const stopMovingMode = () => {
+    UI.MovingMode = false;
+}
+
+// const drawBackground = () => {
+//     UI.ctx.save()
+//     UI.ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
+//     UI.ctx.beginPath();
+//     UI.ctx.fillRect(0, 0, UI.canvas.width, UI.canvas.height);
+//     UI.ctx.restore()
+// };
+//**********************************
