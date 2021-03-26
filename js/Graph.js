@@ -63,7 +63,6 @@ class GraphNode {
         }
 
         edge.addWeight(weight);
-
         return true;
     }
 

@@ -9,5 +9,7 @@
 -----
 ## representing a graph :
 
-- create positions for the graph   
+- create positions for the graph
+- visualize the graph as a grid of n*n (n is equal to the maximum number of nodes in a certain depth)
+- 
 

@@ -1,9 +1,23 @@
 body {
+
     background: #AAAAAA;
     pointer-events: auto;
     opacity: 100%;
     font-family: sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
 }
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .edges-container {
     width: 300px;
     display: flex;
@@ -23,7 +37,8 @@ body {
     text-align: left;
 
 }
-.edge-info.removeEdgeBtn,.confirm {
+
+.edge-info.removeEdgeBtn, .confirm {
     border: none;
     background-color: #018786;
     font-weight: bold;
@@ -32,6 +47,7 @@ body {
     font-size: 15px;
 
 }
+
 .edge-info, .header {
     padding: 5px;
     width: 100%;
@@ -42,14 +58,13 @@ body {
 }
 
 
-.edge-info.removeEdgeBtn:hover,.confirm:hover{
+.edge-info.removeEdgeBtn:hover, .confirm:hover {
     background-color: #009879;
 }
-.confirm{
+
+.confirm {
     padding: 10px;
 }
-
-
 
 
 .header {
@@ -59,6 +74,12 @@ body {
     background-color: #009879;
 
 }
+
+#navBar {
+    height: 8%;
+    width: 80%;
+}
+
 
 /*  ^the nav style^ */
 #navList {
@@ -72,7 +93,7 @@ body {
 
 
 .navElement {
-    float: left;
+    text-align: center;
 }
 
 
@@ -89,7 +110,15 @@ body {
 }
 
 /*  ^the nav style^ */
+.canvas_buttons{
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+    justify-content:space-between;
+    height: 15%;
+    width: 90%;
 
+}
 /* the buttons style */
 .canvas_button {
     user-select: none;
@@ -100,6 +129,7 @@ body {
     border-radius: 5px;
     display: inline-block;
     border: none;
+    width : 18%;
     transition: all 0.4s ease 0s;
 }
 
@@ -127,15 +157,10 @@ body {
 #main_canvas {
     border: 3px black solid;
     background: whitesmoke;
-    width: 50%;
-    height: 500px;
+    margin-bottom: 0.5%;
+
 }
 
-@media only screen and (max-width: 660px) {
-    #main_canvas {
-        height: 200px;
-    }
-}
 
 /*********************************/
 {
