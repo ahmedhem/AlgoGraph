@@ -25,3 +25,6 @@
                         - i am prompted for the weight for every edge
                     - if the number of edges < 0:
                         - throw error
+    
+
+---

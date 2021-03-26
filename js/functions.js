@@ -216,11 +216,4 @@ const stopMovingMode = () => {
     UI.MovingMode = false;
 }
 
-// const drawBackground = () => {
-//     UI.ctx.save()
-//     UI.ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
-//     UI.ctx.beginPath();
-//     UI.ctx.fillRect(0, 0, UI.canvas.width, UI.canvas.height);
-//     UI.ctx.restore()
-// };
 //**********************************
