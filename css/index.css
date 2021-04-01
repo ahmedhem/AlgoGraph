@@ -295,4 +295,30 @@ body {
     display: inline-block;
     width: 30%;
 }
+
+#matrix-table {
+    text-align: center;
+    justify-content: center;
+}
+
+
+#matrix-table table {
+    margin: 10px auto 0;
+    width: 50%;
+}
+
+#matrix-table input {
+    width: 90%;
+    margin: auto;
+    border: 0;
+}
+
+#matrix-table input:focus{
+    outline: none;
+}
+
+#draw_matrix {
+    display: none;
+    margin: 0 auto;
+}
 /**********************/
