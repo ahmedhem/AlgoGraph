@@ -27,6 +27,8 @@
             <input id="isWeighted" type="checkbox">
         </div>
 
+        <button id="matrix-input" class="canvas_button">Matrix</button>
+
 
     </div>
     <canvas id="main_canvas">
@@ -53,11 +55,27 @@
 </ul>
 
 
+<div id="matrix" class="modal">
+
+    <div class="matrix-content">
+        <span class="hide-matrix">&times;</span>
+
+        <div id="matrix-size">
+            <h3>Enter the Size(N) you want for your matrix</h3>
+            <input id="size" type="number" min="1" max="8" placeholder="N">
+            <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
+        </div>
+
+    </div>
+
+</div>
+
 <script src="js/Graph.js"></script>
 <script src="js/variables.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/canvasFunctions.js"></script>
 <script src="js/index.js"></script>
 <script src="js/listeners.js"></script>
+<script src="js/matrix-input.js"></script>
 </body>
 </html>
