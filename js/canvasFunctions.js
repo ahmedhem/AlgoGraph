@@ -44,7 +44,7 @@ function checkIfOppEdgeExist(node1, node2) {
 function drawEdge(ctx, node1, node2, width = null, size) {
     const x = node1.position.x, y = node1.position.y,
         x1 = node2.position.x, y1 = node2.position.y;
-    let points = getCorrectPoints(x, y, x1, y1, size);
+    let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
 
     let xt = points[0], yt = points[1], x1t = points[2], y1t = points[3];
     if (!width)

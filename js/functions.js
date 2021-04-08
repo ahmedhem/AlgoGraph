@@ -140,7 +140,7 @@ const checkCurve = (point, edge, ctx) => {
 const pointOnEdge = (point, edge) => {
     let start = graph.getNode(edge.start);
     let end = graph.getNode(edge.end);
-    let [startX, startY, endX, endY] = getCorrectPoints(start.position.x, start.position.y, end.position.x, end.position.y);
+    let [startX, startY, endX, endY] = getCorrectPoints(start.position.x, start.position.y, end.position.x, end.position.y, UI.nodeSize);
     start = new GraphPoint(startX, startY);
     end = new GraphPoint(endX, endY)
 

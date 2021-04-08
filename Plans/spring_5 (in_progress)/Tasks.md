@@ -9,9 +9,9 @@
 - handleNodeSize()
 - for each level calcluate number of nodes in that level then justify-content-around
 
-#### Notes :
-    - handle if the graph can't be Drawn completely in the canvas
-    - handle the components
-    - handle the problem of the matrix doesn't have node 1 
-    - handle the opposite edge problem in the undirected graph 
+#### Un solved bugs :
+    - some graphs can't be compeletly drawn because of the nodes in each row are more than the availble cells
+    - the program can  do bfs for only one components not many
+    - bfs start from node 1 so if the user's input doesn't have node 1 it won't work 
+    - the bfs act strange when we create an edge from node 2 to 1 (not from 1 to 2)
  
