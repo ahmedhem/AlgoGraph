@@ -1,5 +1,5 @@
-## Eid
-- Matrix input
+## Eid (Done)
+- Matrix input 
 - (u v cost) repreasentaion of a graph
 
 
