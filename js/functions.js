@@ -1,5 +1,6 @@
 /*
 * return x,y in respect to the given canvas (could work with other elements)
+* pass to every function in canvasGunction.js the UI.nodeSIze parameter
 * */
 function point_in_canvas(a_canvas, e) {
     let the_canvas = a_canvas.getBoundingClientRect();
@@ -38,7 +39,7 @@ function isPointInNode(x, y) {
 // (check after refactoring >>> done)
 let drawNodes = function (ctx) {
     for (let node of graph.nodes.keys()) {
-        drawNode(ctx, node, node.number);
+        drawNode(ctx, node, node.number, null, UI.nodeSize);
     }
 }
 
@@ -46,7 +47,7 @@ let drawNodes = function (ctx) {
 let drawEdges = function (ctx) {
     for (let node of graph.nodes.keys()) {
         for (let edge of node.edges) {
-            drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end))
+            drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), null, UI.nodeSize)
         }
     }
 
@@ -55,10 +56,10 @@ let drawEdges = function (ctx) {
 
 let drawUI = function (canvas, ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawNodes(ctx);
-    drawEdges(ctx);
+    drawNodes(ctx, UI.nodeSize);
+    drawEdges(ctx, UI.nodeSize);
     if (pair.nodes[0]) {
-        drawNode(ctx, pair.nodes[0], "", 'green');
+        drawNode(ctx, pair.nodes[0], "", 'green', UI.nodeSize);
     }
 }
 
@@ -139,7 +140,7 @@ const checkCurve = (point, edge, ctx) => {
 const pointOnEdge = (point, edge) => {
     let start = graph.getNode(edge.start);
     let end = graph.getNode(edge.end);
-    let [startX, startY, endX, endY] = getCorrectPoints(start.position.x, start.position.y, end.position.x, end.position.y);
+    let [startX, startY, endX, endY] = getCorrectPoints(start.position.x, start.position.y, end.position.x, end.position.y, UI.nodeSize);
     start = new GraphPoint(startX, startY);
     end = new GraphPoint(endX, endY)
 
@@ -183,7 +184,7 @@ function handleWeightInput(value) {
 // functions for the context menu for nodes
 
 function toggleMenu() {
-    if ( UI.MENU_STATUS !== 1 ) {
+    if (UI.MENU_STATUS !== 1) {
         UI.MENU_STATUS = 1;
         document.querySelector('#context-menu').classList.add("context-menu-active");
     } else {
