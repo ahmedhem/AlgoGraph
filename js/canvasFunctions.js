@@ -1,4 +1,4 @@
-function drawNode(ctx, node, num, color = null) {
+function drawNode(ctx, node, num, color = null, size ) {
     const x = node.position.x, y = node.position.y;
     ctx.beginPath();
 
@@ -8,10 +8,8 @@ function drawNode(ctx, node, num, color = null) {
     /* Properties of the number inside the center*/
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.font = "20px serif";
-
-
-    ctx.arc(x, y, 18, 0, 2 * Math.PI);
+    ctx.font = `${size}px serif`;
+    ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fillText(num, x, y);
     ctx.stroke();
     // if the node is clicked then change the background
@@ -29,9 +27,9 @@ function getDist(x, y, x1, y1) {
 }
 
 
-function getCorrectPoints(x, y, x1, y1) {
+function getCorrectPoints(x, y, x1, y1, size) {
     let d = getDist(x, y, x1, y1);
-    let t = 18 / d, t1 = (d - 18) / d;
+    let t = size / d, t1 = (d - size) / d;
     let xt = (1 - t) * x + t * x1,
         x1t = (1 - t1) * x + t1 * x1,
         yt = (1 - t) * y + t * y1,
@@ -39,42 +37,46 @@ function getCorrectPoints(x, y, x1, y1) {
     return [xt, yt, x1t, y1t];
 }
 
-function checkIfOppEdgeExist(node1, node2){
+function checkIfOppEdgeExist(node1, node2) {
     return node2.getEdge(node1.number);
 }
 
-function drawEdge(ctx, node1, node2, width=null) {
+function drawEdge(ctx, node1, node2, width = null, size) {
     const x = node1.position.x, y = node1.position.y,
         x1 = node2.position.x, y1 = node2.position.y;
-    let points = getCorrectPoints(x, y, x1, y1);
+    let points = getCorrectPoints(x, y, x1, y1, size);
 
     let xt = points[0], yt = points[1], x1t = points[2], y1t = points[3];
     if (!width)
-        width = 7;
-    drawLineWithArrows(ctx, xt, yt, x1t, y1t, width, 7, UI.isDirected,checkIfOppEdgeExist(node1, node2));
+        width = 10;
+    drawLineWithArrows(ctx, xt, yt, x1t, y1t, width, size, UI.isDirected, checkIfOppEdgeExist(node1, node2), size);
 }
 
-function drawLineWithArrows(ctx, x0, y0, x1, y1, aWidth, aLength, arrow,opp) {
+function drawLineWithArrows(ctx, x0, y0, x1, y1, aWidth, aLength, arrow, opp, size) {
     let dx = x1 - x0;
     let dy = y1 - y0;
     let angle = Math.atan2(dy, dx);
     let length = Math.sqrt(dx * dx + dy * dy);
-    //
+    console.log()
+    let w = 9;
+    if (size < 9) w = 6;
+    console.info(w);
     ctx.translate(x0, y0);
     ctx.rotate(angle);
     ctx.beginPath();
     ctx.moveTo(1, 1);
     if (arrow) {
-        if(opp)
-        ctx.quadraticCurveTo(length / 3, length / 3, length - 3, 0);
+        if (opp)
+            ctx.quadraticCurveTo(length / 4, length / 4, length, 0);
         else
-            ctx.lineTo(length,0);
+            ctx.lineTo(length, 0);
 
-        ctx.moveTo(length - aLength, -aWidth + 2);
+        ctx.moveTo(length - aLength, -w);
         ctx.lineTo(length, 0);
-        ctx.lineTo(length - aLength, aWidth + 2);
-    }else{
-        ctx.lineTo(length,0);
+        if (opp) ctx.lineTo(length - aLength, w + size);
+        else ctx.lineTo(length - aLength, w);
+    } else {
+        ctx.lineTo(length, 0);
     }
     //
     ctx.stroke();

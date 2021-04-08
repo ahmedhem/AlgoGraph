@@ -26,7 +26,8 @@ function handleClick(a_canvas, e) {
     } else {
         // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
         if (!UI.delete)
-            graph.addNode(new GraphPoint(clickedPoint.x, clickedPoint.y));
+            console.log(clickedPoint);
+        graph.addNode(new GraphPoint(clickedPoint.x, clickedPoint.y));
     }
 }
 
@@ -75,17 +76,19 @@ window.addEventListener('resize', (e) => {
 // choosing between Directed and undirected edge
 const edge_direction = document.querySelector("#edge-direction[type=checkbox]");
 const weightedGraph = document.querySelector("#isWeighted[type=checkbox]");
-const checkButton = document.querySelector(".canvas_button.checkbox")
+const checkButton = document.querySelector(".canvas_button.checkbox");
+const BFSAlgo = document.querySelector(".canvas_button.BFS");
+const nodeSizeChange = document.querySelector(".nodeSize");
 checkButton.addEventListener('clicked', () => {
     checkbox.checked = !checkbox.checked;
 })
 edge_direction.addEventListener('change', () => {
-    UI.isDirected =! UI.isDirected;
+    UI.isDirected = !UI.isDirected;
     console.log(UI.isDirected);
     UI.fire();
 })
 weightedGraph.addEventListener('change', () => {
-    UI.isWighted=! UI.isWighted;
+    UI.isWighted = !UI.isWighted;
 })
 
 //..listing for enter clicks in the popup input field
@@ -103,6 +106,14 @@ document.querySelector(".cancel").addEventListener('click', (e) => {
 });
 
 
-
-
+nodeSizeChange.addEventListener("change", (e) => {
+    // change the global node size
+    UI.nodeSize = parseInt(document.querySelector(".nodeSize").value);
+    // change the label of the range input
+    document.querySelector(".nodeSizeLabel").innerHTML = UI.nodeSize;
+    UI.fire();
+});
+BFSAlgo.addEventListener("click", (e) => {
+    BFS();
+})
 

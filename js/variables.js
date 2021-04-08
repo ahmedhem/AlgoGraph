@@ -12,6 +12,8 @@ class UiNotifier {
         this.MENU_STATUS = 0;
         this.MovingNode = null;
         this.MovingMode = false;
+        //default size
+        this.nodeSize=15;
     }
 
     subscribe(fn) {
@@ -27,7 +29,7 @@ class UiNotifier {
 
     fire() {
         this.observers.forEach(fn => {
-            fn(this.canvas, this.ctx);
+            fn(this.canvas, this.ctx,this.nodeSize);
         });
     }
 

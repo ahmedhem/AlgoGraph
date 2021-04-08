@@ -15,6 +15,14 @@
     </nav>
 
     <div class="canvas_buttons">
+        <div class="canvas_button nodeSizeButton">
+            <label>Node Size</label>
+            <div class="NodeRangeConatiner">
+            <input id="nodeSize" type="range" class="nodeSize" min="5" max="50" value="15">
+            <label class="nodeSizeLabel">15</label>
+            </div>
+        </div>
+        <button class="canvas_button BFS">BFS</button>
         <button class="canvas_button save">Save</button>
         <button class="canvas_button clear">Clear Canvas</button>
         <button class="canvas_button delete">Delete Node</button>
@@ -65,12 +73,9 @@
             <input id="size" type="number" min="1" max="8" placeholder="N">
             <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
         </div>
-
         <div id="matrix-table"></div>
-
         <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>
     </div>
-
 </div>
 
 <script src="js/Graph.js"></script>
@@ -80,5 +85,6 @@
 <script src="js/index.js"></script>
 <script src="js/listeners.js"></script>
 <script src="js/matrix-input.js"></script>
+<script src="js/Algorithms.js"></script>
 </body>
 </html>
