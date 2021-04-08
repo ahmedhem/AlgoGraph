@@ -100,3 +100,4 @@ function addElements(left, right, leftText, rightText, leftClass, rightClass, ed
     document.querySelector(".edges-container").appendChild(container);
 
 }
+
