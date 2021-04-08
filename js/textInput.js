@@ -100,8 +100,8 @@ const draw_graph_from_text = () => {
     }
 
     // the number of lines should be at least number of edges + the first line
-    if (lines.length < edgesNum + 1)
-        return displayError("the number of lines should be at least number of edges + the first line");
+    if (lines.length !== edgesNum + 1)
+        return displayError("the number of edge defined should be equaled to the edges count ");
 
     draw_nodes_from_text(nodesNum);
 
