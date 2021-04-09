@@ -36,7 +36,7 @@
         </div>
 
         <button id="matrix-input" class="canvas_button">Matrix</button>
-
+        <button id="textarea-input" class="canvas_button">textarea</button>
 
     </div>
     <canvas id="main_canvas">
@@ -78,6 +78,26 @@
     </div>
 </div>
 
+
+<div id="textarea" class="modal">
+
+    <div class="textarea-content">
+        <span class="hide-textarea">&times;</span>
+        <div id="textarea-errors"></div>
+
+            <textarea id="graph_text" name="graph_text"
+placeholder="Enter the count of the edges and nodes on the first line
+[ex. 5 30]
+Enter the starting node, ending nodes and optionally the weight (default value is 1)
+[ex. 1 2 4] or [1 2] >> will have weight of 1
+"></textarea>
+
+        <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
+
+    </div>
+</div>
+
+
 <script src="js/Graph.js"></script>
 <script src="js/variables.js"></script>
 <script src="js/functions.js"></script>
@@ -85,6 +105,7 @@
 <script src="js/index.js"></script>
 <script src="js/listeners.js"></script>
 <script src="js/matrix-input.js"></script>
+<script src="js/textInput.js"></script>
 <script src="js/Algorithms.js"></script>
 </body>
 </html>

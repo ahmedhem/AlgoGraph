@@ -13,3 +13,7 @@
 - visualize the graph as a grid of n*n (n is equal to the maximum number of nodes in a certain depth)
 - 
 
+------------
+
+### Note
+- do not forget the responsive part
