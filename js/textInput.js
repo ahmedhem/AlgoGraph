@@ -67,14 +67,14 @@ function draw_edges_from_text(lines, nodesNum) {
                 else
                     graph.addEdge(start, end);
             else
-                return `Invalid Node Number on line ${i}`
+                return `Invalid Node Number on line ${i+1}`
         }
     }
 }
 
 // make sure that the node numbers are valid and less than the Nodes Count
 function is_valid_nodes(start, end, nodesNum) {
-    return Number.isInteger(start) && Number.isInteger(end) && start <= nodesNum && end <= nodesNum;
+    return Number.isInteger(start) && Number.isInteger(end) && start <= nodesNum && end <= nodesNum && start > 0 && end > 0;
 }
 
 
