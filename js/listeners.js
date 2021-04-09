@@ -98,6 +98,7 @@ document.querySelector('#weight-input').addEventListener('keyup', (e) => {
         e.target.value = 1;
     }
 });
+
 document.querySelector(".cancel").addEventListener('click', (e) => {
     let value = document.querySelector('#weight-input').value;
     handleWeightInput(value);
