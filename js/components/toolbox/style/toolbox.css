@@ -1,0 +1,22 @@
+#toolbox-toggle {
+    display: inline;
+    /*the position of the button*/
+    position: absolute;
+    top: 90%;
+    left: 95%;
+    /*making the */
+    background-color: transparent;
+    border: none;
+    /*removing the border onClick*/
+    outline:none;
+}
+
+#toolbox-toggle:hover {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+#toolbox-toggle:focus {
+    border: 1px solid black;
+    border-radius: 50%;
+}
