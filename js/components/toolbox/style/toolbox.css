@@ -1,13 +1,7 @@
 #toolbox-toggle {
     display: inline;
-    /*the position of the button*/
-    position: absolute;
-    top: 90%;
-    left: 95%;
-    /*making the */
     background-color: transparent;
     border: none;
-    /*removing the border onClick*/
     outline:none;
 }
 
@@ -19,4 +13,31 @@
 #toolbox-toggle:focus {
     border: 1px solid black;
     border-radius: 50%;
+}
+
+.draggable-button {
+    /*the position of the button*/
+    position: absolute;
+    top: 90%;
+    left: 95%;
+}
+
+/******
+the fade out animation
+*******/
+.button-fade {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    animation: fadeOut 2s ease-in-out forwards;
+    opacity: 1;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
