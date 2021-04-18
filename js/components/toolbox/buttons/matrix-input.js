@@ -5,6 +5,7 @@ document.querySelector('#matrix-input').addEventListener('click', () => matrix.s
 
 // when the user click the x button close the pop-up
 const close = document.querySelector(".hide-matrix");
+
 close.onclick = function() {
     matrix.style.display = "none";
 }

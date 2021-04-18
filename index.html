@@ -17,27 +17,6 @@
     </nav>
 
     <div class="canvas_buttons">
-        <div class="canvas_button nodeSizeButton">
-            <label>Node Size</label>
-            <div class="NodeRangeConatiner">
-            <input id="nodeSize" type="range" class="nodeSize" min="5" max="50" value="15">
-            <label class="nodeSizeLabel">15</label>
-            </div>
-        </div>
-        <button class="canvas_button BFS">BFS</button>
-        <button class="canvas_button save">Save</button>
-        <button class="canvas_button clear">Clear Canvas</button>
-        <button class="canvas_button delete">Delete Node</button>
-        <div class="canvas_button checkbox">
-            <label for="edge-direction">Directed Graph?</label>
-            <input id="edge-direction" type="checkbox">
-        </div>
-        <div class="canvas_button checkbox">
-            <label for="isWeighted">Weighted Graph?</label>
-            <input id="isWeighted" type="checkbox">
-        </div>
-
-        <button id="matrix-input" class="canvas_button">Matrix</button>
 
 
     </div>
@@ -80,6 +59,23 @@
     </div>
 </div>
 
+<div id="textarea" class="modal">
+
+    <div class="textarea-content">
+        <span class="hide-textarea">&times;</span>
+        <div id="textarea-errors"></div>
+
+        <textarea id="graph_text" name="graph_text"
+                  placeholder="Enter the count of the edges and nodes on the first line
+[ex. 5 30]
+Enter the starting node, ending nodes and optionally the weight (default value is 1)
+[ex. 1 2 4] or [1 2] >> will have weight of 1
+"></textarea>
+
+        <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
+
+    </div>
+</div>
 
 <button id="toolbox-toggle" class="draggable-button">
     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512" width="48px" height="48px">
@@ -88,14 +84,84 @@
 </button>
 
 
+<!--toolbox-->
+<div id="toolbox">
+    <ul>
+
+        <button class="canvas_button BFS">BFS</button>
+
+
+
+
+
+        <li>
+            Graph Setting
+            <ul>
+                <li>
+                    <div class="canvas_button nodeSizeButton">
+                        <label>Node Size</label>
+                        <div class="NodeRangeConatiner">
+                            <input id="nodeSize" type="range" class="nodeSize" min="5" max="50" value="15">
+                            <label class="nodeSizeLabel">15</label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="canvas_button checkbox">
+                        <label for="isWeighted">Weighted Graph?</label>
+                        <input id="isWeighted" type="checkbox">
+                    </div>
+                </li>
+                <li>
+                    <div class="canvas_button checkbox">
+                        <label for="edge-direction">Directed Graph?</label>
+                        <input id="edge-direction" type="checkbox">
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Input types
+            <ul>
+                <li>
+                    <button id="matrix-input" class="canvas_button">Matrix</button>
+                </li>
+                <li>
+                    <button id="textarea-input" class="canvas_button">textarea</button>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <button class="canvas_button delete">Delete Node</button>
+        </li>
+        <li>
+            <button class="canvas_button clear">Clear Canvas</button>
+        </li>
+        <li>
+            <button class="canvas_button save">Save</button>
+        </li>
+        <li>
+
+        </li>
+    </ul>
+</div>
+
+
 <script src="js/Graph.js"></script>
 <script src="js/variables.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/canvasFunctions.js"></script>
 <script src="js/index.js"></script>
 <script src="js/listeners.js"></script>
-<script src="js/matrix-input.js"></script>
+<script src="js/components/toolbox/buttons/matrix-input.js"></script>
+<script src="js/components/toolbox/buttons/textInput.js"></script>
 <script src="js/Algorithms.js"></script>
 <script src="js/components/toolbox/toolbox.js" type="module"></script>
+
+<!--buttons-->
+<script src="js/components/toolbox/buttons/Delete.js"></script>
+<script src="js/components/toolbox/buttons/Clear.js"></script>
+<script src="js/components/toolbox/buttons/Save.js"></script>
+
 </body>
 </html>

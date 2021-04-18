@@ -44,6 +44,6 @@ const show_toolbox = () => {
 }
 
 // when i click the button >> go to the middle of the right side of the screen >> fade away
-document.addEventListener('click', show_toolbox);
+toggleButton.addEventListener('click', show_toolbox);
 
 

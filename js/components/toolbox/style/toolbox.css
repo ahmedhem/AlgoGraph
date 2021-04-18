@@ -41,3 +41,13 @@ the fade out animation
         opacity: 0;
     }
 }
+
+/*******
+the toolbox
+********/
+
+#toolbox {
+    position: absolute;
+    top: 20%;
+    left: 80%;
+}
