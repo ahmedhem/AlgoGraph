@@ -1,0 +1,147 @@
+/****
+default style
+*****/
+.toolbox {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+
+    width: 50px;
+    height: 50px;
+    transition: width 0.5s, height 0.5s;
+    transition-delay: 0s, .75s;
+
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px;
+
+    overflow: hidden;
+}
+
+.toolbox .toggle {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 50px;
+    transition: .5s;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    background-color: #018786;
+
+    cursor: pointer;
+}
+
+/****
+insert the + in the toggler
+****/
+.toolbox .toggle::before {
+    content: '+';
+
+    position: absolute;
+
+    font-size: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+
+    color: #fff;
+    font-weight: 400;
+}
+
+/*****
+the open toolbox style
+*****/
+.toolbox.active_toolbox {
+    width: 250px;
+    height: 350px;
+    transition: height 0.5s, width 0.5s;
+    transition-delay: 0s, .75s;
+    overflow-y: scroll;
+}
+
+.toolbox.active_toolbox::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.toolbox.active_toolbox {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/****
+the toolbox toggler style when opened
+****/
+.toolbox .toggle.active_toolbox {
+    background-color: #009879;
+    position: relative;
+}
+
+.toolbox .toggle.active_toolbox::before {
+    transform: rotate(315deg);
+}
+/*****
+the toolbox elements style
+*****/
+
+/********/
+.toolbox ul {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 0;
+}
+/********/
+.toolbox ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+}
+
+.toolbox ul li:hover {
+    background-color: #4CAF50;
+}
+/********/
+.toolbox ul li a {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: darkslategrey;
+
+}
+/********/
+.toolbox ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+
+}
+
+.toolbox ul li a .icon:hover {
+    filter: invert(72%) sepia(7%) saturate(3030%) hue-rotate(72deg) brightness(79%) contrast(98%);
+
+}
+/********/
+.toolbox ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    line-height: 50px;
+    text-align: start;
+    white-space: nowrap;
+}
+/********/

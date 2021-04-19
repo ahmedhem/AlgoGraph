@@ -60,11 +60,7 @@ canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
 
 
 // choosing between Directed and undirected edge
-const checkButton = document.querySelector(".canvas_button.checkbox");
-const BFSAlgo = document.querySelector(".canvas_button.BFS");
-checkButton.addEventListener('clicked', () => {
-    checkbox.checked = !checkbox.checked;
-})
+const BFSAlgo = document.querySelector(".BFS");
 
 
 //..listing for enter clicks in the popup input field

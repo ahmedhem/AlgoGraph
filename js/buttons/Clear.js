@@ -1,5 +1,5 @@
 //Clear Button
-document.querySelector(".canvas_button.clear").addEventListener('click', (e) => {
+document.querySelector(".clear").addEventListener('click', (e) => {
     updateCanvas(the_canvas)
 });
 

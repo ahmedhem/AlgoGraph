@@ -1,7 +1,14 @@
 const textarea = document.getElementById("textarea");
 
 // when the user click the button show the modal
-document.querySelector('#textarea-input').addEventListener('click', () => open_window())
+document.querySelector('#textarea-input').addEventListener('click', () => {
+    open_window();
+    // when the user click on the backdrop
+    window.onclick = (event) => {
+        if (event.target === textarea)
+            textarea.style.display = "none";
+    }
+})
 
 const open_window = () => {
     clear_errors();
@@ -14,11 +21,7 @@ close_textarea.onclick = function() {
     textarea.style.display = "none";
 }
 
-// when the user click on the backdrop
-window.onclick = (event) => {
-    if (event.target === textarea)
-        textarea.style.display = "none";
-}
+
 
 
 function displayError(error) {

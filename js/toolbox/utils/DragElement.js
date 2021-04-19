@@ -5,14 +5,12 @@ function dragElement(draggableElement) {
 
     function dragMouseDown(e) {
         e.preventDefault();
-
         // get the mouse cursor position at startup:
         oldPositionX = e.clientX;
         oldPositionY = e.clientY;
 
         // stop the dragging when the user stop clicking
         document.onmouseup = closeDragElement;
-
         // call a function whenever the cursor moves:
         document.onmousemove = elementDrag;
     }
@@ -37,6 +35,7 @@ function dragElement(draggableElement) {
             // remove the listeners
         document.onmouseup = null;
         document.onmousemove = null;
+
     }
 
 }
