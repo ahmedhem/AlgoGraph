@@ -133,24 +133,14 @@ body {
     transition: all 0.4s ease 0s;
 }
 
-.canvas_button:hover {
-    background: #434343;
-    letter-spacing: 1px;
-    box-shadow: 5px 40px 10px rgba(0, 0, 0, 0.57);
-    transition: all 0.4s ease 0s;
-}
 
-.delete {
-    background: #ed3330;
-}
+
 
 .deleteCursor {
     cursor: no-drop;
 }
 
-.clicked {
-    background: #434343;
-}
+
 
 /* the buttons style */
 
