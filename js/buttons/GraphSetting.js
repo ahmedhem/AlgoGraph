@@ -1,6 +1,7 @@
 const nodeSizeChange = document.querySelector(".nodeSize");
 
 nodeSizeChange.addEventListener("change", (e) => {
+    e.stopPropagation();
     // change the global node size
     UI.nodeSize = parseInt(document.querySelector(".nodeSize").value);
     // change the label of the range input
