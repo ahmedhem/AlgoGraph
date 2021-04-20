@@ -4,7 +4,7 @@ function dragElement(draggableElement) {
     draggableElement.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
-        e.preventDefault();
+
         // get the mouse cursor position at startup:
         oldPositionX = e.clientX;
         oldPositionY = e.clientY;
@@ -16,7 +16,6 @@ function dragElement(draggableElement) {
     }
 
     function elementDrag(e) {
-        e.preventDefault();
 
         // calculate the new cursor position:
         newPositionX = oldPositionX - e.clientX;
