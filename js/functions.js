@@ -63,17 +63,7 @@ let drawUI = function (canvas, ctx) {
     }
 }
 
-//-----------------
-const deleteClickedHandler = (e, canvas) => {
-    canvas.classList.toggle('deleteCursor');
-    e.target.classList.toggle('clicked');
 
-    //Transform to Deletion Mode by removing all green node
-    const canvasClasses = document.querySelector('canvas');
-    UI.delete = canvasClasses.classList.contains('deleteCursor');
-    pair.nodes = [];
-    UI.fire();
-};
 
 /*delete the node and all edges connected with*/
 
@@ -83,31 +73,10 @@ function deleteElements(node) {
     UI.fire();
 }
 
-// (check after refactoring >>> done)
-function saveGraph() {
-    const saved_nodes = [];
-    const saved_edges = [];
-    for (let node of graph.nodes) {
-        saved_nodes.push(node);
-        for (let edge of node.edges)
-            saved_edges.push(edge);
-    }
-    console.log(saved_nodes, saved_edges);
-}
-
-const saveClickedHandler = (e) => {
-    saveGraph();
-}
 
 
-//---(check after refactoring >>> done)
-const updateCanvas = (canvas) => {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-    // note : do not declare (already declared in index)
-    graph = new Graph();
-    pair.nodes = [];
-}
+
+
 
 //....Types of edges
 const LINE = 'LINE';
