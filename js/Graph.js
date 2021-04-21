@@ -49,6 +49,7 @@ class GraphNode {
     constructor(position, nodeNumber) {
         this.position = position;
         this.number = nodeNumber;
+        this.color="#000";
         this.edges = new Set();
     }
 

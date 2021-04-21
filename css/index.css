@@ -355,4 +355,23 @@ input[type=range] {
     display: flex;
     justify-items: flex-start;
 }
+.colorPicker{
+    display: flex;
+    justify-content: space-between;
+}
+.colorInput{
+    width: 20%;
+    height: 40px;
+    margin-top: 6px;
+    border-radius:5px;
+    padding: 0;
+}
+.addColor {
+    width: 33%;
+    height: 40px;
+    margin-top: 6px;
+    color: white;
+    border-radius: 2px;
+    background-color: #009879;
+}
 /**********************/

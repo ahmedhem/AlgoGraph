@@ -19,7 +19,12 @@ function handleClick(a_canvas, e) {
     const clickedNode = isPointInNode(clickedPoint.x, clickedPoint.y)
     //separate the delete from drawing
     if (clickedNode) {
-        if (UI.delete)
+        if(UI.nodePicked){
+            let color =document.querySelector(".colorInput").value;
+            changeNodeColor(clickedNode,color);
+            toggleColorPicker();
+        }
+        else if (UI.delete)
             deleteElements(clickedNode);
         else
             toggleNode(clickedNode)

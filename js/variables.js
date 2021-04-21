@@ -14,6 +14,7 @@ class UiNotifier {
         this.MovingMode = false;
         //default size
         this.nodeSize=15;
+        this.nodePicked=null;
     }
 
     subscribe(fn) {
