@@ -10,7 +10,7 @@ const open_window = () => {
 
 // when the user click the x button close the pop-up
 const close_textarea = document.querySelector(".hide-textarea");
-close_textarea.onclick = function() {
+close_textarea.onclick = function () {
     textarea.style.display = "none";
 }
 
@@ -67,7 +67,7 @@ function draw_edges_from_text(lines, nodesNum) {
                 else
                     graph.addEdge(start, end);
             else
-                return `Invalid Node Number on line ${i+1}`
+                return `Invalid Node Number on line ${i + 1}`
         }
     }
 }
@@ -89,13 +89,12 @@ const draw_graph_from_text = () => {
     const lines = text.split(/\n/);
 
     // first line should have the 2 Integers
-    let [nodesNum, edgesNum]  = lines[0].split(" ");
+    let [nodesNum, edgesNum] = lines[0].split(" ");
 
     try {
         nodesNum = parseInt(nodesNum);
         edgesNum = parseInt(edgesNum);
-    }
-    catch(err) {
+    } catch (err) {
         return displayError("Enter valid number for the nodes and edges count")
     }
 

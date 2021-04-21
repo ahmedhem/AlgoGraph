@@ -19,19 +19,18 @@ function handleClick(a_canvas, e) {
     const clickedNode = isPointInNode(clickedPoint.x, clickedPoint.y)
     //separate the delete from drawing
     if (clickedNode) {
-        if(UI.nodePicked){
-            let color =document.querySelector(".colorInput").value;
-            changeNodeColor(clickedNode,color);
+        if (UI.nodePicked) {
+            let color = document.querySelector(".colorInput").value;
+            changeNodeColor(clickedNode, color);
             toggleColorPicker();
-        }
-        else if (UI.delete)
+        } else if (UI.delete)
             deleteElements(clickedNode);
         else
             toggleNode(clickedNode)
     } else {
         // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
         if (!UI.delete)
-        graph.addNode(new GraphPoint(clickedPoint.x, clickedPoint.y));
+            graph.addNode(new GraphPoint(clickedPoint.x, clickedPoint.y));
     }
 }
 
@@ -46,12 +45,13 @@ const handleRightClick = (a_canvas, e) => {
     if (clickedNode) {
         toggleMenu();
         position_menu(e);
-        UI.MovingNode = clickedNode;
+        UI.ContextMenuNode = clickedNode;
     }
 }
 
 // Listen for the start and end of move mode + update the node position during it
-document.querySelector('#move').addEventListener('click', startMoveMode)
+document.querySelector('#move').addEventListener('click', startMoveMode);
+document.querySelector('#delete').addEventListener('click', DeleteContextMenuNode);
 UI.canvas.addEventListener('mousemove', (e) => updateNodePosition(e));
 UI.canvas.addEventListener("click", stopMovingMode)
 
@@ -60,8 +60,6 @@ UI.canvas.addEventListener("click", stopMovingMode)
 canvas.addEventListener('contextmenu', (e) => handleRightClick(the_canvas, e))
 // handle left click
 canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
-
-
 
 
 // choosing between Directed and undirected edge
@@ -82,7 +80,6 @@ document.querySelector(".cancel").addEventListener('click', (e) => {
     handleWeightInput(value);
     document.querySelector("#weight-input").value = 1;
 });
-
 
 
 BFSAlgo.addEventListener("click", (e) => {
