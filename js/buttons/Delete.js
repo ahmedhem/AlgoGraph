@@ -13,3 +13,11 @@ const deleteClickedHandler = (e, canvas) => {
     pair.nodes = [];
     UI.fire();
 };
+
+/*delete the node and all edges connected with*/
+
+// (check after refactoring >>> done)
+function deleteElements(node) {
+    graph.removeNode(node.number);
+    UI.fire();
+}
