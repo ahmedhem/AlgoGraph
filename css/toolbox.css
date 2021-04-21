@@ -143,5 +143,7 @@ the toolbox elements style
     line-height: 50px;
     text-align: start;
     white-space: nowrap;
+
+    flex-grow:1;
 }
 /********/

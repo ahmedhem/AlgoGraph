@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="js/toolbox/style/toolbox.css">
+    <link rel="stylesheet" href="css/toolbox.css">
+
+    <link rel="icon" type="image/png" href="graph.png"/>
 
     <title>Home Page</title>
 </head>
@@ -80,13 +82,19 @@ Enter the starting node, ending nodes and optionally the weight (default value i
 <div class="toolbox">
     <div class="toggle"></div>
     <ul>
-        <li class="save">
-            <a href="#">
+        <li>
+           <a>
                 <span class="icon">
                         <img src="placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">Save</span>
-            </a>
+                <span class="title save">
+                    <details>
+                        <summary >Save</summary>
+                            <button class="save-as-img" style="display: block">Save as an image</button>
+                            <button class="save-as-txt" style="display: block">Save as a text file</button>
+                    </details>
+                </span>
+           </a>
         </li>
 
         <li class="clear">
@@ -187,9 +195,11 @@ Enter the starting node, ending nodes and optionally the weight (default value i
         </li>
     </ul>
 </div>
+
 <script src="js/conterxt-menu.js" ></script>
 <script src="js/edges-info.js" ></script>
 <script src="js/edge-clicked-handler.js" ></script>
+
 
 <script src="js/Graph.js"></script>
 <script src="js/variables.js"></script>

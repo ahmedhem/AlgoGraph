@@ -1,4 +1,4 @@
-import dragElement from "./utils/DragElement.js";
+import dragElement from "../utils/DragElement.js";
 
 
 const toggle_button = document.querySelector(".toolbox .toggle");

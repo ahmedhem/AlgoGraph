@@ -375,3 +375,17 @@ input[type=range] {
     background-color: #009879;
 }
 /**********************/
+.save button {
+    display: inline-block;
+    color:  darkslategrey;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.save button:hover {
+    color: white;
+    background-color: #4CAF50;
+    cursor: pointer;
+}

@@ -42,6 +42,11 @@ class GraphEdge {
     equals(otherEdge) {
         return this.start === otherEdge.start && this.end === otherEdge.end;
     }
+
+    toString() {
+        const weights = [...this.weights].join(', ');
+        return `from ${this.start} to  ${this.end} with weight {${weights}}`
+    }
 }
 
 
@@ -104,6 +109,10 @@ class GraphNode {
 
     equals(otherNode) {
         return this.number === otherNode.number;
+    }
+
+    toString() {
+        return this.number;
     }
 }
 
