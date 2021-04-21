@@ -6,6 +6,7 @@
 -----
   - drag need to be only from the header
   - the nodeSize range need to be fixed
+  - the conflict between UI.delete and UI.nodePicked
 
 
 ### toolBox:

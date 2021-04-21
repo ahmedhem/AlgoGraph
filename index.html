@@ -39,6 +39,9 @@
     <li id="move" class="context-menu_item">
         Move Node
     </li>
+    <li id="delete" class="context-menu_item">
+        Delete Node
+    </li>
 </ul>
 
 
@@ -131,6 +134,14 @@ Enter the starting node, ending nodes and optionally the weight (default value i
         </li>
 
         <h3>Graph Setting</h3>
+        <li class="colorPicker">
+                <span class="icon">
+                    <img src="placeHolder_icon.svg" alt="placeHolder">
+                </span>
+            <input type = "color" class = "colorInput">
+            <button class="addColor">Add</button>
+        </li>
+
         <li>
             <a href="#">
                 <span class="icon">
@@ -184,6 +195,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
         </li>
     </ul>
 </div>
+<script src="js/conterxt-menu.js" ></script>
+<script src="js/edges-info.js" ></script>
+<script src="js/edge-clicked-handler.js" ></script>
 
 
 <!--download button-->
@@ -200,13 +214,14 @@ Enter the starting node, ending nodes and optionally the weight (default value i
 <script src="js/listeners.js"></script>
 <script src="js/buttons/matrix-input.js"></script>
 <script src="js/buttons/textInput.js"></script>
-<script src="js/Algorithms.js"></script>
+<script src="js/Algorithms/BFS.js"></script>
 <script src="js/toolbox/toolbox.js" type="module"></script>
 
 <!--buttons-->
 <script src="js/buttons/Delete.js"></script>
 <script src="js/buttons/Clear.js"></script>
 <script src="js/buttons/Save.js"></script>
+<script src="js/buttons/color-picker.js"></script>
 <script src="js/buttons/GraphSetting.js"></script>
 
 </body>

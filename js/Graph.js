@@ -54,6 +54,7 @@ class GraphNode {
     constructor(position, nodeNumber) {
         this.position = position;
         this.number = nodeNumber;
+        this.color = "#000";
         this.edges = new Set();
     }
 
@@ -79,7 +80,7 @@ class GraphNode {
             if (weight) {
                 let rem = edge.removeWeight(weight);
                 if (rem === -1) this.edges.delete(edge);
-            }else {
+            } else {
                 this.edges.delete(edge);
             }
 

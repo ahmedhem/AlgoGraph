@@ -1,4 +1,4 @@
-function drawNode(ctx, node, num, color = null, size ) {
+function drawNode(ctx, node, num, color = null, size , isReady =null) {
     const x = node.position.x, y = node.position.y;
     ctx.beginPath();
 
@@ -9,11 +9,12 @@ function drawNode(ctx, node, num, color = null, size ) {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = `${size}px serif`;
+
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fillText(num, x, y);
     ctx.stroke();
     // if the node is clicked then change the background
-    if (color) {
+    if (isReady) {
         ctx.fillStyle = 'rgba(0,255,0,.2)';
         ctx.fill();
         ctx.fillStyle = 'black'
@@ -42,6 +43,8 @@ function checkIfOppEdgeExist(node1, node2) {
 }
 
 function drawEdge(ctx, node1, node2, width = null, size) {
+    ctx.strokeStyle =  "#000";
+
     const x = node1.position.x, y = node1.position.y,
         x1 = node2.position.x, y1 = node2.position.y;
     let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
@@ -57,7 +60,6 @@ function drawLineWithArrows(ctx, x0, y0, x1, y1, aWidth, aLength, arrow, opp, si
     let dy = y1 - y0;
     let angle = Math.atan2(dy, dx);
     let length = Math.sqrt(dx * dx + dy * dy);
-    console.log()
     let w = 9;
     if (size < 9) w = 6;
     console.info(w);
