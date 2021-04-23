@@ -9,8 +9,6 @@
 - Save as image
 
 ## AM:
-## add a header to the site
-- be creative
 
 ### Feature: add color to a node
 - from the context-menu i want an option to change the node color (maybe a color-picker)

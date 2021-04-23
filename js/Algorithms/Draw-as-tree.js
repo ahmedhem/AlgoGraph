@@ -54,7 +54,7 @@ function setPosition(u, v, dep, blocks) {
 
 }
 
-function BFS() {
+function DrawAsTree() {
     // vis is the visited array which define if the node visited or not
     let queue = [],
         vis = new Array(graph.nodeCount + 1);

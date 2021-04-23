@@ -9,4 +9,4 @@ AlgoGraph is a tool to draw graphs and  visualizing different graph's algorithms
    - saving your drawed graph.
    - drag and drop the nodes.
  - Drawing the graph inside the area using adjacency matrix.
- - Running and visualzing different Algorithms like (BFS, finding minimum distance between two nodes,etc).
+ - Running and visualzing different Algorithms like (DrawAsTree, finding minimum distance between two nodes,etc).

@@ -9,7 +9,7 @@
 
 #  draw a graph from the backend :
 
-- BFS : (Magdy)
+- DrawAsTree : (Magdy)
 - degrees : (Eid)
 
 ---

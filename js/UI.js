@@ -38,27 +38,3 @@ class UiNotifier {
 
 const UI = new UiNotifier();
 
-/*
-* the pair store nodes that had been clicked
-* once two are stored call drawEdge on them and empty the pair again
-* */
-let pair = {
-    nodes: [],
-    add: function (point) {
-        if (this.nodes.length === 1) {
-            this.nodes.push(point);
-            UI.popupEdge = graph.getEdge(this.nodes[0].number, this.nodes[1].number);
-
-            /***Create new Edge if first time***/
-            if (!UI.popupEdge) UI.popupEdge = new GraphEdge(this.nodes[0].number, this.nodes[1].number);
-
-            /***check if weighted or un weighted ****/
-            if (UI.isWighted) openPopup();
-            else graph.addEdge(this.nodes[0].number, this.nodes[1].number);
-
-            this.nodes = [];
-        } else {
-            this.nodes.push(point);
-        }
-    },
-}

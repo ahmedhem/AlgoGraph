@@ -63,7 +63,7 @@ canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
 
 
 // choosing between Directed and undirected edge
-const BFSAlgo = document.querySelector(".BFS");
+const BFSAlgo = document.querySelector(".DrawAsTree");
 
 
 //..listing for enter clicks in the popup input field
@@ -83,6 +83,6 @@ document.querySelector(".cancel").addEventListener('click', (e) => {
 
 
 BFSAlgo.addEventListener("click", (e) => {
-    BFS();
+    DrawAsTree();
 })
 
