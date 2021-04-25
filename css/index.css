@@ -9,14 +9,6 @@ body {
 
 }
 
-#container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-}
-
 .edges-container {
     width: 300px;
     display: flex;

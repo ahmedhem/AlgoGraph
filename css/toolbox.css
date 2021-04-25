@@ -3,9 +3,8 @@ default style
 *****/
 .toolbox {
     position: absolute;
-    top: 10%;
-    left: 2%;
-
+    top: 0;
+    left: 0;
     width: 50px;
     height: 50px;
     transition: width 0.5s, height 0.5s;
@@ -59,14 +58,15 @@ insert the + in the toggler
 }
 
 /*****
-the open toolbox style
+the open sidebar style
 *****/
 .toolbox.active_toolbox {
-    width: 250px;
-    height: 350px;
+    width: 20%;
+    height: 100%;
     transition: height 0.5s, width 0.5s;
     transition-delay: 0s, .75s;
     overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 .toolbox.active_toolbox::-webkit-scrollbar {
@@ -80,7 +80,7 @@ the open toolbox style
 }
 
 /****
-the toolbox toggler style when opened
+the sidebar toggler style when opened
 ****/
 .toolbox .toggle.active_toolbox {
     background-color: #009879;
@@ -91,7 +91,7 @@ the toolbox toggler style when opened
     transform: rotate(315deg);
 }
 /*****
-the toolbox elements style
+the sidebar elements style
 *****/
 
 /********/
@@ -147,3 +147,10 @@ the toolbox elements style
     flex-grow:1;
 }
 /********/
+/****
+the sidebar space
+****/
+.sidebar-open-space {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}

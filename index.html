@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -8,146 +9,148 @@
 
     <link rel="icon" type="image/png" href="assets/images/graph.png"/>
 
-    <title>Home Page</title>
+    <title>AlgoGraph</title>
 </head>
+
 <body>
-<main id="container">
-    <nav id="navBar">
-        <ul id="navList">
-            <li class="navElement"><a href="#">Home</a></li>
-        </ul>
-    </nav>
 
-    <canvas id="main_canvas">
-        you browser does not support Canvas please change to a modern browser
-    </canvas>
-</main>
+<!--the sidebar space-->
+<div id="sidebar-space" style="display: none"></div>
 
-<div class="weight-popup" id="myForm">
-    <div class="weight-container">
-        <label id="weight-label-1">Want to Add a weight?</label>
-        <input id="weight-input" class="" type="number" min="0" value="1">
-        <button type="submit" class="btn cancel" onclick="closeForm()">Confirm</button>
-    </div>
-</div>
+<!--the site-->
+<div id="site">
 
-<div class="edge-popup-container">
+    <main id="container">
+        <canvas id="main_canvas">
+            you browser does not support Canvas please change to a modern browser
+        </canvas>
+    </main>
 
-</div>
-
-<ul id="context-menu" class="context-menu">
-    <li id="move" class="context-menu_item">
-        Move Node
-    </li>
-    <li id="delete" class="context-menu_item">
-        Delete Node
-    </li>
-</ul>
-
-
-<div id="matrix" class="modal">
-
-    <div class="matrix-content">
-        <span class="hide-matrix">&times;</span>
-
-        <div id="matrix-size">
-            <h3>Enter the Size(N) you want for your matrix</h3>
-            <input id="size" type="number" min="1" max="8" placeholder="N">
-            <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
+    <div class="weight-popup" id="myForm">
+        <div class="weight-container">
+            <label id="weight-label-1">Want to Add a weight?</label>
+            <input id="weight-input" class="" type="number" min="0" value="1">
+            <button type="submit" class="btn cancel" onclick="closeForm()">Confirm</button>
         </div>
-        <div id="matrix-table"></div>
-        <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>
     </div>
-</div>
 
-<div id="textarea" class="modal">
+    <div class="edge-popup-container">
 
-    <div class="textarea-content">
-        <span class="hide-textarea">&times;</span>
-        <div id="textarea-errors"></div>
+    </div>
 
-        <textarea id="graph_text" name="graph_text"
-                  placeholder="Enter the count of the edges and nodes on the first line
+    <ul id="context-menu" class="context-menu">
+        <li id="move" class="context-menu_item">
+            Move Node
+        </li>
+        <li id="delete" class="context-menu_item">
+            Delete Node
+        </li>
+    </ul>
+
+
+    <div id="matrix" class="modal">
+
+        <div class="matrix-content">
+            <span class="hide-matrix">&times;</span>
+
+            <div id="matrix-size">
+                <h3>Enter the Size(N) you want for your matrix</h3>
+                <input id="size" type="number" min="1" max="8" placeholder="N">
+                <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
+            </div>
+            <div id="matrix-table"></div>
+            <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>
+        </div>
+    </div>
+
+    <div id="textarea" class="modal">
+
+        <div class="textarea-content">
+            <span class="hide-textarea">&times;</span>
+            <div id="textarea-errors"></div>
+
+            <textarea id="graph_text" name="graph_text"
+                      placeholder="Enter the count of the edges and nodes on the first line
 [ex. 5 30]
 Enter the starting node, ending nodes and optionally the weight (default value is 1)
 [ex. 1 2 4] or [1 2] >> will have weight of 1
 "></textarea>
 
-        <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
+            <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
 
+        </div>
     </div>
-</div>
 
-<!--navigation-->
-<div class="toolbox">
-    <div class="toggle"></div>
-    <ul>
-        <li>
-           <a>
+    <!--navigation-->
+    <div class="toolbox">
+        <div class="toggle"></div>
+        <ul>
+            <li>
+                <a>
                 <span class="icon">
                         <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title save">
+                    <span class="title save">
                     <details>
                         <summary >Save</summary>
                             <button class="save-as-img" style="display: block">Save as an image</button>
                             <button class="save-as-txt" style="display: block">Save as a text file</button>
                     </details>
                 </span>
-           </a>
-        </li>
+                </a>
+            </li>
 
-        <li class="clear">
-            <a href="#">
+            <li class="clear">
+                <a href="#">
                 <span class="icon">
                             <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">Clear Canvas</span>
-            </a>
-        </li>
+                    <span class="title">Clear Canvas</span>
+                </a>
+            </li>
 
-        <li class="delete">
-            <a href="#">
+            <li class="delete">
+                <a href="#">
                 <span class="icon">
                             <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">Delete Node</span>
-            </a>
-        </li>
+                    <span class="title">Delete Node</span>
+                </a>
+            </li>
 
-        <h3>Input types</h3>
-        <li id="matrix-input">
-            <a href="#">
+            <h3>Input types</h3>
+            <li id="matrix-input">
+                <a href="#">
                 <span class="icon">
                         <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">Matrix</span>
-            </a>
-        </li>
-        <li id="textarea-input">
-            <a href="#">
+                    <span class="title">Matrix</span>
+                </a>
+            </li>
+            <li id="textarea-input">
+                <a href="#">
                 <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">textarea</span>
-            </a>
-        </li>
+                    <span class="title">textarea</span>
+                </a>
+            </li>
 
-        <h3>Graph Setting</h3>
-        <li class="colorPicker">
+            <h3>Graph Setting</h3>
+            <li class="colorPicker">
                 <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-            <input type = "color" class = "colorInput">
-            <button class="addColor">Add</button>
-        </li>
+                <input type = "color" class = "colorInput">
+                <button class="addColor">Add</button>
+            </li>
 
-        <li>
-            <a href="#">
+            <li>
+                <a href="#">
                 <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">
+                    <span class="title">
                     <div class="nodeSizeButton">
                         <label>Node Size</label>
                         <div class="NodeRangeConatiner">
@@ -156,68 +159,67 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                         </div>
                     </div>
                 </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
+                </a>
+            </li>
+            <li>
+                <a href="#">
                 <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder"></span>
-                <span class="title">
+                    <span class="title">
                    <div class="checkbox">
                 <label for="isWeighted">Weighted Graph?</label>
                 <input id="isWeighted" type="checkbox">
             </div>
                 </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
+                </a>
+            </li>
+            <li>
+                <a href="#">
                 <span class="icon">
                         <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">
+                    <span class="title">
                  <div class="checkbox">
                     <label for="edge-direction">Directed Graph?</label>
                      <input id="edge-direction" type="checkbox">
                 </div>
                 </span>
-            </a>
-        </li>
+                </a>
+            </li>
 
-        <h3>Algorithms</h3>
-        <li class="DrawAsTree">
-            <a href="#">
+            <h3>Algorithms</h3>
+            <li class="DrawAsTree">
+                <a href="#">
                 <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">DrawAsTree</span>
-            </a>
-        </li>
-    </ul>
-</div>
+                    <span class="title">DrawAsTree</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
+</div>
+<!--scripts-->
 <script src="js/Canvas/ContextMenu/conterxt-menu.js" ></script>
 <script src="js/Canvas/edges-info.js" ></script>
 <script src="js/Canvas/edge-clicked-handler.js" ></script>
-
-
 <script src="js/Canvas/Graph.js"></script>
 <script src="js/UI.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/Canvas/canvasFunctions.js"></script>
 <script src="js/index.js"></script>
 <script src="js/listeners.js"></script>
-<script src="js/toolbox/buttons/matrix-input.js"></script>
-<script src="js/toolbox/buttons/textInput.js"></script>
+<script src="js/sidebar/buttons/matrix-input.js"></script>
+<script src="js/sidebar/buttons/textInput.js"></script>
 <script src="js/Algorithms/Draw-as-tree.js"></script>
-<script src="js/toolbox/toolbox.js" type="module"></script>
-
+<script src="js/sidebar/toolbox.js" type="module"></script>
 <!--buttons-->
-<script src="js/toolbox/buttons/Delete.js"></script>
-<script src="js/toolbox/buttons/Clear.js"></script>
-<script src="js/toolbox/buttons/Save.js"></script>
-<script src="js/toolbox/buttons/color-picker.js"></script>
-<script src="js/toolbox/buttons/GraphSetting.js"></script>
+<script src="js/sidebar/buttons/Delete.js"></script>
+<script src="js/sidebar/buttons/Clear.js"></script>
+<script src="js/sidebar/buttons/Save.js"></script>
+<script src="js/sidebar/buttons/color-picker.js"></script>
+<script src="js/sidebar/buttons/GraphSetting.js"></script>
 
 </body>
 </html>

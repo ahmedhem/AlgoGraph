@@ -1,9 +1,10 @@
 #AE
 
-- fix the bugs
-- readme
 - Convert toolbox to sidebar
 - feature / tooltip
+
+- fix the bugs (Done)
+- readme
 - css refactoring
 #AM
 
