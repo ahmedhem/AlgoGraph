@@ -7,31 +7,24 @@ default style
     left: 0;
     width: 50px;
     height: 50px;
+
     transition: width 0.5s, height 0.5s;
     transition-delay: 0s, .75s;
 
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 5px;
     box-shadow: 5px 5px 10px;
 
     overflow: hidden;
 }
 
 .toolbox .toggle {
-    position: relative;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 50px;
-    transition: .5s;
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
+    height: 50px;
+    transition: .5s;
     background-color: #018786;
-
     cursor: pointer;
 }
 
@@ -39,20 +32,14 @@ default style
 insert the + in the toggler
 ****/
 .toolbox .toggle::before {
-    content: '+';
-
-    position: absolute;
-
-    font-size: 2em;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
+    content: '+';
+    font-size: 2em;
     width: 50px;
     height: 50px;
     transition: 0.5s;
-
     color: #fff;
     font-weight: 400;
 }
@@ -69,14 +56,14 @@ the open sidebar style
     overflow-x: scroll;
 }
 
+/* Hide scrollbar */
 .toolbox.active_toolbox::-webkit-scrollbar {
     display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .toolbox.active_toolbox {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /****
@@ -84,7 +71,6 @@ the sidebar toggler style when opened
 ****/
 .toolbox .toggle.active_toolbox {
     background-color: #009879;
-    position: relative;
 }
 
 .toolbox .toggle.active_toolbox::before {
@@ -103,54 +89,64 @@ the sidebar elements style
 }
 /********/
 .toolbox ul li {
-    position: relative;
     list-style: none;
     width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: darkslategrey;
+    align-items: center;
 }
 
 .toolbox ul li:hover {
     background-color: #4CAF50;
 }
-/********/
-.toolbox ul li a {
-    position: relative;
-    display: flex;
-    width: 100%;
-    text-decoration: none;
-    color: darkslategrey;
 
-}
 /********/
-.toolbox ul li a .icon {
-    position: relative;
+.toolbox ul li .icon {
     display: block;
     min-width: 50px;
     height: 50px;
     text-align: center;
     line-height: 50px;
-
 }
 
-.toolbox ul li a .icon:hover {
+.toolbox ul li .icon:hover {
     filter: invert(72%) sepia(7%) saturate(3030%) hue-rotate(72deg) brightness(79%) contrast(98%);
 
 }
+
 /********/
-.toolbox ul li a .title {
-    position: relative;
+.toolbox ul li .title {
     display: block;
     padding: 0 10px;
     line-height: 50px;
     text-align: start;
     white-space: nowrap;
-
     flex-grow:1;
 }
-/********/
+
 /****
 the sidebar space
 ****/
 .sidebar-open-space {
     display: grid;
     grid-template-columns: 20% 80%;
+}
+
+/*****
+the save buttons
+*****/
+.save button {
+    display: inline-block;
+    color:  darkslategrey;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.save button:hover {
+    color: white;
+    background-color: #4CAF50;
+    cursor: pointer;
 }
