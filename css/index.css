@@ -1,219 +1,39 @@
-body {
+/*****
+the body + the scrollbar
+*****/
+html, body {
+    width:  100%;
+    height: 100%;
+    margin: 0;
+}
 
-    background: #AAAAAA;
-    pointer-events: auto;
+body {
+    background: white;
     opacity: 100%;
     font-family: sans-serif;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
     overflow-y: hidden;
-
 }
 
-#container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
+body::-webkit-scrollbar {
+    width: 10px;
 }
 
-.edges-container {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    top: 20%;
-    left: 50%;
+body::-webkit-scrollbar-track {
+    background: white;
 }
 
-.edge {
-    font-family: sans-serif;
-    font-weight: bold;
-    height: 30px;
-    display: flex;
-    justify-content: space-around;
-    text-align: left;
-
-}
-
-.edge-info.removeEdgeBtn, .confirm {
-    border: none;
-    background-color: #018786;
-    font-weight: bold;
-    color: #fff;
-    padding: 5px;
-    font-size: 15px;
-
-}
-
-.edge-info, .header {
-    padding: 5px;
-    width: 100%;
-    color: #222222;
-    background-color: #f3f3f3;
-    text-align: center;
-    border-bottom: 1px solid #009879;
-}
-
-
-.edge-info.removeEdgeBtn:hover, .confirm:hover {
+body::-webkit-scrollbar-thumb {
     background-color: #009879;
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #009879;  /* creates padding around scroll thumb */
 }
+/********************/
 
-.confirm {
-    padding: 10px;
-}
-
-
-.header {
-    width: 100%;
-    color: #fff;
-
-    background-color: #009879;
-
-}
-
-#navBar {
-    height: 8%;
-    width: 80%;
-}
-
-
-/*  ^the nav style^ */
-#navList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-    overflow: hidden;
-    background-color: #333;
-}
-
-
-.navElement {
-    text-align: center;
-}
-
-
-.navElement a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navElement a:hover {
-    background-color: #111;
-}
-
-/*  ^the nav style^ */
-.canvas_buttons{
-    display: flex;
-    flex-direction:row;
-    align-items: flex-start;
-    justify-content:center;
-    text-align: center;
-    height: 15%;
-    width: 90%;
-
-}
-/* the buttons style */
-.canvas_button {
-    user-select: none;
-    color: #fff;
-    text-transform: uppercase;
-    background: forestgreen;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    width : 18%;
-    transition: all 0.4s ease 0s;
-}
-
-
-
-
-.deleteCursor {
-    cursor: no-drop;
-}
-
-
-
-/* the buttons style */
-
-#main_canvas {
-    border: 3px black solid;
-    background: whitesmoke;
-    margin-bottom: 0.5%;
-
-}
-
-
-/*********************************/
-{
-    box-sizing: border-box
-;
-}
-/* The Weight Popup - hidden by default */
-.weight-popup, .edge-popup {
-    display: none;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-}
-
-/* Add styles to the container */
-.weight-container, .edge-container {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
-}
-
-/* Full-width input fields */
-.weight-container input[type=number] {
-    width: 90%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-}
-
-/* When the inputs get focus, do something */
-.weight-container input[type=number]:focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-/* Set a style for the button */
-.weight-container .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.weight-container .cancel {
-    background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.weight-container .btn:hover, .open-button:hover {
-    opacity: 1;
-}
-
-/*********************************/
-
-/* context-menu style */
+/***********
+context-menu style
+TODO: refactor (change the color and add the icons)
+***********/
 .context-menu {
     display: none;
     position: absolute;
@@ -240,7 +60,10 @@ body {
 }
 /******************/
 
-/* matrix style */
+/**********************
+matrix style
+TODO: refactor (after abstracting the model, remove its style frolm here)
+**********************/
 .modal {
     display: none;
     position: fixed;
@@ -311,7 +134,13 @@ body {
     display: none;
     margin: 0 auto;
 }
-/**********************/
+/******************/
+
+/**********************
+textarea style
+TODO: refactor (after abstracting the model, remove its style from here)
+**********************/
+
 .hide-textarea {
     color: #aaa;
     float: right;
@@ -347,6 +176,126 @@ body {
     margin: 0 auto;
 }
 /**********************/
+
+/****************
+the canvas style
+****************/
+#main_canvas {
+    border: 1px black solid;
+    border-radius: 5px;
+    background: #fff;
+    overflow-x: scroll;
+}
+
+.deleteCursor {
+    cursor: no-drop;
+}
+/************
+The Weight Popup
+TODO: refactor (open it inside the model)
+************/
+.weight-popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 3px solid #009879;
+}
+
+.weight-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+.weight-container input[type=number] {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #009879;
+}
+
+.weight-container input[type=number]:focus {
+    background-color: white;
+    outline: none;
+}
+
+.weight-container button {
+    background-color: #009879;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+
+    height: 50px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.weight-container button:hover {
+    opacity: 1;
+}
+/*********************************/
+
+.edges-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+}
+
+.edge {
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+
+}
+
+.edge-info.removeEdgeBtn, .confirm {
+    border: none;
+    background-color: #018786;
+    font-weight: bold;
+    color: #fff;
+    padding: 5px;
+    font-size: 15px;
+
+}
+
+.edge-info, .header {
+    padding: 5px;
+    width: 100%;
+    color: #222222;
+    background-color: #f3f3f3;
+    text-align: center;
+    border-bottom: 1px solid #009879;
+}
+
+
+.edge-info.removeEdgeBtn:hover, .confirm:hover {
+    background-color: #009879;
+}
+
+.confirm {
+    padding: 10px;
+}
+
+
+.header {
+    width: 100%;
+    color: #fff;
+
+    background-color: #009879;
+
+}
+
+/*********************************/
+
 input[type=range] {
     outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
     color: white;
@@ -375,17 +324,3 @@ input[type=range] {
     background-color: #009879;
 }
 /**********************/
-.save button {
-    display: inline-block;
-    color:  darkslategrey;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-.save button:hover {
-    color: white;
-    background-color: #4CAF50;
-    cursor: pointer;
-}

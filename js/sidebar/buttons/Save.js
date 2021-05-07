@@ -1,14 +1,22 @@
 function convert_graph_into_text(graph) {
-    const nodeCount = "Nodes count: " + (graph.nodeCount - 1) + '\n';
 
     let edges = '';
     let edgesCount = 0;
+
+    // taking the nodes count from the last node
+    let count = 0;
+
     graph.nodes.forEach(node => {
+        // update the  nodes count
+        count = node.number;
+
         node.edges.forEach(edge => {
             edges += edge + '\n';
             edgesCount++;
         })
     });
+
+    const nodeCount = "Nodes count: " + count + '\n';
 
     edgesCount = "Edges count: " + edgesCount + "\n";
 
