@@ -2,8 +2,8 @@
 
 - Convert toolbox to sidebar (Done)
 - feature / tooltip (Done)
-- fix the bugs (Done)
-- readme 
+- fix the bugs
+- readme (Done)
 - css refactoring (Done)
 #AM
 
