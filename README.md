@@ -1,5 +1,7 @@
 ## AlgoGraph
+
 ### [Live Demo](https://ahmedhem.github.io/AlgoGraph/)
+
 AlgoGraph is a tool to draw graphs and  visualizing different graph's algorithms.
 <br>
 ### Features: 
