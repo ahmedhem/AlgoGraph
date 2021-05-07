@@ -114,6 +114,7 @@ tooltip style
     border-radius: 5px;
     background-color: rgba(0, 0, 0, .3);
     color: #fff;
+
 }
 
 .toolbox ul li:hover .tooltiptext {
@@ -178,10 +179,11 @@ the save buttons
 .toolbox-group-header:hover {
     background-color: #4CAF50;
     color: white;
+
 }
 .toolbox-group-header {
     font-weight: bolder;
-    height: 50px;
+    height: 20px;
     text-align: left;
     align-items: center;
     justify-content: center;
