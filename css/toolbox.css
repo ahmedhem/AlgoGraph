@@ -101,6 +101,25 @@ the sidebar elements style
     background-color: #4CAF50;
 }
 
+/****
+tooltip style
+****/
+.toolbox ul li .tooltiptext {
+    position: relative;
+    display: none;
+    width: 30%;
+    padding: 10px;
+    text-align: left;
+    overflow-wrap: break-word;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, .3);
+    color: #fff;
+}
+
+.toolbox ul li:hover .tooltiptext {
+    display: block;
+}
+
 /********/
 .toolbox ul li .icon {
     display: block;
@@ -149,4 +168,21 @@ the save buttons
     color: white;
     background-color: #4CAF50;
     cursor: pointer;
+}
+/***************/
+.toolbox-group {
+    margin: 10px;
+    user-select: none;
+}
+
+.toolbox-group-header:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.toolbox-group-header {
+    font-weight: bolder;
+    height: 50px;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
 }

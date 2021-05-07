@@ -83,9 +83,12 @@ Enter the starting node, ending nodes and optionally the weight (default value i
 
     <!--navigation-->
     <div class="toolbox">
+
         <div class="toggle"></div>
+
         <ul>
             <li>
+                <span class="tooltiptext">Tooltip text</span>
                 <span class="icon">
                         <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
@@ -99,6 +102,7 @@ Enter the starting node, ending nodes and optionally the weight (default value i
             </li>
 
             <li class="clear">
+                <span class="tooltiptext">Tooltip text</span>
                 <span class="icon">
                             <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
@@ -106,40 +110,56 @@ Enter the starting node, ending nodes and optionally the weight (default value i
             </li>
 
             <li class="delete">
+                <span class="tooltiptext">Tooltip text</span>
                 <span class="icon">
                             <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
                 <span class="title">Delete Node</span>
             </li>
 
-            <h3>Input types</h3>
-            <li id="matrix-input">
-                <span class="icon">
+            <details open class="toolbox-group">
+                <summary class="toolbox-group-header">
+                    Input types
+                </summary>
+
+                <li id="matrix-input">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
                         <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">Matrix</span>
-            </li>
-            <li id="textarea-input">
-                <span class="icon">
+                    <span class="title">Matrix</span>
+                </li>
+                <li id="textarea-input">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">textarea</span>
-            </li>
+                    <span class="title">textarea</span>
+                </li>
 
-            <h3>Graph Setting</h3>
-            <li class="colorPicker">
-                <span class="icon">
-                    <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
-                </span>
-                <input type="color" class="colorInput">
-                <button class="addColor">Add</button>
-            </li>
+            </details>
 
-            <li>
-                <span class="icon">
+
+            <details class="toolbox-group">
+                <summary class="toolbox-group-header">
+                    Graph Setting
+                </summary>
+
+                <li class="colorPicker">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">
+                    <input type="color" class="colorInput">
+                    <button class="addColor">Add</button>
+                </li>
+
+                <li>
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
+                    <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
+                </span>
+                    <span class="title">
                     <div class="nodeSizeButton">
                         <label>Node Size</label>
                         <div class="NodeRangeConatiner">
@@ -148,36 +168,47 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                         </div>
                     </div>
                 </span>
-            </li>
-            <li>
-                <span class="icon">
+                </li>
+                <li>
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder"></span>
-                <span class="title">
+                    <span class="title">
                    <div class="checkbox">
                 <label for="isWeighted">Weighted Graph?</label>
                 <input id="isWeighted" type="checkbox">
             </div>
                 </span>
-            </li>
-            <li>
-                <span class="icon">
+                </li>
+                <li>
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
                         <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">
+                    <span class="title">
                  <div class="checkbox">
                     <label for="edge-direction">Directed Graph?</label>
                      <input id="edge-direction" type="checkbox">
                 </div>
                 </span>
-            </li>
+                </li>
 
-            <h3>Algorithms</h3>
-            <li class="DrawAsTree">
-                <span class="icon">
+            </details>
+
+            <details class="toolbox-group">
+                <summary class="toolbox-group-header">
+                    Algorithms
+                </summary>
+
+                <li class="DrawAsTree">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
                     <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                <span class="title">DrawAsTree</span>
-            </li>
+                    <span class="title">DrawAsTree</span>
+                </li>
+            </details>
+
         </ul>
     </div>
 
