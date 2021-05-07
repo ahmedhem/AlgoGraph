@@ -2,7 +2,9 @@
 
 - Convert toolbox to sidebar (Done)
 - feature / tooltip (Done)
-- fix the bugs
+- fix the bugs (Done)
+  - change the save function to take the count from the last node (Done)
+  - fixing the nodeSize range (Done) 
 - readme (Done)
 - css refactoring (Done)
 #AM

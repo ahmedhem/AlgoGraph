@@ -50,17 +50,22 @@ AlgoGraph is a tool to draw graphs and  visualizing different graph's algorithms
   </ol>
 </details>
 
+----
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 - here will be an img or GIF of the project (TODO)
 
+---
+
 ### Built With
 
 * Html
 * Css
 * Javascript
+
+---
 
 ### Features
 
@@ -73,3 +78,5 @@ AlgoGraph is a tool to draw graphs and  visualizing different graph's algorithms
    - drag and drop the nodes.
  - Drawing the graph inside the area using adjacency matrix.
  - Running and visualzing different Algorithms like (DrawAsTree, finding minimum distance between two nodes,etc).
+
+---
