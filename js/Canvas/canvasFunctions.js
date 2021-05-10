@@ -50,17 +50,16 @@ function drawEdge(ctx, node1, node2, width = null, size) {
     let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
 
     let xt = points[0], yt = points[1], x1t = points[2], y1t = points[3];
-    if (!width)
-        width = 10;
-    drawLineWithArrows(ctx, xt, yt, x1t, y1t, width, size, UI.isDirected, checkIfOppEdgeExist(node1, node2), size);
+    drawLineWithArrows(ctx, xt, yt, x1t, y1t, size, UI.isDirected, checkIfOppEdgeExist(node1, node2), size);
 }
 
-function drawLineWithArrows(ctx, x0, y0, x1, y1, aWidth, aLength, arrow, opp, size) {
+function drawLineWithArrows(ctx, x0, y0, x1, y1, aLength, arrow, opp, size) {
     let dx = x1 - x0;
     let dy = y1 - y0;
     let angle = Math.atan2(dy, dx);
     let length = Math.sqrt(dx * dx + dy * dy);
-    let w = 9;
+    let w = 8;
+    ctx.lineWidth=1;
     if (size < 9) w = 6;
     console.info(w);
     ctx.translate(x0, y0);
@@ -75,7 +74,7 @@ function drawLineWithArrows(ctx, x0, y0, x1, y1, aWidth, aLength, arrow, opp, si
 
         ctx.moveTo(length - aLength, -w);
         ctx.lineTo(length, 0);
-        if (opp) ctx.lineTo(length - aLength, w + size);
+        if (opp) ctx.lineTo(length - aLength, w );
         else ctx.lineTo(length - aLength, w);
     } else {
         ctx.lineTo(length, 0);
