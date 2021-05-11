@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/toolbox.css">
 
@@ -19,11 +20,37 @@
 
 <!--the site-->
 <div id="site">
-
     <main id="container">
-        <canvas id="main_canvas">
-            you browser does not support Canvas please change to a modern browser
-        </canvas>
+        <div id="header">
+
+            <div class="header-elements">
+                <a class="linkedin" href="https://www.linkedin.com/in/ahmedeid12/" target="_blank">
+                    <i class="fab fa-linkedin fa-lg"></i>
+
+                    <span>Ahmed Eid</span>
+                </a>
+                <a class="linkedin" href="https://www.linkedin.com/in/eng-ahmedmagdy" target="_blank">
+                    <i class="fab fa-linkedin fa-lg"></i>
+
+                    <span>Ahmed Madgy</span>
+                </a>
+                <a class="linkedin" href="https://github.com/ahmedhem/AlgoGraph" target="_blank">
+                    <i class="fab fa-github fa-lg"></i>
+                    <span>Github</span>
+                </a>
+            </div>
+            <div id="logo">
+                <a href="https://github.com/ahmedhem/AlgoGraph" target="_blank">
+                    <img src="assets/images/logo1.png" class="logoimg">
+                </a>
+
+            </div>
+        </div>
+        <div id="canvas_container">
+            <canvas id="main_canvas" height="500">
+                you browser does not support Canvas please change to a modern browser
+            </canvas>
+        </div>
     </main>
 
     <div class="weight-popup" id="myForm">
@@ -52,7 +79,6 @@
 
         <div class="matrix-content">
             <span class="hide-matrix">&times;</span>
-
             <div id="matrix-size">
                 <h3>Enter the Size(N) you want for your matrix</h3>
                 <input id="size" type="number" min="1" max="8" placeholder="N">

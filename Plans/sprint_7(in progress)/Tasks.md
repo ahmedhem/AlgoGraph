@@ -9,10 +9,10 @@
 - css refactoring (Done)
 #AM
 
-- fix the bugs
-- add a header to the site
-- choose a font for the site
-- minimum distance between two node algo
-- css refactoring
+- fix the bugs (partially Done)
+- add a header to the site (Done)
+- choose a font for the site (Done)
+- minimum distance between two node algo (postponed)
+- css refactoring(Done)
 
 

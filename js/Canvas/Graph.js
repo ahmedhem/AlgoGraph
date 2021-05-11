@@ -28,7 +28,11 @@ let pair = {
 
             /***check if weighted or un weighted ****/
             if (UI.isWighted) openPopup();
-            else graph.addEdge(this.nodes[0].number, this.nodes[1].number);
+            else {
+                graph.addEdge(this.nodes[0].number, this.nodes[1].number);
+                if(!UI.isDirected)graph.addEdge(this.nodes[1].number, this.nodes[0].number);
+
+            }
 
             this.nodes = [];
         } else {

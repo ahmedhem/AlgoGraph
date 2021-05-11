@@ -67,7 +67,7 @@ function addElements(left, right, leftText, rightText, leftClass, rightClass, ed
         for (let i of rightClass)
             EndNode.classList.add(i);
         EndNode.innerText = rightText;
-        if (right == "button") {
+        if (right === "button") {
             EndNode.addEventListener("click", () => {
                 container.remove();
                 graph.removeEdge(edge.start, edge.end, leftText);

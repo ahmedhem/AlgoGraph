@@ -14,3 +14,6 @@ toggle_button.onclick = () => {
 
     resize_site();
 }
+
+
+toggle_button.click();

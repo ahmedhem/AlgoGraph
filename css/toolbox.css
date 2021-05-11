@@ -2,18 +2,18 @@
 default style
 *****/
 .toolbox {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 50px;
     height: 50px;
-
-    transition: width 0.5s, height 0.5s;
-    transition-delay: 0s, .75s;
+    /*border-right: 3px white solid;*/
+    transition: width 0.3s, height 0.3s;
+    transition-delay: 0s, .5s;
 
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px;
+    border-radius: 5px 0 0 5px;
+    /*box-shadow: 5px 5px 10px;*/
 
     overflow: hidden;
 }
@@ -24,7 +24,7 @@ default style
     align-items: center;
     height: 50px;
     transition: .5s;
-    background-color: #018786;
+    background-color: #009879;
     cursor: pointer;
 }
 
@@ -39,7 +39,7 @@ insert the + in the toggler
     font-size: 2em;
     width: 50px;
     height: 50px;
-    transition: 0.5s;
+    transition: 0.3s;
     color: #fff;
     font-weight: 400;
 }
@@ -50,8 +50,8 @@ the open sidebar style
 .toolbox.active_toolbox {
     width: 20%;
     height: 100%;
-    transition: height 0.5s, width 0.5s;
-    transition-delay: 0s, .75s;
+    transition: height 0.3s, width 0.3s;
+    transition-delay: 0s, 0.5s;
     overflow-y: scroll;
     overflow-x: scroll;
 }
@@ -70,7 +70,7 @@ the open sidebar style
 the sidebar toggler style when opened
 ****/
 .toolbox .toggle.active_toolbox {
-    background-color: #009879;
+    background-color: #018786;
 }
 
 .toolbox .toggle.active_toolbox::before {
@@ -98,7 +98,7 @@ the sidebar elements style
 }
 
 .toolbox ul li:hover {
-    background-color: #4CAF50;
+    background-color: #4caf50;
 }
 
 /****
@@ -167,7 +167,7 @@ the save buttons
 
 .save button:hover {
     color: white;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     cursor: pointer;
 }
 /***************/
