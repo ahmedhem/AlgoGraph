@@ -6,7 +6,7 @@ default style
     top: 0;
     left: 0;
     width: 50px;
-    height: 50px;
+    height: 8vh;
     /*border-right: 3px white solid;*/
     transition: width 0.3s, height 0.3s;
     transition-delay: 0s, .5s;
@@ -22,7 +22,7 @@ default style
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 50px;
+    height: 8vh;
     transition: .5s;
     background-color: #009879;
     cursor: pointer;
@@ -38,7 +38,7 @@ insert the + in the toggler
     content: '+';
     font-size: 2em;
     width: 50px;
-    height: 50px;
+    height: 8vh;
     transition: 0.3s;
     color: #fff;
     font-weight: 400;
