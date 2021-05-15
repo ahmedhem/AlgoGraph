@@ -1,0 +1,12 @@
+- variables:
+    - lower camel case
+        - ex. onwTwo
+- constants:
+    - all uppercase
+        - ex. ONE
+    - TODO: refactor all constant
+- functions:
+    - ex. : one_two_three
+- classes:
+    - Upper camel case
+        - OneTwoThree
