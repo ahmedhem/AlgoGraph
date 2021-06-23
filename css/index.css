@@ -376,13 +376,9 @@ input[type=range] {
     color: white;
 }
 
-.nodeSizeButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .NodeRangeConatiner {
+    margin-right: 30px;
     display: flex;
     justify-content: center;
 }
