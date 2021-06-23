@@ -148,10 +148,10 @@ tooltip style
     line-height: 50px;
 }
 
-.toolbox ul li .icon:hover {
-    filter: invert(72%) sepia(7%) saturate(3030%) hue-rotate(72deg) brightness(79%) contrast(98%);
+/*.toolbox ul li .icon:hover {*/
+/*    filter: invert(72%) sepia(7%) saturate(3030%) hue-rotate(72deg) brightness(79%) contrast(98%);*/
 
-}
+/*}*/
 
 /********/
 .toolbox ul li .title {
