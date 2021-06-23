@@ -1,0 +1,1 @@
+- one week for learning frontend and js testing

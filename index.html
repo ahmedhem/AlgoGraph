@@ -113,63 +113,36 @@ Enter the starting node, ending nodes and optionally the weight (default value i
         <div class="toggle"></div>
 
         <ul>
-            <li>
-                <span class="tooltiptext">Tooltip text</span>
-                <span class="icon">
-                        <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
-                </span>
-                <span class="title save">
-                    <details>
-                        <summary>Save</summary>
-                            <button class="save-as-img" style="display: block">Save as an image</button>
-                            <button class="save-as-txt" style="display: block">Save as a text file</button>
-                    </details>
-                </span>
-            </li>
-
-            <li class="clear">
-                <span class="tooltiptext">Tooltip text</span>
-                <span class="icon">
-                            <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
-                </span>
-                <span class="title">Clear Canvas</span>
-            </li>
-
-            <li class="delete">
-                <span class="tooltiptext">Tooltip text</span>
-                <span class="icon">
-                            <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
-                </span>
-                <span class="title">Delete Node</span>
-            </li>
-
-            <details open class="toolbox-group">
-                <summary class="toolbox-group-header">
-                    Input types
-                </summary>
-
-                <li id="matrix-input">
-                    <span class="tooltiptext">Tooltip text</span>
-                    <span class="icon">
-                        <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
-                </span>
-                    <span class="title">Matrix</span>
-                </li>
-                <li id="textarea-input">
-                    <span class="tooltiptext">Tooltip text</span>
-                    <span class="icon">
-                    <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
-                </span>
-                    <span class="title">textarea</span>
-                </li>
-
-            </details>
-
 
             <details class="toolbox-group">
                 <summary class="toolbox-group-header">
                     Graph Setting
                 </summary>
+
+                <li>
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
+                    <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder"></span>
+                    <span class="title">
+                   <div class="checkbox">
+                <label for="isWeighted">Weighted Graph?</label>
+                <input id="isWeighted" type="checkbox">
+            </div>
+                </span>
+                </li>
+                <li>
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
+                        <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
+                </span>
+                    <span class="title">
+                 <div class="checkbox">
+                    <label for="edge-direction">Directed Graph?</label>
+                     <input id="edge-direction" type="checkbox">
+                </div>
+                </span>
+                </li>
+
 
                 <li class="colorPicker">
                     <span class="tooltiptext">Tooltip text</span>
@@ -195,31 +168,69 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                     </div>
                 </span>
                 </li>
-                <li>
-                    <span class="tooltiptext">Tooltip text</span>
-                    <span class="icon">
-                    <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder"></span>
-                    <span class="title">
-                   <div class="checkbox">
-                <label for="isWeighted">Weighted Graph?</label>
-                <input id="isWeighted" type="checkbox">
-            </div>
-                </span>
-                </li>
+
+            </details>
+
+            <details class="toolbox-group">
+                <summary class="toolbox-group-header">
+                    Graph Operations
+                </summary>
                 <li>
                     <span class="tooltiptext">Tooltip text</span>
                     <span class="icon">
                         <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
                 </span>
-                    <span class="title">
-                 <div class="checkbox">
-                    <label for="edge-direction">Directed Graph?</label>
-                     <input id="edge-direction" type="checkbox">
-                </div>
+                    <span class="title save">
+                    <details>
+                        <summary>Save</summary>
+                            <button class="save-as-img" style="display: block">Save as an image</button>
+                            <button class="save-as-txt" style="display: block">Save as a text file</button>
+                    </details>
                 </span>
                 </li>
 
+                <li class="clear">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
+                            <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
+                </span>
+                    <span class="title">Clear Canvas</span>
+                </li>
+
+                <li class="delete">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
+                            <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
+                </span>
+                    <span class="title">Delete Node</span>
+                </li>
+
+
             </details>
+
+            <details open class="toolbox-group">
+                <summary class="toolbox-group-header">
+                    Input types
+                </summary>
+
+                <li id="matrix-input">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
+                        <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
+                </span>
+                    <span class="title">Matrix</span>
+                </li>
+                <li id="textarea-input">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="icon">
+                    <img src="assets/icons/placeHolder_icon.svg" alt="placeHolder">
+                </span>
+                    <span class="title">textarea</span>
+                </li>
+
+            </details>
+
+
 
             <details class="toolbox-group">
                 <summary class="toolbox-group-header">
