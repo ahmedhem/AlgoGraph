@@ -122,6 +122,24 @@ tooltip style
 }
 
 /********/
+.group-icon img{
+    height: 20px;
+}
+.group-icon {
+    display: inline-block;
+    min-width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+
+/************/
+.toolbox ul li .icon img{
+    height: 30px;
+}
+
 .toolbox ul li .icon {
     display: block;
     min-width: 50px;
