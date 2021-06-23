@@ -76,6 +76,7 @@ the sidebar toggler style when opened
 .toolbox .toggle.active_toolbox::before {
     transform: rotate(315deg);
 }
+
 /*****
 the sidebar elements style
 *****/
@@ -87,46 +88,33 @@ the sidebar elements style
     width: 100%;
     padding: 0;
 }
+
 /********/
 .toolbox ul li {
     list-style: none;
     width: 100%;
+    padding: 10px;
     display: flex;
     text-decoration: none;
     color: darkslategrey;
     align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
 }
 
 .toolbox ul li:hover {
-    background-color: #4caf50;
+    transition-property: background-color;
+    transition-duration: .5s;
+    background-color: #009879;
 }
 
-/****
-tooltip style
-****/
-.toolbox ul li .tooltiptext {
-    position: relative;
-    display: none;
-    width: 30%;
-    padding: 10px;
-    text-align: left;
-    overflow-wrap: break-word;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, .3);
-    color: #fff;
-
-}
-
-.toolbox ul li:hover .tooltiptext {
-    display: block;
-}
 
 /********/
-.group-icon img{
+.group-icon img {
     height: 20px;
 }
+
 .group-icon {
-    display: inline-block;
+    /*display: inline-block;*/
     min-width: 20px;
     height: 20px;
     text-align: center;
@@ -134,9 +122,8 @@ tooltip style
 }
 
 
-
 /************/
-.toolbox ul li .icon img{
+.toolbox ul li .icon img {
     height: 30px;
 }
 
@@ -160,7 +147,19 @@ tooltip style
     line-height: 50px;
     text-align: start;
     white-space: nowrap;
-    flex-grow:1;
+    flex-grow: 1;
+    font-size: 17px;
+    font-family: Calibri;
+
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+}
+
+.color-picker .addColor {
+    margin-left: 10px;
 }
 
 /****
@@ -175,8 +174,9 @@ the sidebar space
 the save buttons
 *****/
 .save button {
+
     display: inline-block;
-    color:  darkslategrey;
+    color: darkslategrey;
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
@@ -188,6 +188,7 @@ the save buttons
     background-color: #4caf50;
     cursor: pointer;
 }
+
 /***************/
 .toolbox-group {
     margin: 10px;
@@ -195,14 +196,29 @@ the save buttons
 }
 
 .toolbox-group-header:hover {
-    background-color: #4CAF50;
-    color: white;
+    transition-property: background-color;
+    transition-duration: .5s;
+    background-color: #009879;
 
 }
+
 .toolbox-group-header {
+    padding: 8% 8% 8% 0;
+    /*display: block;*/
+    font-size: 20px;
+    font-family: Calibri;
     font-weight: bolder;
-    height: 20px;
     text-align: left;
     align-items: center;
-    justify-content: center;
+}
+
+summary span {
+    margin-left: 8px;
+    margin-right: 8px;
+    /*width: 30%;*/
+}
+
+summary .group-icon {
+    padding-top: 16px;
+    /*width: 80%;*/
 }

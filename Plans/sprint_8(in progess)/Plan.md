@@ -9,3 +9,6 @@
 - add undo functionality to the canvas
 ---
 
+- create the operations Gifs
+
+
