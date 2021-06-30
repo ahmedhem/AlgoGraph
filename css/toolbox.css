@@ -91,14 +91,18 @@ the sidebar elements style
 
 /********/
 .toolbox ul li {
+    font-weight: bold;
     list-style: none;
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     text-decoration: none;
     color: darkslategrey;
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    font-family: Calibri;
+
 }
 
 .toolbox ul li:hover {
@@ -115,24 +119,24 @@ the sidebar elements style
 
 .group-icon {
     /*display: inline-block;*/
-    min-width: 20px;
-    height: 20px;
+    min-width: 15px;
+    height: 15px;
     text-align: center;
-    line-height: 20px;
+    line-height: 15px;
 }
 
 
 /************/
 .toolbox ul li .icon img {
-    height: 30px;
+    height: 27px;
 }
 
 .toolbox ul li .icon {
     display: block;
-    min-width: 50px;
-    height: 50px;
+    min-width: 30px;
+    height: 30px;
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
 }
 
 /*.toolbox ul li .icon:hover {*/
@@ -148,8 +152,6 @@ the sidebar elements style
     text-align: start;
     white-space: nowrap;
     flex-grow: 1;
-    font-size: 17px;
-    font-family: Calibri;
 
 }
 
@@ -205,7 +207,7 @@ the save buttons
 .toolbox-group-header {
     padding: 8% 8% 8% 0;
     /*display: block;*/
-    font-size: 20px;
+    font-size: 19px;
     font-family: Calibri;
     font-weight: bolder;
     text-align: left;

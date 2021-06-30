@@ -11,8 +11,8 @@ function closeForm() {
 
 
 function switch_to_focus_mode() {
-    document.querySelector("#container").style.pointerEvents = "none";
-    document.querySelector("#container").style.opacity = "50%";
+    document.querySelector("body").style.pointerEvents = "none";
+    document.querySelector("body").style.opacity = "50%";
 }
 
 function switch_to_normal_mode() {
