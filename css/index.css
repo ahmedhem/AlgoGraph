@@ -408,7 +408,7 @@ input[type=range] {
     background-color: #009879;
 }
 
-.low_icon{
+.light_icon{
     filter:  brightness(0%) invert(.12);
 }
 /**********************/
