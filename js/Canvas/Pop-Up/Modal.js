@@ -32,7 +32,8 @@ class Modal {
     }
 }
 
+// make it a singleton
 const modal = new Modal()
-modal.open()
+Object.freeze(modal)
 
-modal.insert_content(`<h1>hi!</h1>`)
+export default modal;

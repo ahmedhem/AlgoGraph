@@ -1,3 +1,5 @@
+import modal from "../../Canvas/Pop-Up/Modal.js";
+
 function add_content() {
     // add the html
     modal.insert_content(

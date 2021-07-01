@@ -1,23 +1,19 @@
-const matrix = document.getElementById("matrix");
+import modal from "../../Canvas/Pop-Up/Modal.js";
+
+modal.insert_content(
+`
+   <div id="matrix-size">
+        <h3>Enter the Size(N) you want for your matrix</h3>
+        <input id="size" type="number" min="1" max="8" placeholder="N">
+        <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
+   </div>
+   <div id="matrix-table"></div>
+   <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>     
+`
+)
 
 // when the user click the button show the matrix
-document.querySelector('#matrix-input').addEventListener('click', () => {
-    matrix.style.display = 'block'
-// when the user click on the backdrop
-    window.onclick = (event) => {
-        if (event.target === matrix)
-            matrix.style.display = "none";
-    }
-
-})
-
-// when the user click the x button close the pop-up
-const close = document.querySelector(".hide-matrix");
-
-close.onclick = function() {
-    matrix.style.display = "none";
-}
-
+document.querySelector('#matrix-input').addEventListener('click', () => modal.open())
 
 // ensure the number of nodes are allowed
 const is_valid_size = (size) => {
@@ -128,7 +124,7 @@ const draw_graph_from_matrix = () => {
 
 
     // close the matrix window
-    matrix.style.display = 'none';
+    modal.close()
 }
 
 const create_matrix = () => {

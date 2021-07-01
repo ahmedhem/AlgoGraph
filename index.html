@@ -83,39 +83,6 @@
         </li>
     </ul>
 
-
-    <div id="matrix" class="modal">
-
-        <div class="matrix-content">
-            <span class="hide-matrix">&times;</span>
-            <div id="matrix-size">
-                <h3>Enter the Size(N) you want for your matrix</h3>
-                <input id="size" type="number" min="1" max="8" placeholder="N">
-                <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
-            </div>
-            <div id="matrix-table"></div>
-            <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>
-        </div>
-    </div>
-
-    <div id="textarea" class="modal">
-
-        <div class="textarea-content">
-            <span class="hide-textarea">&times;</span>
-            <div id="textarea-errors"></div>
-
-            <textarea id="graph_text" name="graph_text"
-                      placeholder="Enter the count of the edges and nodes on the first line
-[ex. 5 30]
-Enter the starting node, ending nodes and optionally the weight (default value is 1)
-[ex. 1 2 4] or [1 2] >> will have weight of 1
-"></textarea>
-
-            <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
-
-        </div>
-    </div>
-
     <!--navigation-->
     <div class="toolbox">
 
@@ -275,8 +242,10 @@ Enter the starting node, ending nodes and optionally the weight (default value i
 
 <!--scripts-->
 
-<!--Modal class-->
-<script src="js/Canvas/Pop-Up/Modal.js"></script>
+<!--pop-ups -->
+<script src="js/Canvas/Pop-Up/Modal.js" type="module"></script>
+<script src="js/sidebar/buttons/matrix-input.js" type="module"></script>
+<script src="js/sidebar/buttons/textInput.js" type="module"></script>
 
 <script src="js/Canvas/ContextMenu/conterxt-menu.js"></script>
 <script src="js/Canvas/edges-info.js"></script>
@@ -287,8 +256,7 @@ Enter the starting node, ending nodes and optionally the weight (default value i
 <script src="js/Canvas/canvasFunctions.js"></script>
 <script src="js/index.js"></script>
 <script src="js/listeners.js"></script>
-<script src="js/sidebar/buttons/matrix-input.js"></script>
-<script src="js/sidebar/buttons/textInput.js"></script>
+
 <script src="js/Algorithms/Draw-as-tree.js"></script>
 <script src="js/sidebar/toolbox.js" type="module"></script>
 <!--buttons-->
