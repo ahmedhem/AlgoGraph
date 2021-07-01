@@ -1,26 +1,34 @@
-const textarea = document.getElementById("textarea");
+function add_content() {
+    // add the html
+    modal.insert_content(
+        `
+<div id="textarea-content">
+        <div id="textarea-errors"></div>
+        <textarea id="graph_text" name="graph_text"
+                      placeholder="Enter the count of the edges and nodes on the first line
+[ex. 5 30]
+Enter the starting node, ending nodes and optionally the weight (default value is 1)
+[ex. 1 2 4] or [1 2] >> will have weight of 1
+"></textarea>
+
+        <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
+</div>
+        
+    `
+    );
+
+    // draw the graph and close the modal window when the button is clicked
+    document.querySelector('#draw_graph_from_text').addEventListener('click', () => {
+        draw_graph_from_text()
+    });
+}
 
 // when the user click the button show the modal
 document.querySelector('#textarea-input').addEventListener('click', () => {
-    open_window();
-    // when the user click on the backdrop
-    window.onclick = (event) => {
-        if (event.target === textarea)
-            textarea.style.display = "none";
-    }
+    add_content()
+    clear_errors()
+    modal.open()
 })
-
-const open_window = () => {
-    clear_errors();
-    textarea.style.display = 'block'
-}
-
-// when the user click the x button close the pop-up
-const close_textarea = document.querySelector(".hide-textarea");
-close_textarea.onclick = function() {
-    textarea.style.display = "none";
-}
-
 
 
 
@@ -112,12 +120,6 @@ const draw_graph_from_text = () => {
     if (error)
         return displayError(error);
 
-    // close the window
-    textarea.style.display = 'none';
+    // close the pop-up
+    modal.close()
 }
-
-// draw the graph and close the modal window when the button is clicked
-document.querySelector('#draw_graph_from_text').addEventListener('click', () => draw_graph_from_text());
-
-
-
