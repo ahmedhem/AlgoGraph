@@ -393,7 +393,7 @@ input[type=range] {
 
 .colorInput {
     width: 20%;
-    height: 40px;
+    height: 35px;
     margin-top: 6px;
     border-radius: 5px;
     padding: 0;
@@ -401,11 +401,14 @@ input[type=range] {
 
 .addColor {
     width: 33%;
-    height: 40px;
+    height: 35px;
     margin-top: 6px;
     color: white;
     border-radius: 2px;
     background-color: #009879;
 }
 
+.light_icon{
+    filter:  brightness(0%) invert(.12);
+}
 /**********************/
