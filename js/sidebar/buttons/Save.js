@@ -42,7 +42,7 @@ function save_graph_as_img() {
     try {
         const url = UI.canvas.toDataURL("image/png");
 
-        download_file('graph.png', url);
+        download_file('Graph-image.png', url);
 
         return true;
     } catch (error) {
@@ -64,7 +64,7 @@ function save_graph_as_txt() {
         const file = new Blob([graph_text], {type: 'text/plain'});
         const url = URL.createObjectURL(file);
 
-        download_file('graph.txt', url);
+        download_file('Graph.txt', url);
 
         return true;
     } catch (error) {
