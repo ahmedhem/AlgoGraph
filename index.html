@@ -7,6 +7,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/toolbox.css">
+    <link rel="stylesheet" href="css/tooltip.css">
 
     <link rel="icon" type="image/png" href="assets/images/graph.png"/>
 
@@ -50,6 +51,15 @@
             <canvas id="main_canvas" height="500">
                 you browser does not support Canvas please change to a modern browser
             </canvas>
+
+            <div id="Modal" style="display: none;">
+                <div class="Modal-content">
+                    <span class="hide-Modal">&times;</span>
+                    <div id="inserted-content">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -73,39 +83,6 @@
             Delete Node
         </li>
     </ul>
-
-
-    <div id="matrix" class="modal">
-
-        <div class="matrix-content">
-            <span class="hide-matrix">&times;</span>
-            <div id="matrix-size">
-                <h3>Enter the Size(N) you want for your matrix</h3>
-                <input id="size" type="number" min="1" max="8" placeholder="N">
-                <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
-            </div>
-            <div id="matrix-table"></div>
-            <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>
-        </div>
-    </div>
-
-    <div id="textarea" class="modal">
-
-        <div class="textarea-content">
-            <span class="hide-textarea">&times;</span>
-            <div id="textarea-errors"></div>
-
-            <textarea id="graph_text" name="graph_text"
-                      placeholder="Enter the count of the edges and nodes on the first line
-[ex. 5 30]
-Enter the starting node, ending nodes and optionally the weight (default value is 1)
-[ex. 1 2 4] or [1 2] >> will have weight of 1
-"></textarea>
-
-            <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
-
-        </div>
-    </div>
 
     <!--navigation-->
     <div class="toolbox">
@@ -131,7 +108,11 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                 <input id="isWeighted" type="checkbox">
             </div>
                 </span>
+
+                <div class="tooltip"></div>
+
                 </li>
+
                 <li>
                     <span class="icon">
                         <img class= "light_icon" src="assets/icons/direct.svg" alt="placeHolder">
@@ -142,6 +123,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                      <input id="edge-direction" type="checkbox">
                 </div>
                 </span>
+
+                    <div class="tooltip"></div>
+
                 </li>
 
 
@@ -159,6 +143,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                     </div>
 
                     </span>
+
+                    <div class="tooltip"></div>
+
                 </li>
 
                 <li>
@@ -174,6 +161,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                         </div>
                     </div>
                 </span>
+
+                    <div class="tooltip"></div>
+
                 </li>
 
             </details>
@@ -197,6 +187,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                             <button class="save-as-txt" style="display: block">Save as a text file</button>
                     </details>
                 </span>
+
+                    <div class="tooltip"></div>
+
                 </li>
 
                 <li class="clear">
@@ -204,6 +197,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                             <img src="assets/icons/clear.svg" alt="placeHolder">
                 </span>
                     <span class="title">Clear Canvas</span>
+
+                    <div class="tooltip"></div>
+
                 </li>
 
                 <li class="delete">
@@ -211,6 +207,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                             <img src="assets/icons/delete.svg" alt="placeHolder">
                 </span>
                     <span class="title">Delete Node</span>
+
+                    <div class="tooltip"></div>
+
                 </li>
 
 
@@ -230,12 +229,18 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                         <img src="assets/icons/matrix.svg" alt="placeHolder">
                 </span>
                     <span class="title">Matrix</span>
+
+                    <div class="tooltip"></div>
+
                 </li>
                 <li id="textarea-input">
                     <span class="icon">
                     <img src="assets/icons/text-format.svg" alt="placeHolder">
                 </span>
                     <span class="title">textarea</span>
+
+                    <div class="tooltip"></div>
+
                 </li>
 
             </details>
@@ -255,6 +260,9 @@ Enter the starting node, ending nodes and optionally the weight (default value i
                     <img src="assets/icons/tree.svg" alt="placeHolder">
                 </span>
                     <span class="title">DrawAsTree</span>
+
+                    <div class="tooltip"></div>
+
                 </li>
             </details>
 
@@ -262,7 +270,15 @@ Enter the starting node, ending nodes and optionally the weight (default value i
     </div>
 
 </div>
+
+
 <!--scripts-->
+
+<!--pop-ups -->
+<script src="js/Canvas/Pop-Up/Modal.js" type="module"></script>
+<script src="js/sidebar/buttons/matrix-input.js" type="module"></script>
+<script src="js/sidebar/buttons/textInput.js" type="module"></script>
+
 <script src="js/Canvas/ContextMenu/conterxt-menu.js"></script>
 <script src="js/Canvas/edges-info.js"></script>
 <script src="js/Canvas/edge-clicked-handler.js"></script>
@@ -272,8 +288,7 @@ Enter the starting node, ending nodes and optionally the weight (default value i
 <script src="js/Canvas/canvasFunctions.js"></script>
 <script src="js/index.js"></script>
 <script src="js/listeners.js"></script>
-<script src="js/sidebar/buttons/matrix-input.js"></script>
-<script src="js/sidebar/buttons/textInput.js"></script>
+
 <script src="js/Algorithms/Draw-as-tree.js"></script>
 <script src="js/sidebar/toolbox.js" type="module"></script>
 <!--buttons-->
@@ -282,6 +297,7 @@ Enter the starting node, ending nodes and optionally the weight (default value i
 <script src="js/sidebar/buttons/Save.js"></script>
 <script src="js/sidebar/buttons/color-picker.js"></script>
 <script src="js/sidebar/buttons/GraphSetting.js"></script>
+
 
 </body>
 </html>

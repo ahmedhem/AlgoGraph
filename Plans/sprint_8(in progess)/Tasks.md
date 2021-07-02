@@ -1,5 +1,5 @@
 ## AE
-- refactoring the pop style and code:
+- (Done) refactoring the pop style and code:
     - the style:
         - need to be consistent
     - the code:
@@ -14,7 +14,11 @@
             popup.close();
 
 `
-- add tooltip
+-  (done)add tooltip
+
+### notes:
+- the weight input and output pop-up still the same
+- the tooltip is only the icon, the logic has not been added yet
 ----
 ## AM
 - create the operations Gifs
