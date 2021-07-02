@@ -1,3 +1,6 @@
+import {point_in_canvas, edgeClicked} from "./Canvas/edge-clicked-handler.js"
+
+
 //...listen to the canvas and handle clicks
 const canvas = document.getElementById('main_canvas');
 
@@ -64,23 +67,6 @@ canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
 
 // choosing between Directed and undirected edge
 const BFSAlgo = document.querySelector(".DrawAsTree");
-
-
-//..listing for enter clicks in the popup input field
-document.querySelector('#weight-input').addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        const value = e.target.value;
-        handleWeightInput(value);
-        e.target.value = 1;
-    }
-});
-
-document.querySelector(".cancel").addEventListener('click', (e) => {
-    let value = document.querySelector('#weight-input').value;
-    handleWeightInput(value);
-    document.querySelector("#weight-input").value = 1;
-});
-
 
 BFSAlgo.addEventListener("click", (e) => {
     DrawAsTree();

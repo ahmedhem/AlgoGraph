@@ -1,4 +1,6 @@
-function point_in_canvas(a_canvas, e) {
+import {edgePopup} from "./Pop-Up/edge-weights-pop-up.js";
+
+export function point_in_canvas(a_canvas, e) {
     let the_canvas = a_canvas.getBoundingClientRect();
     let x = e.clientX - the_canvas.left;
     let y = e.clientY - the_canvas.top;
@@ -57,7 +59,7 @@ const pointOnEdge = (point, edge) => {
 }
 
 //...check all edges for a click (check after refactoring >>> done)
-const edgeClicked = (clickedPoint) => {
+export const edgeClicked = (clickedPoint) => {
     for (let node of graph.nodes.keys()) {
         for (let edge of node.edges.keys()) {
             if (pointOnEdge(clickedPoint, edge)) {

@@ -290,13 +290,10 @@ TODO: refactor (open it inside the model)
     Edge popup With Info Style
 *******/
 .edges-container {
-    width: 300px;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: absolute;
-    top: 20%;
-    left: 50%;
 }
 
 .edge {
