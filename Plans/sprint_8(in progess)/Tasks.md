@@ -17,8 +17,8 @@
 -  (done)add tooltip
 
 ### notes:
-- the weight input and output pop-up still the same
 - the tooltip is only the icon, the logic has not been added yet
+- the Modal need a method a to change the (size)
 ----
 ## AM
 - create the operations Gifs

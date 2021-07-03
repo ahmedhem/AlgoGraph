@@ -1,4 +1,7 @@
 import modal from "../../Canvas/Pop-Up/Modal.js";
+import {updateCanvas} from "./Clear.js";
+import {graph} from "../../index.js";
+import {GraphPoint} from "../../Canvas/Graph.js";
 
 function add_content() {
     // add the html
@@ -7,10 +10,11 @@ function add_content() {
 <div id="textarea-content">
         <div id="textarea-errors"></div>
         <textarea id="graph_text" name="graph_text"
-                      placeholder="Enter the count of the edges and nodes on the first line
-[ex. 5 30]
-Enter the starting node, ending nodes and optionally the weight (default value is 1)
-[ex. 1 2 4] or [1 2] >> will have weight of 1
+                      placeholder="Enter the number of the nodes and edges on the first line
+[ex. N E]
+followed by E lines:
+    - In each line enter the starting node, ending node and optionally the weight (default value is 1)   
+        [ex. 1 2 4] or [1 2] >> will have weight of 1
 "></textarea>
 
         <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>

@@ -1,4 +1,5 @@
 import modal from "./Modal.js";
+import {graph} from "../../index.js";
 
 export function edgePopup(edge) {
     /***** The container *****/

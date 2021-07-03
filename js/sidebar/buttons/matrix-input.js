@@ -1,7 +1,14 @@
 import modal from "../../Canvas/Pop-Up/Modal.js";
+import {updateCanvas} from "./Clear.js";
+import {graph} from "../../index.js";
+import {GraphPoint} from "../../Canvas/Graph.js";
 
-modal.insert_content(
-`
+
+
+// when the user click the button show the matrix
+document.querySelector('#matrix-input').addEventListener('click', () => {
+    modal.insert_content(
+        `
    <div id="matrix-size">
         <h3>Enter the Size(N) you want for your matrix</h3>
         <input id="size" type="number" min="1" max="8" placeholder="N">
@@ -10,10 +17,17 @@ modal.insert_content(
    <div id="matrix-table"></div>
    <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>     
 `
-)
+    )
 
-// when the user click the button show the matrix
-document.querySelector('#matrix-input').addEventListener('click', () => modal.open())
+    // draw the graph and close the matrix window when the button is clicked
+    document.querySelector('#draw_matrix').addEventListener('click', () => draw_graph_from_matrix());
+
+// create the matrix table when a valid size is entered and the button is clicked
+    document.querySelector('#create-matrix').addEventListener('click', create_matrix)
+
+
+    modal.open()
+})
 
 // ensure the number of nodes are allowed
 const is_valid_size = (size) => {
@@ -135,9 +149,4 @@ const create_matrix = () => {
         document.querySelector('#matrix-table').innerHTML = `<h3 style="color: red">Enter a valid Size</h3>`;
 }
 
-// draw the graph and close the matrix window when the button is clicked
-document.querySelector('#draw_matrix').addEventListener('click', () => draw_graph_from_matrix());
-
-// create the matrix table when a valid size is entered and the button is clicked
-document.querySelector('#create-matrix').addEventListener('click', create_matrix)
 
