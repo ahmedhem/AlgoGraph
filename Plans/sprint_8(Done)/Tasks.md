@@ -12,15 +12,15 @@
             let popup = popup_content(content);
             popup.open();
             popup.close();
+            popup.changeSize();
+
 
 `
--  (done)add tooltip
+-  (done) add tooltip icon
 
 ### notes:
 - the tooltip is only the icon, the logic has not been added yet
-- the Modal need a method a to change the (size)
 ----
 ## AM
-- create the operations Gifs
-- asking the user to choose a root for the tree (Algorithms: Draw-as-tree.js)
+- (done)create the operations Gifs
 ---
