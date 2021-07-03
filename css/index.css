@@ -169,7 +169,7 @@ The Header Style
     text-decoration: none;
     color: white;
     font-size: 20px;
-    font-family: Calibri;
+    font-family: Calibri, serif;
     display: flex;
     width: 18%;
     border-left: 3px #009879 solid;
@@ -254,7 +254,7 @@ The Weight Popup
 }
 
 .weight-container input[type=number] {
-    width: 100%;
+    width: 96%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
