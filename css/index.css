@@ -10,7 +10,7 @@ html, body {
 body {
     background: white;
     opacity: 100%;
-    font-family: Calibri;
+    font-family: Calibri, serif;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -71,7 +71,6 @@ Modal style
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
     border-radius: 10px;
 }
 
@@ -170,7 +169,7 @@ The Header Style
     text-decoration: none;
     color: white;
     font-size: 20px;
-    font-family: Calibri;
+    font-family: Calibri, serif;
     display: flex;
     width: 18%;
     border-left: 3px #009879 solid;
@@ -242,24 +241,20 @@ the canvas style
 
 /************
 The Weight Popup
-TODO: refactor (open it inside the model)
 ************/
-.weight-popup {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 3px solid #009879;
+.weight-container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
 }
 
-.weight-container {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
+#weight-input-text {
+    padding: 0 45%;
+    font-weight: bolder;
 }
 
 .weight-container input[type=number] {
-    width: 90%;
+    width: 96%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -274,29 +269,25 @@ TODO: refactor (open it inside the model)
 .weight-container button {
     background-color: #009879;
     color: white;
-    opacity: 0.8;
+    opacity: 1;
     cursor: pointer;
-
     height: 50px;
     width: 100%;
     margin-bottom: 10px;
 }
 
 .weight-container button:hover {
-    opacity: 1;
+    opacity: 0.8;
 }
 
 /*******
     Edge popup With Info Style
 *******/
 .edges-container {
-    width: 300px;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: absolute;
-    top: 20%;
-    left: 50%;
 }
 
 .edge {

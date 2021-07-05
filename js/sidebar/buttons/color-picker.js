@@ -1,3 +1,5 @@
+import {pair} from "../../Canvas/Pair.js";
+
 /*
  - to change the color of node :
  1-choose color
@@ -10,7 +12,7 @@
 
 let colorPicker = document.querySelector(".addColor");
 
-function toggleColorPicker(){
+export function toggleColorPicker(){
  UI.nodePicked=!UI.nodePicked;
  colorPicker.style.backgroundColor=UI.nodePicked?"#ef2626":"#009879";
  if(!UI.nodePicked)return;
@@ -19,7 +21,7 @@ function toggleColorPicker(){
 
 }
 
-function changeNodeColor(node,color){
+export function changeNodeColor(node,color){
   node.color = color;
   UI.fire();
 }
