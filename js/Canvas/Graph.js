@@ -1,48 +1,4 @@
-// ## Build
-// - ### Point :
-// - constructor(x, y)
-// - x, y
-// ---
-//     - ### Edge :
-// - constructor(startNumber, endNumber)
-// - addWeight(weight)
-// - removeWeight(weight)
-// - equals(otherEdge)
-// ---
-//     - ### Node :
-// - constructor(position, nodeNumber)
-// -
-/*
-* the pair store nodes that had been clicked
-* once two are stored call drawEdge on them and empty the pair again
-*/
-let pair = {
-    nodes: [],
-    add: function (point) {
-        if (this.nodes.length === 1) {
-            this.nodes.push(point);
-            UI.popupEdge = graph.getEdge(this.nodes[0].number, this.nodes[1].number);
-
-            /***Create new Edge if first time***/
-            if (!UI.popupEdge) UI.popupEdge = new GraphEdge(this.nodes[0].number, this.nodes[1].number);
-
-            /***check if weighted or un weighted ****/
-            if (UI.isWighted) openPopup();
-            else {
-                graph.addEdge(this.nodes[0].number, this.nodes[1].number);
-                if(!UI.isDirected)graph.addEdge(this.nodes[1].number, this.nodes[0].number);
-
-            }
-
-            this.nodes = [];
-        } else {
-            this.nodes.push(point);
-        }
-    },
-};
-
-
-class GraphPoint {
+export class GraphPoint {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -50,7 +6,7 @@ class GraphPoint {
 }
 
 
-class GraphEdge {
+export class GraphEdge {
     constructor(startNodeNumber, endNodeNumber) {
         this.start = startNodeNumber;
         this.end = endNodeNumber;
@@ -145,7 +101,7 @@ class GraphNode {
 }
 
 
-class Graph {
+export class Graph {
     constructor() {
         this.nodes = new Set();
         this.nodeCount = 1;

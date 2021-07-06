@@ -1,3 +1,5 @@
+import {graph} from "../index.js";
+import {the_canvas} from "../index.js";
 //READ that First
 /*
  -every node has a distance equal to 15 between any adjancent node
@@ -54,7 +56,7 @@ function setPosition(u, v, dep, blocks) {
 
 }
 
-function DrawAsTree() {
+export function DrawAsTree() {
     // vis is the visited array which define if the node visited or not
     let queue = [],
         vis = new Array(graph.nodeCount + 1);

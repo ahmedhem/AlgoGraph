@@ -1,3 +1,12 @@
+import {point_in_canvas, edgeClicked} from "./Canvas/edge-clicked-handler.js"
+import {the_canvas} from "./index.js";
+import {isPointInNode, toggleNode} from "./functions.js";
+import {graph} from "./index.js";
+import {GraphPoint} from "./Canvas/Graph.js";
+import {changeNodeColor, toggleColorPicker} from "./sidebar/buttons/color-picker.js";
+import {deleteElements} from "./sidebar/buttons/Delete.js";
+import {DrawAsTree} from "./Algorithms/Draw-as-tree.js";
+import {startMoveMode, stopMovingMode, updateNodePosition, DeleteContextMenuNode, toggleMenu, position_menu} from "./Canvas/ContextMenu/conterxt-menu.js";
 //...listen to the canvas and handle clicks
 const canvas = document.getElementById('main_canvas');
 
@@ -10,7 +19,6 @@ function handleClick(a_canvas, e) {
 
     const clickedPoint = point_in_canvas(a_canvas, e);
     //..close the popup
-    // closeForm()
     //...check if the clicked is an edge
     if (edgeClicked(clickedPoint))
         return;
@@ -64,23 +72,6 @@ canvas.addEventListener('click', (e) => handleClick(the_canvas, e))
 
 // choosing between Directed and undirected edge
 const BFSAlgo = document.querySelector(".DrawAsTree");
-
-
-//..listing for enter clicks in the popup input field
-document.querySelector('#weight-input').addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        const value = e.target.value;
-        handleWeightInput(value);
-        e.target.value = 1;
-    }
-});
-
-document.querySelector(".cancel").addEventListener('click', (e) => {
-    let value = document.querySelector('#weight-input').value;
-    handleWeightInput(value);
-    document.querySelector("#weight-input").value = 1;
-});
-
 
 BFSAlgo.addEventListener("click", (e) => {
     DrawAsTree();

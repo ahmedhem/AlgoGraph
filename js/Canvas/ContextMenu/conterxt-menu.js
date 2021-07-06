@@ -1,5 +1,9 @@
+import {point_in_canvas} from "../edge-clicked-handler.js";
+import {deleteElements} from "../../sidebar/buttons/Delete.js";
+import {pair} from "../Pair.js";
+
 // functions for the context menu for nodes
-function toggleMenu() {
+export function toggleMenu() {
     if (UI.MENU_STATUS !== 1) {
         UI.MENU_STATUS = 1;
         document.querySelector('#context-menu').classList.add("context-menu-active");
@@ -9,7 +13,7 @@ function toggleMenu() {
     }
 }
 
-const position_menu = (e) => {
+export const position_menu = (e) => {
     let menuPositionX = e.clientX + "px";
     let menuPositionY = e.clientY + "px";
     const menu = document.querySelector('#context-menu');
@@ -17,23 +21,23 @@ const position_menu = (e) => {
     menu.style.top = menuPositionY;
 }
 
-const startMoveMode = () => {
+export const startMoveMode = () => {
     toggleMenu();
     UI.MovingMode = true;
 }
 
-const updateNodePosition = (e) => {
+export const updateNodePosition = (e) => {
     if (UI.MovingMode) {
         UI.ContextMenuNode.position = point_in_canvas(UI.canvas, e);
         UI.fire();
     }
 }
 
-const stopMovingMode = () => {
+export const stopMovingMode = () => {
     UI.MovingMode = false;
 }
 
-const DeleteContextMenuNode = () => {
+export const DeleteContextMenuNode = () => {
     toggleMenu();
     deleteElements(UI.ContextMenuNode);
     pair.nodes = [];

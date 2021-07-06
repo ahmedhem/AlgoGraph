@@ -12,15 +12,15 @@
             let popup = popup_content(content);
             popup.open();
             popup.close();
+            popup.changeSize();
+
 
 `
--  (done)add tooltip
+-  (done) add tooltip icon
 
 ### notes:
-- the weight input and output pop-up still the same
 - the tooltip is only the icon, the logic has not been added yet
 ----
 ## AM
-- create the operations Gifs
-- asking the user to choose a root for the tree (Algorithms: Draw-as-tree.js)
+- (done)create the operations Gifs
 ---

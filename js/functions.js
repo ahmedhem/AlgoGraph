@@ -1,3 +1,6 @@
+import {graph} from "./index.js";
+import {pair} from "./Canvas/Pair.js";
+import modal from "./Canvas/Pop-Up/Modal.js";
 /*
 * return x,y in respect to the given canvas (could work with other elements)
 * pass to every function in canvasGunction.js the UI.nodeSIze parameter
@@ -7,7 +10,7 @@
 /*
 * if the node in the pair remove it if not add it
 * */
-function toggleNode(node) {
+export function toggleNode(node) {
     for (let i = 0; i < 2; i++) {
         if (pair.nodes[i] && node.equals(pair.nodes[i])) {
             pair.nodes = [];
@@ -22,7 +25,7 @@ function toggleNode(node) {
 
 
 // (check after refactoring >>> done)
-function isPointInNode(x, y) {
+export function isPointInNode(x, y) {
     for (let node of graph.nodes.keys()) {
         const d = getDist(x, y, node.position.x, node.position.y);
         if (d <= UI.nodeSize)
@@ -32,14 +35,14 @@ function isPointInNode(x, y) {
 }
 
 // (check after refactoring >>> done)
-let drawNodes = function (ctx) {
+export let drawNodes = function (ctx) {
     for (let node of graph.nodes.keys()) {
         drawNode(ctx, node, node.number, node.color, UI.nodeSize);
     }
 }
 
 // (check after refactoring >>> done)
-let drawEdges = function (ctx) {
+export let drawEdges = function (ctx) {
     for (let node of graph.nodes.keys()) {
         for (let edge of node.edges) {
             drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), null, UI.nodeSize)
@@ -49,7 +52,7 @@ let drawEdges = function (ctx) {
 }
 
 
-let drawUI = function (canvas, ctx) {
+export let drawUI = function (canvas, ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawNodes(ctx, UI.nodeSize);
     drawEdges(ctx, UI.nodeSize);
@@ -58,13 +61,14 @@ let drawUI = function (canvas, ctx) {
     }
 }
 
-function handleWeightInput(value) {
+export function handleWeightInput(value) {
     UI.popupEdge.addWeight(Number(value));
     graph.addEdge(UI.popupEdge.start, UI.popupEdge.end, Number(value));
     if (!UI.isDirected)
         graph.addEdge(UI.popupEdge.end, UI.popupEdge.start, Number(value));
     UI.popupEdge = 0;
-    closeForm();
+
+    modal.close()
 }
 
 

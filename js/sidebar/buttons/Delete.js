@@ -1,3 +1,7 @@
+import {the_canvas} from "../../index.js";
+import {pair} from "../../Canvas/Pair.js";
+import {graph} from "../../index.js";
+
 // the delete button style
 const deleteButton = document.querySelector('.delete');
 deleteButton.addEventListener('click', (e) => deleteClickedHandler(e, the_canvas));
@@ -17,7 +21,7 @@ const deleteClickedHandler = (e, canvas) => {
 /*delete the node and all edges connected with*/
 
 // (check after refactoring >>> done)
-function deleteElements(node) {
+export function deleteElements(node) {
     graph.removeNode(node.number);
     UI.fire();
 }
