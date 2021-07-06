@@ -50,7 +50,7 @@ The project mainly consist of two componenets :
 - **Algorithm visualizer**:  
   - Which simply visualize how multiple graph algorithms work and allow interction with them.
 ---
-###**_Note_**:
+### **_Note_**:
 **_This project was built from scratch without the usage of any external libraries as a 
 challenge and opportunity to enhance our skills and to gain some new experience._**
 
