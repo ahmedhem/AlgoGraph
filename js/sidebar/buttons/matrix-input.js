@@ -26,7 +26,7 @@ document.querySelector('#matrix-input').addEventListener('click', () => {
     document.querySelector('#create-matrix').addEventListener('click', create_matrix)
 
 
-    modal.open()
+    modal.open(50)
 })
 
 // ensure the number of nodes are allowed

@@ -249,16 +249,16 @@ The Weight Popup
 }
 
 #weight-input-text {
-    padding: 0 45%;
+    /*padding: 0 45%;*/
     font-weight: bolder;
+    text-align: center;
 }
 
 .weight-container input[type=number] {
     width: 96%;
     padding: 15px;
     margin: 5px 0 22px 0;
-    border: none;
-    background: #009879;
+    border: 3px solid #009879;
 }
 
 .weight-container input[type=number]:focus {
