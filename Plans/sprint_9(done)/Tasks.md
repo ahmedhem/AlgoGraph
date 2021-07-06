@@ -1,5 +1,5 @@
 # Tasks
-- the Documentation will be written in a pair programing session
+- (Done) the Documentation will be written in a pair programing session
 
 ## AM
 ## from last sprint
