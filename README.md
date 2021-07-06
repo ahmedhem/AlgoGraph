@@ -1,5 +1,3 @@
-
-
 <p align="center">
   <a href="https://github.com/ahmedhem/AlgoGraph">
     <img src="./assets/images/logo.png" alt="Logo" width="80" height="80">
@@ -20,7 +18,7 @@ AlgoGraph is a tool to draw graphs and visualizing different graph's algorithms.
 
 
 [comment]: <> (refrence links)
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=066
 [linkedin-url-e]: https://linkedin.com/in/ahmedeid12
 [linkedin-url-m]: https://linkedin.com/in/eng-ahmedmagdy
 
@@ -36,7 +34,6 @@ AlgoGraph is a tool to draw graphs and visualizing different graph's algorithms.
         <li><a href="#features">Features</a></li>
         <li><a href="#Contributors">Contributors</a></li>
     </li>
-    
   </ol>
 </details>
 
@@ -60,23 +57,97 @@ challenge and opportunity to enhance our skills and to gain some new experience.
 ---
 
 ### Features
+1. Graph Editor
+    
+<details>
+<summary>
+Supports drawing nodes and connecting them with edges.
+</summary>
 
-### need to be updated (TODO)
+![](./assets/Tutorials/add%20nodes,%20edges%20,and%20you%20can%20also%20view%20edge%60s%20info.gif)
 
- - It contains full dynamic area which supports : 
-   - adding and deleting nodes.
-   - adding directed and indirected edges between nodes, also putting weights on the edges.
-   - saving your drawed graph.
-   - drag and drop the nodes.
- - Drawing the graph inside the area using adjacency matrix.
- - Running and visualzing different Algorithms like (DrawAsTree, finding minimum distance between two nodes,etc).
+</details>
 
+<details>
+<summary>
+Supports all types of graphs (Weighted, unweighted, directed, and undirected)
+</summary>
+
+- ![](./assets/Tutorials/)
+
+</details>
+
+<details>
+<summary>
+Supports the following operations on nodes.
+</summary>
+
+<details>
+<summary>
+Moving and Deletion
+</summary>
+
+- ![](./assets/Tutorials/)
+
+</details>
+
+<details>
+<summary>
+Change size and color
+</summary>
+
+- ![](./assets/Tutorials/)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>
+Support Saving the graph as a text file, or an image.
+</summary>
+
+- ![](./assets/Tutorials/)
+
+</details>
+
+<details>
+<summary>
+Entering the graph info in a matrix or a text format.
+</summary>
+
+- ![](./assets/Tutorials/)
+
+</details>
+
+<details>
+<summary>
+Support reorganizing the graph in the shape of a tree.
+</summary>
+
+- ![](./assets/Tutorials/)
+
+</details>
+
+<details>
+<summary>
+Support clearing everything on the canvas
+</summary>
+
+- ![](./assets/Tutorials/)
+
+</details>
+
+
+2. Algorithm visualizer
+    - ...... (TODO)
+    
 ---
 ### Contributors
 
 #### Ahmed Magdy
 [![LinkedIn][linkedin-shield]][linkedin-url-m]
-
 ----
 
 #### Ahmed Eid
