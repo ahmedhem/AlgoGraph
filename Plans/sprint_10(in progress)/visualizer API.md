@@ -1,0 +1,1 @@
+- Why not allow the user to write code and see his code visualized ?  
