@@ -79,10 +79,14 @@ function draw_edges_from_text(lines, nodesNum) {
             end = Number(end);
 
             if (is_valid_nodes(start, end, nodesNum))
-                if (weight)
+                if (weight) {
                     graph.addEdge(start, end, Number(weight));
-                else
+                    if (!UI.isDirected) graph.addEdge(end, start, Number(weight));
+                }
+                else {
                     graph.addEdge(start, end);
+                    if (!UI.isDirected) graph.addEdge(end, start);
+                }
             else
                 return `Invalid Node Number on line ${i+1}`
         }
