@@ -91,16 +91,12 @@ challenge and opportunity to enhance our skills and to gain some new experience.
 
       </details>
 
-      <details>
       <summary>
       Change size and color
       </summary>
 
-      - ![](./assets/Tutorials/)
-
-      </details>
-
-
+   - ![](./assets/Tutorials/)
+   
       </details>
 
       <details>
