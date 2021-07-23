@@ -1,7 +1,7 @@
-import modal from "../../Canvas/Pop-Up/Modal.js";
+import modal from "../../js/Canvas/Pop-Up/Modal.js";
 import {updateCanvas} from "./Clear.js";
-import {graph} from "../../../index.js";
-import {GraphPoint} from "../../Canvas/Graph.js";
+import {graph} from "../../index.js";
+import {GraphPoint} from "../../js/Canvas/Graph.js";
 
 
 
@@ -141,7 +141,7 @@ const draw_graph_from_matrix = () => {
     modal.close()
 }
 
-const create_matrix = () => {
+export const create_matrix = () => {
     const size = document.querySelector('#size').value;
     if (is_valid_size(size))
         create_table(size);

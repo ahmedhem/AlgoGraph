@@ -1,3 +1,5 @@
+import {UI} from "../../UI";
+
 const nodeSizeChange = document.querySelector(".nodeSize");
 
 nodeSizeChange.addEventListener("change", (e) => {
@@ -18,7 +20,7 @@ weightedGraph.addEventListener('change', () => {
 })
 
 
-const edge_direction = document.querySelector("#edge-direction[type=checkbox]");
+export const edge_direction = document.querySelector("#edge-direction[type=checkbox]");
 
 edge_direction.addEventListener('change', () => {
     UI.isDirected = !UI.isDirected;

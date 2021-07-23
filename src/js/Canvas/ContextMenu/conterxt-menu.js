@@ -1,5 +1,5 @@
 import {point_in_canvas} from "../edge-clicked-handler.js";
-import {deleteElements} from "../../sidebar/buttons/Delete.js";
+import {deleteElements} from "../../../sidebar/buttons/Delete.js";
 import {pair} from "../Pair.js";
 
 // functions for the context menu for nodes

@@ -36,5 +36,5 @@ class UiNotifier {
 
 }
 
-const UI = new UiNotifier();
+export const UI = new UiNotifier();
 

@@ -1,5 +1,5 @@
-import {graph} from "../../index.js";
-import {the_canvas} from "../../index.js";
+import {graph} from "../index.js";
+import {the_canvas} from "../index.js";
 //READ that First
 /*
  -every node has a distance equal to 15 between any adjancent node

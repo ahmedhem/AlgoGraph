@@ -1,7 +1,7 @@
-import modal from "../../Canvas/Pop-Up/Modal.js";
+import modal from "../../js/Canvas/Pop-Up/Modal.js";
 import {updateCanvas} from "./Clear.js";
-import {graph} from "../../../index.js";
-import {GraphPoint} from "../../Canvas/Graph.js";
+import {graph} from "../../index.js";
+import {GraphPoint} from "../../js/Canvas/Graph.js";
 
 function add_content() {
     // add the html
@@ -99,7 +99,7 @@ function is_valid_nodes(start, end, nodesNum) {
 }
 
 
-const draw_graph_from_text = () => {
+export const draw_graph_from_text = () => {
     // clear the canvas
     updateCanvas(UI.canvas);
 

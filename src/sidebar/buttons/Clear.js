@@ -1,6 +1,6 @@
-import {the_canvas} from "../../../index.js";
-import {graph} from "../../../index.js";
-import {pair} from "../../Canvas/Pair.js";
+import {the_canvas} from "../../index.js";
+import {graph} from "../../index.js";
+import {pair} from "../../js/Canvas/Pair.js";
 //Clear Button
 document.querySelector(".clear").addEventListener('click', (e) => {
     updateCanvas(the_canvas)

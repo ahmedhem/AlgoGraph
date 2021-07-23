@@ -1,4 +1,4 @@
-import {pair} from "../../Canvas/Pair.js";
+import {pair} from "../../js/Canvas/Pair.js";
 
 /*
  - to change the color of node :

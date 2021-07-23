@@ -1,4 +1,4 @@
-import {graph} from "../../../index.js";
+import {graph} from "../../index.js";
 
 function convert_graph_into_text(graph) {
 
@@ -59,7 +59,7 @@ const saveTxtButton = document.querySelector('.save-as-txt');
 saveTxtButton.addEventListener('click', save_graph_as_txt);
 
 
-function save_graph_as_txt() {
+export function save_graph_as_txt() {
     let graph_text = convert_graph_into_text(graph);
 
     try {

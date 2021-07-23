@@ -2,7 +2,7 @@ const toggle_button = document.querySelector(".toolbox .toggle");
 const toolbox = document.querySelector('.toolbox');
 
 
-function resize_site() {
+export function resize_site() {
     const sidebar = document.querySelector('#sidebar-space');
     sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
     document.querySelector('body').classList.toggle("sidebar-open-space");
