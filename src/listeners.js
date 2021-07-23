@@ -1,12 +1,12 @@
-import {point_in_canvas, edgeClicked} from "./js/Canvas/edge-clicked-handler.js"
+import {point_in_canvas, edgeClicked} from "./Canvas/edge-clicked-handler.js"
 import {the_canvas} from "./index.js";
 import {isPointInNode, toggleNode} from "./functions.js";
 import {graph} from "./index.js";
-import {GraphPoint} from "./js/Canvas/Graph.js";
+import {GraphPoint} from "./Canvas/Graph.js";
 import {changeNodeColor, toggleColorPicker} from "./sidebar/buttons/color-picker.js";
 import {deleteElements} from "./sidebar/buttons/Delete.js";
 import {DrawAsTree} from "./Algorithms/Draw-as-tree.js";
-import {startMoveMode, stopMovingMode, updateNodePosition, DeleteContextMenuNode, toggleMenu, position_menu} from "./js/Canvas/ContextMenu/conterxt-menu.js";
+import {startMoveMode, stopMovingMode, updateNodePosition, DeleteContextMenuNode, toggleMenu, position_menu} from "./Canvas/ContextMenu/conterxt-menu.js";
 //...listen to the canvas and handle clicks
 const canvas = document.getElementById('main_canvas');
 

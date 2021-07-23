@@ -1,5 +1,5 @@
 import {openPopup} from "./Pop-Up/weighted-edge-input-pop-up.js";
-import {graph} from "../../index.js";
+import {graph} from "../index.js";
 import {GraphEdge} from "./Graph.js";
 
 export let pair = {

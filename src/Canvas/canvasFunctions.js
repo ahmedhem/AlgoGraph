@@ -53,7 +53,7 @@ function drawEdge(ctx, node1, node2, width = null, size) {
     drawLineWithArrows(ctx, xt, yt, x1t, y1t, size, UI.isDirected, checkIfOppEdgeExist(node1, node2), size);
 }
 
-function drawLineWithArrows(ctx, x0, y0, x1, y1, aLength, arrow, opp, size) {
+export function drawLineWithArrows(ctx, x0, y0, x1, y1, aLength, arrow, opp, size) {
     let dx = x1 - x0;
     let dy = y1 - y0;
     let angle = Math.atan2(dy, dx);

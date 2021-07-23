@@ -1,5 +1,5 @@
 import modal from "./Modal.js";
-import {handleWeightInput} from "../../../functions.js";
+import {handleWeightInput} from "../../functions.js";
 
 export function openPopup() {
     modal.insert_content(`

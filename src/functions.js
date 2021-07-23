@@ -1,6 +1,6 @@
 import {graph} from "./index.js";
-import {pair} from "./js/Canvas/Pair.js";
-import modal from "./js/Canvas/Pop-Up/Modal.js";
+import {pair} from "./Canvas/Pair.js";
+import modal from "./Canvas/Pop-Up/Modal.js";
 /*
 * return x,y in respect to the given canvas (could work with other elements)
 * pass to every function in canvasGunction.js the UI.nodeSIze parameter

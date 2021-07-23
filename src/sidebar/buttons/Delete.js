@@ -1,5 +1,5 @@
 import {the_canvas} from "../../index.js";
-import {pair} from "../../js/Canvas/Pair.js";
+import {pair} from "../../Canvas/Pair.js";
 import {graph} from "../../index.js";
 
 // the delete button style

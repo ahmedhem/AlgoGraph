@@ -1,7 +1,7 @@
-import modal from "../../js/Canvas/Pop-Up/Modal.js";
+import modal from "../../Canvas/Pop-Up/Modal.js";
 import {updateCanvas} from "./Clear.js";
 import {graph} from "../../index.js";
-import {GraphPoint} from "../../js/Canvas/Graph.js";
+import {GraphPoint} from "../../Canvas/Graph.js";
 
 
 
