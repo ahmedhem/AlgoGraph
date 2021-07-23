@@ -1,0 +1,29 @@
+{
+  "name": "AlgoGraph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "webpack": "webpack",
+    "dev": "npm run webpack -- --mode development",
+    "prod": "npm run webpack -- --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedhem/AlgoGraph.git"
+  },
+  "keywords": [],
+  "author": "Ahmed Eid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedhem/AlgoGraph/issues"
+  },
+  "homepage": "https://github.com/ahmedhem/AlgoGraph#readme",
+  "devDependencies": {
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2"
+  }
+}

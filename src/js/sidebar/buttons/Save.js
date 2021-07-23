@@ -1,4 +1,4 @@
-import {graph} from "../../index.js";
+import {graph} from "../../../index.js";
 
 function convert_graph_into_text(graph) {
 

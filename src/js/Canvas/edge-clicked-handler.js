@@ -1,6 +1,6 @@
 import {edgePopup} from "./Pop-Up/edge-weights-pop-up.js";
 import {GraphPoint} from "./Graph.js";
-import {graph} from "../index.js";
+import {graph} from "../../index.js";
 
 export function point_in_canvas(a_canvas, e) {
     let the_canvas = a_canvas.getBoundingClientRect();

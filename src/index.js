@@ -1,5 +1,5 @@
-import {Graph} from "./Canvas/Graph.js";
-import {drawUI} from "./functions.js";
+import {Graph} from "./js/Canvas/Graph.js";
+import {drawUI} from "./js/functions.js";
 
 //...Initializing the UI and the Canvas variables
 export const the_canvas = document.getElementById('main_canvas');

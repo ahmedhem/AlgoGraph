@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/ahmedhem/AlgoGraph">
-    <img src="./assets/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">AlgoGraph</h3>
@@ -64,7 +64,7 @@ challenge and opportunity to enhance our skills and to gain some new experience.
       Supports drawing nodes and connecting them with edges.
       </summary>
 
-      ![](./assets/Tutorials/add%20nodes,%20edges%20,and%20you%20can%20also%20view%20edge%60s%20info.gif)
+      ![](src/assets/Tutorials/add%20nodes,%20edges%20,and%20you%20can%20also%20view%20edge%60s%20info.gif)
 
       </details>
 
@@ -73,7 +73,7 @@ challenge and opportunity to enhance our skills and to gain some new experience.
       Supports all types of graphs (Weighted, unweighted, directed, and undirected)
       </summary>
 
-      - ![](./assets/Tutorials/)
+      - ![](src/assets/Tutorials/)
 
       </details>
 
@@ -87,7 +87,7 @@ challenge and opportunity to enhance our skills and to gain some new experience.
       Moving and Deletion
       </summary>
 
-      - ![](./assets/Tutorials/)
+      - ![](src/assets/Tutorials/)
 
       </details>
 
@@ -96,7 +96,7 @@ challenge and opportunity to enhance our skills and to gain some new experience.
       Change size and color
       </summary>
 
-      - ![](./assets/Tutorials/)
+      - ![](src/assets/Tutorials/)
 
       </details>
 

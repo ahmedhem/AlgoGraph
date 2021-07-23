@@ -1,4 +1,4 @@
-import {graph} from "./index.js";
+import {graph} from "../index.js";
 import {pair} from "./Canvas/Pair.js";
 import modal from "./Canvas/Pop-Up/Modal.js";
 /*

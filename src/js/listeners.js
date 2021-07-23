@@ -1,7 +1,7 @@
 import {point_in_canvas, edgeClicked} from "./Canvas/edge-clicked-handler.js"
-import {the_canvas} from "./index.js";
+import {the_canvas} from "../index.js";
 import {isPointInNode, toggleNode} from "./functions.js";
-import {graph} from "./index.js";
+import {graph} from "../index.js";
 import {GraphPoint} from "./Canvas/Graph.js";
 import {changeNodeColor, toggleColorPicker} from "./sidebar/buttons/color-picker.js";
 import {deleteElements} from "./sidebar/buttons/Delete.js";
