@@ -7,6 +7,7 @@ import {changeNodeColor, toggleColorPicker} from "./sidebar/buttons/color-picker
 import {deleteElements} from "./sidebar/buttons/Delete.js";
 import {DrawAsTree} from "./Algorithms/Draw-as-tree.js";
 import {startMoveMode, stopMovingMode, updateNodePosition, DeleteContextMenuNode, toggleMenu, position_menu} from "./Canvas/ContextMenu/conterxt-menu.js";
+import {UI} from "./UI";
 //...listen to the canvas and handle clicks
 const canvas = document.getElementById('main_canvas');
 

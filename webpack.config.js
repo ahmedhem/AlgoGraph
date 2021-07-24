@@ -27,7 +27,9 @@ module.exports = ({mode, presets} = {mode: "production", presets: []}) => {
                 filename: "bundle.js"
             },
             plugins: [
-                new HtmlWebpackPlugin(),
+                new HtmlWebpackPlugin({
+                    template: 'src/index.html'
+                }),
                 new webpack.ProgressPlugin(),
                 new CompressionWebpackPlugin()
             ]
