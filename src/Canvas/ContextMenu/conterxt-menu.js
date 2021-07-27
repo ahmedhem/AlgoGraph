@@ -1,6 +1,7 @@
 import {point_in_canvas} from "../edge-clicked-handler.js";
 import {deleteElements} from "../../sidebar/buttons/Delete.js";
 import {pair} from "../Pair.js";
+import {UI} from "../../UI";
 
 // functions for the context menu for nodes
 export function toggleMenu() {
