@@ -1,3 +1,5 @@
+import {UI} from "../UI";
+//checked
 export class GraphPoint {
     constructor(x, y) {
         this.x = x;

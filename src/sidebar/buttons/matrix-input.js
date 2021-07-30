@@ -2,6 +2,7 @@ import modal from "../../Canvas/Pop-Up/Modal.js";
 import {updateCanvas} from "./Clear.js";
 import {graph} from "../../index.js";
 import {GraphPoint} from "../../Canvas/Graph.js";
+import {UI} from "../../UI";
 
 
 
@@ -94,7 +95,7 @@ const create_table = (n) => {
     document.querySelector('#draw_matrix').style.display = 'block';
 }
 
-const draw_graph_from_matrix = () => {
+export const draw_graph_from_matrix = () => {
     // clear the canvas
     updateCanvas(UI.canvas);
 

@@ -2,6 +2,7 @@ import modal from "../../Canvas/Pop-Up/Modal.js";
 import {updateCanvas} from "./Clear.js";
 import {graph} from "../../index.js";
 import {GraphPoint} from "../../Canvas/Graph.js";
+import {UI} from "../../UI";
 
 function add_content() {
     // add the html

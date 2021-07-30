@@ -1,4 +1,5 @@
 import {graph} from "../../index.js";
+import {UI} from "../../UI";
 
 function convert_graph_into_text(graph) {
 

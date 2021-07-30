@@ -1,4 +1,6 @@
-function drawNode(ctx, node, num, color = null, size , isReady =null) {
+import {UI} from "../UI"
+
+export function drawNode(ctx, node, num, color = null, size , isReady =null) {
     const x = node.position.x, y = node.position.y;
     ctx.beginPath();
 
@@ -23,12 +25,12 @@ function drawNode(ctx, node, num, color = null, size , isReady =null) {
 
 }
 
-function getDist(x, y, x1, y1) {
+export function getDist(x, y, x1, y1) {
     return Math.sqrt((x1 - x) * (x1 - x) + (y1 - y) * (y1 - y));
 }
 
 
-function getCorrectPoints(x, y, x1, y1, size) {
+export function getCorrectPoints(x, y, x1, y1, size) {
     let d = getDist(x, y, x1, y1);
     let t = size / d, t1 = (d - size) / d;
     let xt = (1 - t) * x + t * x1,
@@ -38,11 +40,11 @@ function getCorrectPoints(x, y, x1, y1, size) {
     return [xt, yt, x1t, y1t];
 }
 
-function checkIfOppEdgeExist(node1, node2) {
+export function checkIfOppEdgeExist(node1, node2) {
     return node2.getEdge(node1.number);
 }
 
-function drawEdge(ctx, node1, node2, width = null, size) {
+export function drawEdge(ctx, node1, node2, width = null, size) {
     ctx.strokeStyle =  "#000";
 
     const x = node1.position.x, y = node1.position.y,

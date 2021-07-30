@@ -1,5 +1,8 @@
 import {graph} from "../index.js";
 import {the_canvas} from "../index.js";
+import {UI} from "../UI";
+import {getDist} from "../Canvas/canvasFunctions";
+
 //READ that First
 /*
  -every node has a distance equal to 15 between any adjancent node

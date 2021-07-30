@@ -1,6 +1,7 @@
 import {the_canvas} from "../../index.js";
 import {pair} from "../../Canvas/Pair.js";
 import {graph} from "../../index.js";
+import {UI} from "../../UI";
 
 // the delete button style
 const deleteButton = document.querySelector('.delete');
