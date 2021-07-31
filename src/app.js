@@ -18,3 +18,9 @@ import * as q from "./Canvas/Pop-Up/Modal";
 import * as r from "./sidebar/buttons/matrix-input";
 import * as s from "./sidebar/buttons/textInput";
 import * as t from "./Canvas/Pop-Up/weighted-edge-input-pop-up";
+
+
+// the css files
+import './css/index.css'
+import './css/toolbox.css'
+import './css/tooltip.css'

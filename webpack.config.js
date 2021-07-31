@@ -7,35 +7,42 @@ const CompressionWebpackPlugin = require("compression-webpack-plugin");
 module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   return merge(
     {
-      devtool: "source-map",
       mode,
+      devtool: "source-map",
+      entry: "./src/app.js",
+      output: {
+        filename: "bundle.js"
+      },
       module: {
         rules: [
+          {
+            test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"]
+          },
           {
             test: /\.png$|\.svg$/,
             use: [
               {
                 loader: "url-loader",
                 options: {
-                  limit: 5000,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      entry: "./src/app.js",
-      output: {
-        filename: "bundle.js",
+                  limit: 5000
+                }
+              }
+            ]
+          }
+        ]
       },
       plugins: [
         new HtmlWebpackPlugin({
           template: "src/index.html",
-          inject: "body",
+          inject: "body"
         }),
         new webpack.ProgressPlugin(),
-        new CompressionWebpackPlugin(),
+        new CompressionWebpackPlugin()
       ],
+      devServer: {
+        compress: true,
+        disableHostCheck: true
+      }
     },
     modeConfig(mode)
   );
