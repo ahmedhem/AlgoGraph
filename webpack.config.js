@@ -8,15 +8,17 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   return merge(
     {
       mode,
-      devtool: "source-map",
+      devtool: "eval-source-map",
       entry: "./src/app.js",
       output: {
-        filename: "bundle.js"
+        filename: "bundle.js",
       },
       module: {
         rules: [
           {
-            test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"]
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: ["babel-loader"],
           },
           {
             test: /\.png$|\.svg$/,
@@ -24,25 +26,25 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
               {
                 loader: "url-loader",
                 options: {
-                  limit: 5000
-                }
-              }
-            ]
-          }
-        ]
+                  limit: 5000,
+                },
+              },
+            ],
+          },
+        ],
       },
       plugins: [
         new HtmlWebpackPlugin({
           template: "src/index.html",
-          inject: "body"
+          inject: "body",
         }),
         new webpack.ProgressPlugin(),
-        new CompressionWebpackPlugin()
+        new CompressionWebpackPlugin(),
       ],
       devServer: {
         compress: true,
-        disableHostCheck: true
-      }
+        disableHostCheck: true,
+      },
     },
     modeConfig(mode)
   );

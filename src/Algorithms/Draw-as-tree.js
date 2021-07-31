@@ -1,5 +1,5 @@
-import { graph } from "../index.js";
-import { the_canvas } from "../index.js";
+import { graph, the_canvas } from "../index.js";
+
 import { UI } from "../UI";
 import { getDist } from "../Canvas/canvasFunctions";
 

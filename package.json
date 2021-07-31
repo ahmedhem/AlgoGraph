@@ -19,7 +19,7 @@
     "lint": "eslint --ignore-path ./.gitignore --fix \"./**/*.{js,ts}\"",
     "lint:check": "eslint --ignore-path ./.gitignore --quiet \"./**/*.{js,ts}\"",
     "test": "jest",
-    "start": "npm run server",
+    "start": "npm-run-all --parallel server lint format",
     "localtunnel": "lt --port 8080",
     "share": "npm-run-all --parallel start localtunnel",
     "babel": "babel src -o build/bundle.js"
@@ -46,6 +46,7 @@
     "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
+    "eslint-watch": "^7.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "jest": "^27.0.6",
