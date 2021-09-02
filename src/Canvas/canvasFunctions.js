@@ -44,7 +44,7 @@ export function checkIfOppEdgeExist(node1, node2) {
   return node2.getEdge(node1.number);
 }
 
-export function drawEdge(ctx, node1, node2, width = null, size) {
+export function drawEdge(ctx, node1, node2, size) {
   ctx.strokeStyle = "#000";
 
   const x = node1.position.x,
@@ -88,7 +88,6 @@ export function drawLineWithArrows(
   let w = 8;
   ctx.lineWidth = 1;
   if (size < 9) w = 6;
-  console.info(w);
   ctx.translate(x0, y0);
   ctx.rotate(angle);
   ctx.beginPath();

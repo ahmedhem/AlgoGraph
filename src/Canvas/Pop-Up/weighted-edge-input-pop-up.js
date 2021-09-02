@@ -19,7 +19,7 @@ export function openPopup() {
     }
   });
 
-  document.querySelector(".cancel").addEventListener("click", (e) => {
+  document.querySelector(".cancel").addEventListener("click", () => {
     let value = document.querySelector("#weight-input").value;
     handleWeightInput(value);
     document.querySelector("#weight-input").value = 1;

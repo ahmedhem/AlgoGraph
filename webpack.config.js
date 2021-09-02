@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const modeConfig = (env) => require(`./build-utils/webpack.${env}`)(env);
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
+module.exports = ({ mode } = { mode: "production", presets: [] }) => {
   return merge(
     {
       mode,

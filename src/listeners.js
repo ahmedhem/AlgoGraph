@@ -79,6 +79,6 @@ canvas.addEventListener("click", (e) => handleClick(the_canvas, e));
 // choosing between Directed and undirected edge
 const BFSAlgo = document.querySelector(".DrawAsTree");
 
-BFSAlgo.addEventListener("click", (e) => {
+BFSAlgo.addEventListener("click", () => {
   DrawAsTree();
 });

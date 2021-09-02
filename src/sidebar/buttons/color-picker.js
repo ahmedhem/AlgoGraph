@@ -25,6 +25,6 @@ export function changeNodeColor(node, color) {
   node.color = color;
   UI.fire();
 }
-colorPicker.addEventListener("click", (e) => {
+colorPicker.addEventListener("click", () => {
   toggleColorPicker();
 });
