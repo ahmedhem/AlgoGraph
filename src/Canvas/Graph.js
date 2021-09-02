@@ -172,4 +172,12 @@ export class Graph {
 
     return start.getEdge(end.number);
   }
+
+  // TODO implement deep copy for the Graph class
+  deep_copy() {
+    let new_graph = new Graph()
+    // copy data from old graph
+    return new_graph;
+  }
+
 }
