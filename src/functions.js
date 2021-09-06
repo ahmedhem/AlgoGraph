@@ -49,7 +49,7 @@ export let drawEdges = function (ctx) {
         graph.getNode(edge.start),
         graph.getNode(edge.end),
         null,
-        UI.nodeSize,
+        UI.nodeSize
       );
     }
   }

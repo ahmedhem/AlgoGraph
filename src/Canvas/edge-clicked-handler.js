@@ -32,7 +32,7 @@ const checkEdgeType = (edge) => {
 //...Calc. the distance between two points
 const distance = (point1, point2) => {
   return Math.sqrt(
-    Math.pow(point1.x - point2.x, 2) + Math.pow(point1.y - point2.y, 2),
+    Math.pow(point1.x - point2.x, 2) + Math.pow(point1.y - point2.y, 2)
   );
 };
 //...check if point is on a line
@@ -57,7 +57,7 @@ const pointOnEdge = (point, edge) => {
     start.position.y,
     end.position.x,
     end.position.y,
-    UI.nodeSize,
+    UI.nodeSize
   );
   start = new GraphPoint(startX, startY);
   end = new GraphPoint(endX, endY);

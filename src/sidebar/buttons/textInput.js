@@ -21,7 +21,7 @@ followed by E lines:
         <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
 </div>
         
-    `,
+    `
   );
 
   // draw the graph and close the modal window when the button is clicked
@@ -41,7 +41,7 @@ document.querySelector("#textarea-input").addEventListener("click", () => {
 
 function displayError(error) {
   document.querySelector(
-    "#textarea-errors",
+    "#textarea-errors"
   ).innerHTML = `<h3 style="color: red">${error}</h3>`;
 }
 
@@ -126,7 +126,7 @@ export const draw_graph_from_text = () => {
   // the number of lines should be at least number of edges + the first line
   if (lines.length !== edgesNum + 1)
     return displayError(
-      "the number of edge defined should be equaled to the edges count ",
+      "the number of edge defined should be equaled to the edges count "
     );
 
   draw_nodes_from_text(nodesNum);

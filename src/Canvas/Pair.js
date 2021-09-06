@@ -13,7 +13,7 @@ export let pair = {
       if (!UI.popupEdge)
         UI.popupEdge = new GraphEdge(
           this.nodes[0].number,
-          this.nodes[1].number,
+          this.nodes[1].number
         );
 
       /***check if weighted or un weighted ****/

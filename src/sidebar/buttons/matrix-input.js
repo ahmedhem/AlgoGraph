@@ -15,7 +15,7 @@ document.querySelector("#matrix-input").addEventListener("click", () => {
    </div>
    <div id="matrix-table"></div>
    <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>
-`,
+`
   );
 
   // draw the graph and close the matrix window when the button is clicked
@@ -105,7 +105,7 @@ export const draw_graph_from_matrix = () => {
   let y = 100;
   let count = 0;
   const nodes_count = document.querySelectorAll(
-    "#matrix-table tbody tr",
+    "#matrix-table tbody tr"
   ).length;
 
   for (let i = 1; i <= nodes_count; i++) {
@@ -123,7 +123,7 @@ export const draw_graph_from_matrix = () => {
 
   // get all the edges weights and draws them(inputs inside td)
   const table_cells = document.querySelectorAll(
-    "#matrix-table table tbody td input",
+    "#matrix-table table tbody td input"
   );
 
   for (const cell of table_cells) {
@@ -147,6 +147,6 @@ export const create_matrix = () => {
   if (is_valid_size(size)) create_table(size);
   else
     document.querySelector(
-      "#matrix-table",
+      "#matrix-table"
     ).innerHTML = `<h3 style="color: red">Enter a valid Size</h3>`;
 };

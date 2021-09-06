@@ -66,7 +66,7 @@ export function drawEdge(ctx, node1, node2, size) {
     size,
     UI.isDirected,
     checkIfOppEdgeExist(node1, node2),
-    size,
+    size
   );
 }
 
@@ -79,7 +79,7 @@ export function drawLineWithArrows(
   aLength,
   arrow,
   opp,
-  size,
+  size
 ) {
   let dx = x1 - x0;
   let dy = y1 - y0;

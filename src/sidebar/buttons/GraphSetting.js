@@ -18,7 +18,7 @@ weightedGraph.addEventListener("change", () => {
 });
 
 export const edge_direction = document.querySelector(
-  "#edge-direction[type=checkbox]",
+  "#edge-direction[type=checkbox]"
 );
 
 edge_direction.addEventListener("change", () => {

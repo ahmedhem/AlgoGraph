@@ -6,7 +6,7 @@ import { UI } from "../../UI";
 // the delete button style
 const deleteButton = document.querySelector(".delete");
 deleteButton.addEventListener("click", (e) =>
-  deleteClickedHandler(e, the_canvas),
+  deleteClickedHandler(e, the_canvas)
 );
 
 //-----------------

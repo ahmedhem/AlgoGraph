@@ -17,7 +17,7 @@ export function edgePopup(edge) {
     "Start Node",
     "End Node",
     ["header"],
-    ["header"],
+    ["header"]
   );
   addElements(
     theContainer,
@@ -26,7 +26,7 @@ export function edgePopup(edge) {
     edge.start,
     edge.end,
     ["edge-info"],
-    ["edge-info"],
+    ["edge-info"]
   );
   addElements(theContainer, "div", null, "Weights", null, ["header"], null);
 
@@ -41,7 +41,7 @@ export function edgePopup(edge) {
       "Delete Weight",
       ["edge-info"],
       ["edge-info", "removeEdgeBtn"],
-      edge,
+      edge
     );
   }
 
@@ -66,7 +66,7 @@ function addElements(
   rightText,
   leftClass,
   rightClass,
-  edge,
+  edge
 ) {
   let container = document.createElement("div");
   container.classList.add("edge");

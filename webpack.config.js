@@ -46,6 +46,6 @@ module.exports = ({ mode } = { mode: "production", presets: [] }) => {
         disableHostCheck: true,
       },
     },
-    modeConfig(mode),
+    modeConfig(mode)
   );
 };
