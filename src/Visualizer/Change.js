@@ -1,8 +1,8 @@
 class Change {
-  constructor(type, old_state, new_state) {
+  constructor(type, animation, action) {
     this.type = type; // edge or node
-    this.old_state = old_state; // the old color of the node
-    this.new_state = new_state; // the new color of the node
+    this.animation = animation; // to call the right function that handle the state
+    this.action = {}
   }
 }
 
