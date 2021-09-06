@@ -14,13 +14,13 @@ function add_content() {
                       placeholder="Enter the number of the nodes and edges on the first line
 [ex. N E]
 followed by E lines:
-    - In each line enter the starting node, ending node and optionally the weight (default value is 1)   
+    - In each line enter the starting node, ending node and optionally the weight (default value is 1)
         [ex. 1 2 4] or [1 2] >> will have weight of 1
 "></textarea>
 
         <button id="draw_graph_from_text" class="canvas_button" type="button">Draw Graph</button>
 </div>
-        
+
     `
   );
 
@@ -111,7 +111,7 @@ export const draw_graph_from_text = () => {
   const text = document.querySelector("#graph_text").value;
 
   // split the text into array of the lines
-  const lines = text.split(/\n/);
+  let lines = text.split(/\n/);
 
   // first line should have the 2 Integers
   let [nodesNum, edgesNum] = lines[0].split(" ");
@@ -122,6 +122,9 @@ export const draw_graph_from_text = () => {
   } catch (err) {
     return displayError("Enter valid number for the nodes and edges count");
   }
+
+  // filter out any empty lines
+  lines = lines.filter(line => line.length > 0)
 
   // the number of lines should be at least number of edges + the first line
   if (lines.length !== edgesNum + 1)

@@ -5,5 +5,14 @@
 
 ## AE
 - close the textarea issue
-- Graph.deep_copy()
+### Done
+- Graph.deep_copy() 
 - Change, undo, redo
+
+Change:
+- type >> node change or edge change
+- animation >> the type of the animation >> is it a swap a size change or... 
+to be able to choose the right function to call
+- old_state, and new_state >> objects that have different content based 
+on the type and the animation 
+(what have change in the animation and the info needed to reverse it )
