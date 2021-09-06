@@ -112,6 +112,8 @@ export const draw_graph_from_text = () => {
 
   // split the text into array of the lines
   let lines = text.split(/\n/);
+  // filter out any empty lines
+  lines = lines.filter(line => line.length > 0)
 
   // first line should have the 2 Integers
   let [nodesNum, edgesNum] = lines[0].split(" ");
@@ -122,9 +124,6 @@ export const draw_graph_from_text = () => {
   } catch (err) {
     return displayError("Enter valid number for the nodes and edges count");
   }
-
-  // filter out any empty lines
-  lines = lines.filter(line => line.length > 0)
 
   // the number of lines should be at least number of edges + the first line
   if (lines.length !== edgesNum + 1)
