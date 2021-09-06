@@ -1,65 +1,65 @@
 {
-    "name": "AlgoGraph",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "directories": {
-        "doc": "docs"
-    },
-    "scripts": {
-        "webpack": "webpack",
-        "debug": "node --inspect ./node_modules/webpack/bin/webpack.js",
-        "dev": "npm run webpack -- --env mode=development --watch",
-        "prod": "npm run webpack -- --env mode=production",
-        "dev:debug": "npm run debug -- --env mode=development",
-        "prod:debug": "npm run debug -- --env mode=production",
-        "server": "webpack serve --env mode=development --hot",
-        "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
-        "format:check": "prettier --ignore-path ./.gitignore --check \"./**/*.{html,json,js,ts,css}\"",
-        "lint": "eslint --ignore-path ./.gitignore  --fix \"./**/*.{js,ts}\"",
-        "lint:check": "eslint --ignore-path ./.gitignore  --quiet \"./**/*.{js,ts}\"",
-        "test": "jest",
-        "start": "npm-run-all --parallel server lint format",
-        "localtunnel": "lt --port 8080",
-        "share": "npm-run-all --parallel start localtunnel",
-        "babel": "babel src -o build/bundle.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ahmedhem/AlgoGraph.git"
-    },
-    "keywords": [],
-    "author": "Ahmed Eid",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ahmedhem/AlgoGraph/issues"
-    },
-    "homepage": "https://github.com/ahmedhem/AlgoGraph#readme",
-    "devDependencies": {
-        "@babel/cli": "^7.14.8",
-        "@babel/core": "^7.14.8",
-        "@babel/preset-env": "^7.14.8",
-        "@babel/register": "^7.14.5",
-        "babel-loader": "^8.2.2",
-        "compression-webpack-plugin": "^8.0.1",
-        "css-loader": "^6.2.0",
-        "eslint": "^7.31.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.23.4",
-        "eslint-watch": "^7.0.0",
-        "file-loader": "^6.2.0",
-        "html-webpack-plugin": "^5.3.2",
-        "jest": "^27.0.6",
-        "mini-css-extract-plugin": "^2.1.0",
-        "prettier": "^2.3.2",
-        "style-loader": "^3.2.1",
-        "url-loader": "^4.1.1",
-        "webpack": "^5.46.0",
-        "webpack-cli": "^4.7.2",
-        "webpack-dev-server": "^3.11.2",
-        "webpack-merge": "^5.8.0"
-    },
-    "dependencies": {
-        "npm-run-all": "^4.1.5"
-    }
+  "name": "AlgoGraph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "webpack": "webpack",
+    "debug": "node --inspect ./node_modules/webpack/bin/webpack.js",
+    "dev": "npm run webpack -- --env mode=development --watch",
+    "prod": "npm run webpack -- --env mode=production",
+    "dev:debug": "npm run debug -- --env mode=development",
+    "prod:debug": "npm run debug -- --env mode=production",
+    "server": "webpack serve --env mode=development --hot",
+    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
+    "format:check": "prettier --ignore-path ./.gitignore --check \"./**/*.{html,json,js,ts,css}\"",
+    "lint": "eslint --ignore-path ./.gitignore  --fix \"./**/*.{js,ts}\"",
+    "lint:check": "eslint --ignore-path ./.gitignore  --quiet \"./**/*.{js,ts}\"",
+    "test": "jest",
+    "start": "npm-run-all --parallel server lint format",
+    "localtunnel": "lt --port 8080",
+    "share": "npm-run-all --parallel start localtunnel",
+    "babel": "babel src -o build/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedhem/AlgoGraph.git"
+  },
+  "keywords": [],
+  "author": "Ahmed Eid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedhem/AlgoGraph/issues"
+  },
+  "homepage": "https://github.com/ahmedhem/AlgoGraph#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "compression-webpack-plugin": "^8.0.1",
+    "css-loader": "^6.2.0",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-watch": "^7.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
+    "mini-css-extract-plugin": "^2.1.0",
+    "prettier": "^2.3.2",
+    "style-loader": "^3.2.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }

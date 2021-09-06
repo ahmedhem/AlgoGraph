@@ -8,49 +8,49 @@ should be able to reverse any change it has caused
 */
 
 class Visualizer {
-    constructor(graph) {
-        this.graph = graph
-    }
-    //  state
-    changes = [] // Stack that have the last […] changes objects to be able to reverse them
-    RedoStack = [] // store the last […] changes that has been undone
-    animation_speed = [] // number
+  constructor(graph) {
+    this.graph = graph;
+  }
+  //  state
+  changes = []; // Stack that have the last […] changes objects to be able to reverse them
+  RedoStack = []; // store the last […] changes that has been undone
+  animation_speed = []; // number
 
-    //  methods
-    // Swap the position of 2 nodes
-    // TODO: implement swap_nodes
-    swap_nodes(node_1, node_2) {}
+  //  methods
+  // Swap the position of 2 nodes
+  // TODO: implement swap_nodes
+  swap_nodes(node_1, node_2) {}
 
-    // TODO: implement change_node_position
-    change_node_position(new_position) {}
+  // TODO: implement change_node_position
+  change_node_position(new_position) {}
 
-    // TODO: implement change_node_color
-    change_node_color(new_color) {}
+  // TODO: implement change_node_color
+  change_node_color(new_color) {}
 
-    // TODO: implement change_node_size
-    change_node_size(new_size) {}
+  // TODO: implement change_node_size
+  change_node_size(new_size) {}
 
-    // TODO: implement change_edge_color
-    change_edge_color(new_color) {}
+  // TODO: implement change_edge_color
+  change_edge_color(new_color) {}
 
-    // TODO: implement show_edge_weight
-    show_edge_weight(new_weight) {}
+  // TODO: implement show_edge_weight
+  show_edge_weight(new_weight) {}
 
-    // TODO implement set_animation_speed
-    set_animation_speed(number) {
-        // to change the animation speed
-    }
+  // TODO implement set_animation_speed
+  set_animation_speed(number) {
+    // to change the animation speed
+  }
 
-    // TODO implement undo
-    undo(Change) {
-        // If called without anything  reverse the last change
-        // If called with a particular change reverse it
-    }
+  // TODO implement undo
+  undo(Change) {
+    // If called without anything  reverse the last change
+    // If called with a particular change reverse it
+  }
 
-    // TODO implement undo
-    redo(Change) {
-        //  If called reapply the last change that has been undone
-    }
+  // TODO implement undo
+  redo(Change) {
+    //  If called reapply the last change that has been undone
+  }
 }
 
-export default Visualizer
+export default Visualizer;

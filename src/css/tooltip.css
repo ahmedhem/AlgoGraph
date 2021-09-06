@@ -1,46 +1,46 @@
 .tooltip {
-    position: relative;
-    right: 18px;
-    text-align: center;
-    background-color: #018786;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
-    line-height: 26px;
-    cursor: default;
+  position: relative;
+  right: 18px;
+  text-align: center;
+  background-color: #018786;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 26px;
+  cursor: default;
 }
 
 .tooltip:before {
-    content: '?';
-    font-weight: bold;
-    color: black;
+  content: "?";
+  font-weight: bold;
+  color: black;
 }
 
 .tooltip:hover {
-    background-color: white;
-    color: black;
-    cursor: pointer;
+  background-color: white;
+  color: black;
+  cursor: pointer;
 }
 
 /* animation */
 @-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.6);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
 
-    100% {
-        opacity: 100%;
-        transform: scale(1);
-    }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100%;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }

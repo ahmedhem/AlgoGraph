@@ -1,5 +1,5 @@
-import { pair } from '../../Canvas/Pair.js'
-import { UI } from '../../UI'
+import { pair } from "../../Canvas/Pair.js";
+import { UI } from "../../UI";
 
 /*
  - to change the color of node :
@@ -11,20 +11,20 @@ import { UI } from '../../UI'
 
  */
 
-let colorPicker = document.querySelector('.addColor')
+let colorPicker = document.querySelector(".addColor");
 
 export function toggleColorPicker() {
-    UI.nodePicked = !UI.nodePicked
-    colorPicker.style.backgroundColor = UI.nodePicked ? '#ef2626' : '#009879'
-    if (!UI.nodePicked) return
-    pair.nodes = []
-    UI.fire()
+  UI.nodePicked = !UI.nodePicked;
+  colorPicker.style.backgroundColor = UI.nodePicked ? "#ef2626" : "#009879";
+  if (!UI.nodePicked) return;
+  pair.nodes = [];
+  UI.fire();
 }
 
 export function changeNodeColor(node, color) {
-    node.color = color
-    UI.fire()
+  node.color = color;
+  UI.fire();
 }
-colorPicker.addEventListener('click', () => {
-    toggleColorPicker()
-})
+colorPicker.addEventListener("click", () => {
+  toggleColorPicker();
+});
