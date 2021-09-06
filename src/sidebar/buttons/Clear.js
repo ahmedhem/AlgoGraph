@@ -2,7 +2,7 @@ import { the_canvas, graph } from "../../index.js";
 
 import { pair } from "../../Canvas/Pair.js";
 //Clear Button
-document.querySelector(".clear").addEventListener("click", (e) => {
+document.querySelector(".clear").addEventListener("click", () => {
   updateCanvas(the_canvas);
 });
 

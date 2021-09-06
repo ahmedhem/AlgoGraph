@@ -23,6 +23,5 @@ export const edge_direction = document.querySelector(
 
 edge_direction.addEventListener("change", () => {
   UI.isDirected = !UI.isDirected;
-  console.log(UI.isDirected);
   UI.fire();
 });

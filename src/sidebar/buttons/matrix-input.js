@@ -14,7 +14,7 @@ document.querySelector("#matrix-input").addEventListener("click", () => {
         <button id="create-matrix" class="canvas_button" type="submit">Create Matrix</button>
    </div>
    <div id="matrix-table"></div>
-   <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>     
+   <button id="draw_matrix" class="canvas_button" type="button">Draw Graph</button>
 `
   );
 
@@ -107,7 +107,7 @@ export const draw_graph_from_matrix = () => {
   const nodes_count = document.querySelectorAll(
     "#matrix-table tbody tr"
   ).length;
-  console.log(nodes_count);
+
   for (let i = 1; i <= nodes_count; i++) {
     if (count <= 4) {
       x += 100;
@@ -134,7 +134,6 @@ export const draw_graph_from_matrix = () => {
       const id_data = cell.id.split("_");
       const start = id_data[1];
       const end = id_data[2];
-      console.log(start, end, weight);
       graph.addEdge(Number(start), Number(end), weight);
     }
   }

@@ -46,7 +46,6 @@ function save_graph_as_img() {
 
     return true;
   } catch (error) {
-    console.error("Could not download the img for some reason:", error);
     return false;
   }
 }
@@ -66,7 +65,6 @@ export function save_graph_as_txt() {
 
     return true;
   } catch (error) {
-    console.error("Could not download the text for some reason:", error);
     return false;
   }
 }
