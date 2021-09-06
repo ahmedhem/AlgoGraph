@@ -4,10 +4,10 @@
 - Visualizer >> node and edges methods
 
 ## AE
-- close the textarea issue
 ### Done
-- Graph.deep_copy() 
+- Graph.deep_copy()  
 - Change, undo, redo
+- close the textarea issue
 
 Change:
 - type >> node change or edge change
