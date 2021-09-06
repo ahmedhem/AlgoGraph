@@ -4,6 +4,9 @@
 - Visualizer >> node and edges methods
 
 ## AE
+### Future TODO:
+- change the undo + todo logic to the new Change desing
+
 ### Done
 - Graph.deep_copy()  
 - Change, undo, redo

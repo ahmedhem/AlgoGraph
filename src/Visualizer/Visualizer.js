@@ -55,6 +55,7 @@ class Visualizer {
 
     return change;
   }
+
   /**
    * reverse a change from a stack and reverse the other stack .
    * @param {array} popStack - The stack to pop the change from.
@@ -76,6 +77,7 @@ class Visualizer {
     // if you got the change from a stack >> create a reverse change and push it
     // to the other stack
     [change.old_state, change.new_state] = [change.new_state, change.old_state];
+
     pushStack.push(change);
   }
 
