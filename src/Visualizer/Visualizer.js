@@ -12,7 +12,7 @@ class Visualizer {
       this.graph = graph;
     }
 //  state
-  changes = []; // Stack that have the last […] changes objects to be able to reverse them
+   changes = []; // Stack that have the last […] changes objects to be able to reverse them
   RedoStack = []; // store the last […] changes that has been undone
   animation_speed = []; // number
 
