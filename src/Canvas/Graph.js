@@ -112,7 +112,7 @@ class GraphNode {
 
     newNode.color = this.color;
 
-    this.edges.forEach(edge => {
+    this.edges.forEach((edge) => {
       if (edge) newNode.edges.add(edge.deepCopy());
     });
 
