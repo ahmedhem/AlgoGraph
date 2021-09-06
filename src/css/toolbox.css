@@ -2,79 +2,79 @@
 default style
 *****/
 .toolbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 8vh;
-  /*border-right: 3px white solid;*/
-  transition: width 0.3s, height 0.3s;
-  transition-delay: 0s, 0.5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 8vh;
+    /*border-right: 3px white solid;*/
+    transition: width 0.3s, height 0.3s;
+    transition-delay: 0s, 0.5s;
 
-  background-color: #fff;
-  border-radius: 5px 0 0 5px;
-  /*box-shadow: 5px 5px 10px;*/
+    background-color: #fff;
+    border-radius: 5px 0 0 5px;
+    /*box-shadow: 5px 5px 10px;*/
 
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .toolbox .toggle {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 8vh;
-  transition: 0.5s;
-  background-color: #009879;
-  cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8vh;
+    transition: 0.5s;
+    background-color: #009879;
+    cursor: pointer;
 }
 
 /****
 insert the + in the toggler
 ****/
 .toolbox .toggle::before {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  content: "+";
-  font-size: 2em;
-  width: 50px;
-  height: 8vh;
-  transition: 0.3s;
-  color: #fff;
-  font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: '+';
+    font-size: 2em;
+    width: 50px;
+    height: 8vh;
+    transition: 0.3s;
+    color: #fff;
+    font-weight: 400;
 }
 
 /*****
 the open sidebar style
 *****/
 .toolbox.active_toolbox {
-  width: 20%;
-  height: 100%;
-  transition: height 0.3s, width 0.3s;
-  transition-delay: 0s, 0.5s;
-  overflow-y: scroll;
-  overflow-x: scroll;
+    width: 20%;
+    height: 100%;
+    transition: height 0.3s, width 0.3s;
+    transition-delay: 0s, 0.5s;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 /* Hide scrollbar */
 .toolbox.active_toolbox::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .toolbox.active_toolbox {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /****
 the sidebar toggler style when opened
 ****/
 .toolbox .toggle.active_toolbox {
-  background-color: #018786;
+    background-color: #018786;
 }
 
 .toolbox .toggle.active_toolbox::before {
-  transform: rotate(315deg);
+    transform: rotate(315deg);
 }
 
 /*****
@@ -83,57 +83,57 @@ the sidebar elements style
 
 /********/
 .toolbox ul {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  padding: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 0;
 }
 
 /********/
 .toolbox ul li {
-  font-weight: bold;
-  list-style: none;
-  width: 100%;
-  padding: 5px;
-  display: flex;
-  text-decoration: none;
-  color: darkslategrey;
-  align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-  font-size: 16px;
-  font-family: Calibri;
+    font-weight: bold;
+    list-style: none;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    text-decoration: none;
+    color: darkslategrey;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    font-family: Calibri;
 }
 
 .toolbox ul li:hover {
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  background-color: #009879;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    background-color: #009879;
 }
 
 /********/
 .group-icon img {
-  height: 20px;
+    height: 20px;
 }
 
 .group-icon {
-  /*display: inline-block;*/
-  min-width: 15px;
-  height: 15px;
-  text-align: center;
-  line-height: 15px;
+    /*display: inline-block;*/
+    min-width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
 }
 
 /************/
 .toolbox ul li .icon img {
-  height: 27px;
+    height: 27px;
 }
 
 .toolbox ul li .icon {
-  display: block;
-  min-width: 30px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
 }
 
 /*.toolbox ul li .icon:hover {*/
@@ -143,78 +143,78 @@ the sidebar elements style
 
 /********/
 .toolbox ul li .title {
-  display: block;
-  padding: 0 10px;
-  line-height: 50px;
-  text-align: start;
-  white-space: nowrap;
-  flex-grow: 1;
+    display: block;
+    padding: 0 10px;
+    line-height: 50px;
+    text-align: start;
+    white-space: nowrap;
+    flex-grow: 1;
 }
 
 .color-picker {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .color-picker .addColor {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 /****
 the sidebar space
 ****/
 .sidebar-open-space {
-  display: grid;
-  grid-template-columns: 20% 80%;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 
 /*****
 the save buttons
 *****/
 .save button {
-  display: inline-block;
-  color: darkslategrey;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 5px;
+    display: inline-block;
+    color: darkslategrey;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .save button:hover {
-  color: white;
-  background-color: #4caf50;
-  cursor: pointer;
+    color: white;
+    background-color: #4caf50;
+    cursor: pointer;
 }
 
 /***************/
 .toolbox-group {
-  margin: 10px;
-  user-select: none;
+    margin: 10px;
+    user-select: none;
 }
 
 .toolbox-group-header:hover {
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  background-color: #009879;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    background-color: #009879;
 }
 
 .toolbox-group-header {
-  padding: 8% 8% 8% 0;
-  /*display: block;*/
-  font-size: 19px;
-  font-family: Calibri;
-  font-weight: bolder;
-  text-align: left;
-  align-items: center;
+    padding: 8% 8% 8% 0;
+    /*display: block;*/
+    font-size: 19px;
+    font-family: Calibri;
+    font-weight: bolder;
+    text-align: left;
+    align-items: center;
 }
 
 summary span {
-  margin-left: 8px;
-  margin-right: 8px;
-  /*width: 30%;*/
+    margin-left: 8px;
+    margin-right: 8px;
+    /*width: 30%;*/
 }
 
 summary .group-icon {
-  padding-top: 16px;
-  /*width: 80%;*/
+    padding-top: 16px;
+    /*width: 80%;*/
 }
