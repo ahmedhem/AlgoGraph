@@ -1,9 +1,14 @@
 import { UI } from "../UI";
+
 //checked
 export class GraphPoint {
   constructor(x, y) {
     this.x = x;
     this.y = y;
+  }
+
+  deepCopy() {
+    return new GraphPoint(this.x, this.y);
   }
 }
 
@@ -31,6 +36,16 @@ export class GraphEdge {
   toString() {
     const weights = [...this.weights].join(", ");
     return `from ${this.start} to  ${this.end} with weight {${weights}}`;
+  }
+
+  deepCopy() {
+    const newEdge = new GraphEdge(this.start, this.end);
+
+    this.weights.forEach((weight) => {
+      if (weight) newEdge.addWeight(weight);
+    });
+
+    return newEdge;
   }
 }
 
@@ -84,18 +99,24 @@ class GraphNode {
     return edge;
   }
 
-  //...remove all the edges between two nodes
-  removeConnection(endNode) {
-    this.removeEdge(endNode);
-    endNode.removeEdge(this);
-  }
-
   equals(otherNode) {
     return this.number === otherNode.number;
   }
 
   toString() {
     return this.number;
+  }
+
+  deepCopy() {
+    const newNode = new GraphNode(this.position.deepCopy(), this.number);
+
+    newNode.color = this.color;
+
+    this.edges.forEach(edge => {
+      if (edge) newNode.edges.add(edge.deepCopy());
+    });
+
+    return newNode;
   }
 }
 
@@ -107,7 +128,7 @@ export class Graph {
   }
 
   addNode(position) {
-    let nodeNumber = null;
+    let nodeNumber;
     if (this.availableNum.length !== 0) {
       nodeNumber = this.availableNum[0];
       this.availableNum.splice(0, 1);
@@ -173,10 +194,16 @@ export class Graph {
     return start.getEdge(end.number);
   }
 
-  // TODO implement deep copy for the Graph class
-  deep_copy() {
-    let new_graph = new Graph();
-    // copy data from old graph
-    return new_graph;
+  deepCopy() {
+    let newGraph = new Graph();
+
+    this.nodes.forEach((node) => {
+      if (node) newGraph.nodes.add(node.deepCopy());
+    });
+
+    newGraph.nodeCount = this.nodeCount;
+    newGraph.availableNum = [...this.availableNum];
+
+    return newGraph;
   }
 }
