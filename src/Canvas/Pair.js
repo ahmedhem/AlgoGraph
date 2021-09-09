@@ -1,4 +1,4 @@
-import { openPopup } from "./Pop-Up/weighted-edge-input-pop-up.js";
+import { openWeightPopup } from "./Pop-Up/weighted-edge-input-pop-up.js";
 import { graph } from "../index.js";
 import { GraphEdge } from "./Graph.js";
 import { UI } from "../UI";
@@ -17,7 +17,7 @@ export let pair = {
         );
 
       /***check if weighted or un weighted ****/
-      if (UI.isWighted) openPopup();
+      if (UI.isWighted) openWeightPopup();
       else {
         graph.addEdge(this.nodes[0].number, this.nodes[1].number);
         if (!UI.isDirected)

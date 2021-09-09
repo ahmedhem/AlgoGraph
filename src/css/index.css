@@ -235,33 +235,39 @@ the canvas style
 }
 
 /************
-The Weight Popup
+The  Popups
 ************/
-.weight-container {
+#root-pickup-error{
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+.weight-container,.root-pickup-container {
   width: 95%;
   display: flex;
   flex-direction: column;
 }
 
-#weight-input-text {
+#weight-input-text,#root-pickup-input-text {
   /*padding: 0 45%;*/
   font-weight: bolder;
   text-align: center;
 }
 
-.weight-container input[type="number"] {
+.weight-container,.root-pickup-container input[type="number"] {
   width: 96%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: 3px solid #009879;
 }
 
-.weight-container input[type="number"]:focus {
+.weight-container,.root-pickup-container input[type="number"]:focus {
   background-color: white;
   outline: none;
 }
 
-.weight-container button {
+.weight-container,.root-pickup-container button {
   background-color: #009879;
   color: white;
   opacity: 1;
@@ -271,7 +277,7 @@ The Weight Popup
   margin-bottom: 10px;
 }
 
-.weight-container button:hover {
+.weight-container,.root-pickup-container button:hover {
   opacity: 0.8;
 }
 
