@@ -3,7 +3,7 @@
  * change = new Change(type=NODE.CHANGE, )
  * type = "NODE_CHANGE"
  *
-*/
+ */
 
 export const NODE = {
   CHANGE: "NODE_CHANGE",
@@ -20,5 +20,6 @@ export const EDGE = {
   ANIMATIONS: {
     EDGE_COLOR_CHANGE: "COLOR_CHANGE",
     EDGE_WEIGHT_DISPLAY: "WEIGHT_DISPLAY",
+    EDGE_WEIGHT_CHANGE: "EDGE_WEIGHT_CHANGE",
   },
 };

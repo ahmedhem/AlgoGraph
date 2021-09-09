@@ -10,6 +10,7 @@ const ChangesHandler = {
   },
   [EDGE.CHANGE]: {
     [EDGE.ANIMATIONS.EDGE_COLOR_CHANGE]: "",
+    [EDGE.ANIMATIONS.EDGE_WEIGHT_CHANGE]: "",
     [EDGE.ANIMATIONS.EDGE_WEIGHT_DISPLAY]: "",
   },
 };

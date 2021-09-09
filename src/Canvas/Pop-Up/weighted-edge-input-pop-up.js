@@ -1,7 +1,7 @@
 import modal from "./Modal.js";
 import { handleWeightInput } from "../../functions.js";
 
-export function openPopup() {
+export function openWeightPopup() {
   modal.insert_content(`
         <div class="weight-container">
             <span id="weight-input-text">Want to Add a weight?</span>

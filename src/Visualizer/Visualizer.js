@@ -8,6 +8,8 @@ should be able to reverse any change it has caused
 */
 
 import ChangesHandler from "./ChangesHandler";
+import { displayWeight, drawEdge } from "../Canvas/canvasFunctions";
+import { UI } from "../UI";
 
 class Visualizer {
   constructor(graph) {
@@ -18,26 +20,56 @@ class Visualizer {
     this.animation_speed = -1; // number
   }
 
-  //  methods
-  // Swap the position of 2 nodes
-  // TODO: implement swap_nodes
-  swap_nodes(node_1, node_2) {}
+  swap_nodes(swapChange) {
+    let firstNode = swapChange.node1;
+    let secondNode = swapChange.node2;
+    [firstNode.position, secondNode.position] = [
+      secondNode.position,
+      firstNode.position,
+    ];
+  }
 
-  // TODO: implement change_node_position
-  change_node_position(new_position) {}
+  change_node_position(new_position) {
+    let Node = new_position.node;
+    Node.position = new_position.position;
+  }
 
-  // TODO: implement change_node_color
-  change_node_color(new_color) {}
+  change_node_color(new_color) {
+    let Node = new_color.node;
+    Node.color = new_color.color;
+  }
 
-  // TODO: implement change_node_size
-  change_node_size(new_size) {}
+  change_node_size(new_size) {
+    let Node = new_size.node;
+    Node.size = new_size.size;
+  }
 
-  // TODO: implement change_edge_color
-  change_edge_color(new_color) {}
+  change_edge_color(new_color) {
+    let edge = new_color.node;
+    edge.color = new_color.color;
+  }
 
-  // TODO: implement show_edge_weight
-  show_edge_weight(new_weight) {}
-
+  change_edge_weight(weight) {
+    let edge = weight.edge;
+    let new_weight = weight.newWeight;
+    let old_weight = weight.oldWeight;
+    for (let w of edge.weight) {
+      if (w === old_weight) {
+        w = new_weight;
+        break;
+      }
+    }
+  }
+  show_edge_weight(show_weight) {
+    let edge = show_weight.edge;
+    let weight = show_weight.newWeight;
+    for (let w of edge.weight) {
+      if (w === weight) {
+        displayWeight(UI.ctx, edge, weight);
+        break;
+      }
+    }
+  }
   // TODO implement set_animation_speed
   set_animation_speed(number) {
     // to change the animation speed
@@ -49,9 +81,10 @@ class Visualizer {
    */
   reverseChange(change) {
     const reverseAnimationFunc = ChangesHandler[change.type][change.animation];
-    reverseAnimationFunc(change)
-
-    [change.old_state, change.new_state] = [change.new_state, change.old_state];
+    reverseAnimationFunc(change)[(change.old_state, change.new_state)] = [
+      change.new_state,
+      change.old_state,
+    ];
 
     return change;
   }
@@ -72,11 +105,11 @@ class Visualizer {
     }
 
     const reverseAnimationFunc = ChangesHandler[change.type][change.animation];
-    reverseAnimationFunc(change)
-
-    // if you got the change from a stack >> create a reverse change and push it
-    // to the other stack
-    [change.old_state, change.new_state] = [change.new_state, change.old_state];
+    reverseAnimationFunc(change)[
+      // if you got the change from a stack >> create a reverse change and push it
+      // to the other stack
+      (change.old_state, change.new_state)
+    ] = [change.new_state, change.old_state];
 
     pushStack.push(change);
   }
@@ -96,7 +129,6 @@ class Visualizer {
   redo() {
     this.reverseChangeFromStack(this.RedoStack, this.changes);
   }
-
 }
 
 export default Visualizer;

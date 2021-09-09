@@ -18,6 +18,8 @@ import {
   position_menu,
 } from "./Canvas/ContextMenu/conterxt-menu.js";
 import { UI } from "./UI";
+import { openRootPopup } from "./Canvas/Pop-Up/rootPickUp";
+import modal from "./Canvas/Pop-Up/Modal";
 //...listen to the canvas and handle clicks
 const canvas = document.getElementById("main_canvas");
 
@@ -44,7 +46,10 @@ function handleClick(a_canvas, e) {
   } else {
     // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
     if (!UI.delete)
-      graph.addNode(new GraphPoint(clickedPoint.x, clickedPoint.y));
+      graph.addNode(
+        new GraphPoint(clickedPoint.x, clickedPoint.y),
+        UI.nodeSize
+      );
   }
 }
 
@@ -80,5 +85,5 @@ canvas.addEventListener("click", (e) => handleClick(the_canvas, e));
 const BFSAlgo = document.querySelector(".DrawAsTree");
 
 BFSAlgo.addEventListener("click", () => {
-  DrawAsTree();
+  openRootPopup();
 });

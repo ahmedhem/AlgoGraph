@@ -1,5 +1,5 @@
 ## AM
-## from last sprint
+## from last sprint (Done)
 - asking the user to choose a root for the tree (Algorithms: Draw-as-tree.js)
 - Visualizer >> node and edges methods
 

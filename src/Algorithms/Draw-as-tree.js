@@ -62,21 +62,22 @@ function setPosition(u, v, dep, blocks) {
   v.position.y = y;
 }
 
-export function DrawAsTree() {
+export function DrawAsTree(rootNode) {
   // vis is the visited array which define if the node visited or not
   let queue = [],
     vis = new Array(graph.nodeCount + 1);
   vis.fill(0);
 
-  let root = graph.getNode(1);
+  let root = graph.getNode(parseInt(rootNode));
+  console.log(root);
   queue.push(root);
-  vis[1] = 1;
+  vis[parseInt(rootNode)] = 1;
   // depth counter and number of node in each depth , intially in first depth there is only one node which is root
   let dep = 1,
     sizeOfDepth = 1;
   setXRootPosition(root);
   root.position.y = dep * (UI.nodeSize + 5) * 2;
-  while (queue.length != 0) {
+  while (queue.length !== 0) {
     // imagine that we have matrix of size n*m which we will place the grapth in that matrix as every cell has one node
     // blocks array  define the row with  size of maxNode possible and say if the cell has ocupped or not
     let blocks = new Array(mxNodes + 1).fill(0);
