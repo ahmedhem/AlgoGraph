@@ -41,7 +41,8 @@ class Visualizer {
 
   change_node_size(new_size) {
     let Node = new_size.node;
-    Node.size = new_size.size;
+    Node.size = new_size.size
+
   }
 
   change_edge_color(new_color) {
