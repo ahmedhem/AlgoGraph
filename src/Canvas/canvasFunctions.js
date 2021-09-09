@@ -1,4 +1,5 @@
 import { UI } from "../UI";
+import { graph } from "../index";
 
 export function drawNode(ctx, node, num, color = null, size, isReady = null) {
   const x = node.position.x,
@@ -43,20 +44,48 @@ export function getCorrectPoints(x, y, x1, y1, size) {
 export function checkIfOppEdgeExist(node1, node2) {
   return node2.getEdge(node1.number);
 }
+export function displayWeight(ctx, edge, desiredWeight){
 
-export function drawEdge(ctx, node1, node2, size) {
-  ctx.strokeStyle = "#000";
+  const x = graph.getNode(edge.start).position.x,
+    y = graph.getNode(edge.start).position.y,
+    x1 = graph.getNode(edge.end).position.x,
+    y1 = graph.getNode(edge.end).position.y;
+    let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
+  drawWeight(ctx,points,desiredWeight);
+
+}
+function drawWeight(ctx,points,weight){
+  ctx.beginPath();
+  ctx.lineWidth = "18";
+  ctx.rect((points[0] + points[2])/2, (points[1] + points[3])/2, 8, 8);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+
+  ctx.font = "13px arial";
+  ctx.fillStyle = "#fff";
+  ctx.textAlign = "center";
+
+  ctx.fillText(weight, (points[0] + points[2])/2 + 3, (points[1] + points[3])/2 + 3);
+  ctx.fillStyle = "#111";
+  ctx.closePath();
+
+}
+export function drawEdge(ctx, node1, node2, size,color=null) {
+  ctx.strokeStyle = color?color:"#3f3a3a";
 
   const x = node1.position.x,
     y = node1.position.y,
     x1 = node2.position.x,
     y1 = node2.position.y;
   let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
+  drawWeight(ctx,points,"455");
 
   let xt = points[0],
     yt = points[1],
     x1t = points[2],
     y1t = points[3];
+
   drawLineWithArrows(
     ctx,
     xt,
@@ -68,6 +97,8 @@ export function drawEdge(ctx, node1, node2, size) {
     checkIfOppEdgeExist(node1, node2),
     size
   );
+  ctx.closePath();
+
 }
 
 export function drawLineWithArrows(

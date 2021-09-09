@@ -1,4 +1,5 @@
 import { UI } from "../../UI";
+import { graph } from "../../index";
 
 const nodeSizeChange = document.querySelector(".nodeSize");
 
@@ -8,7 +9,10 @@ nodeSizeChange.addEventListener("change", (e) => {
   UI.nodeSize = parseInt(document.querySelector(".nodeSize").value);
   // change the label of the range input
   document.querySelector(".nodeSizeLabel").innerHTML = UI.nodeSize;
-  UI.fire();
+  for (let n of graph.nodes.keys()) {
+    n.size = UI.nodeSize;
+  }
+    UI.fire();
 });
 
 const weightedGraph = document.querySelector("#isWeighted[type=checkbox]");

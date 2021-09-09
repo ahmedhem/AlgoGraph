@@ -36,7 +36,7 @@ export function isPointInNode(x, y) {
 // (check after refactoring >>> done)
 export let drawNodes = function (ctx) {
   for (let node of graph.nodes.keys()) {
-    drawNode(ctx, node, node.number, node.color, UI.nodeSize);
+    drawNode(ctx, node, node.number, node.color, node.size);
   }
 };
 
@@ -49,7 +49,7 @@ export let drawEdges = function (ctx) {
         graph.getNode(edge.start),
         graph.getNode(edge.end),
         null,
-        UI.nodeSize
+        Math.min(graph.getNode(edge.start).size,graph.getNode(edge.end).size)
       );
     }
   }
@@ -57,10 +57,10 @@ export let drawEdges = function (ctx) {
 
 export let drawUI = function (canvas, ctx) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawNodes(ctx, UI.nodeSize);
+  drawNodes(ctx);
   drawEdges(ctx, UI.nodeSize);
   if (pair.nodes[0]) {
-    drawNode(ctx, pair.nodes[0], "", "green", UI.nodeSize, 1);
+    drawNode(ctx, pair.nodes[0], "", "green", pair.nodes[0].size, 1);
   }
 };
 
