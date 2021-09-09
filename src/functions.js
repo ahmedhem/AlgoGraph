@@ -49,7 +49,7 @@ export let drawEdges = function (ctx) {
         graph.getNode(edge.start),
         graph.getNode(edge.end),
         null,
-        Math.min(graph.getNode(edge.start).size,graph.getNode(edge.end).size)
+        Math.min(graph.getNode(edge.start).size, graph.getNode(edge.end).size)
       );
     }
   }

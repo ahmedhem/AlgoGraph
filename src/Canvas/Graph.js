@@ -13,7 +13,7 @@ export class GraphPoint {
 }
 
 export class GraphEdge {
-  constructor(startNodeNumber, endNodeNumber,color = "#000") {
+  constructor(startNodeNumber, endNodeNumber, color = "#000") {
     this.start = startNodeNumber;
     this.end = endNodeNumber;
     this.color = color;
@@ -51,7 +51,7 @@ export class GraphEdge {
 }
 
 class GraphNode {
-  constructor(position, nodeNumber,size) {
+  constructor(position, nodeNumber, size) {
     this.position = position;
     this.number = nodeNumber;
     this.color = "#000";
@@ -110,7 +110,11 @@ class GraphNode {
   }
 
   deepCopy() {
-    const newNode = new GraphNode(this.position.deepCopy(), this.number,this.size);
+    const newNode = new GraphNode(
+      this.position.deepCopy(),
+      this.number,
+      this.size
+    );
 
     newNode.color = this.color;
 
@@ -129,7 +133,7 @@ export class Graph {
     this.availableNum = [];
   }
 
-  addNode(position,size) {
+  addNode(position, size) {
     let nodeNumber;
     if (this.availableNum.length !== 0) {
       nodeNumber = this.availableNum[0];
@@ -137,7 +141,7 @@ export class Graph {
     } else {
       nodeNumber = this.nodeCount;
     }
-    const newNode = new GraphNode(position, nodeNumber,size);
+    const newNode = new GraphNode(position, nodeNumber, size);
     this.nodes.add(newNode);
     this.nodeCount++;
     UI.fire();

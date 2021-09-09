@@ -8,7 +8,8 @@ should be able to reverse any change it has caused
 */
 
 import ChangesHandler from "./ChangesHandler";
-import { drawEdge } from "../Canvas/canvasFunctions";
+import { displayWeight, drawEdge } from "../Canvas/canvasFunctions";
+import { UI } from "../UI";
 
 class Visualizer {
   constructor(graph) {
@@ -22,7 +23,10 @@ class Visualizer {
   swap_nodes(swapChange) {
     let firstNode = swapChange.node1;
     let secondNode = swapChange.node2;
-    [firstNode.position, secondNode.position] = [secondNode.position, firstNode.position];
+    [firstNode.position, secondNode.position] = [
+      secondNode.position,
+      firstNode.position,
+    ];
   }
 
   change_node_position(new_position) {
@@ -37,22 +41,20 @@ class Visualizer {
 
   change_node_size(new_size) {
     let Node = new_size.node;
-    Node.color = new_size.color;
-
+    Node.size = new_size.size;
   }
 
   change_edge_color(new_color) {
     let edge = new_color.node;
     edge.color = new_color.color;
-
   }
 
   change_edge_weight(weight) {
     let edge = weight.edge;
     let new_weight = weight.newWeight;
     let old_weight = weight.oldWeight;
-    for(let w of edge.weight){
-      if(w===old_weight){
+    for (let w of edge.weight) {
+      if (w === old_weight) {
         w = new_weight;
         break;
       }
@@ -61,9 +63,9 @@ class Visualizer {
   show_edge_weight(show_weight) {
     let edge = show_weight.edge;
     let weight = show_weight.newWeight;
-    for(let w of edge.weight){
-      if(w===weight){
-
+    for (let w of edge.weight) {
+      if (w === weight) {
+        displayWeight(UI.ctx, edge, weight);
         break;
       }
     }
@@ -79,9 +81,10 @@ class Visualizer {
    */
   reverseChange(change) {
     const reverseAnimationFunc = ChangesHandler[change.type][change.animation];
-    reverseAnimationFunc(change)
-
-    [change.old_state, change.new_state] = [change.new_state, change.old_state];
+    reverseAnimationFunc(change)[(change.old_state, change.new_state)] = [
+      change.new_state,
+      change.old_state,
+    ];
 
     return change;
   }
@@ -102,11 +105,11 @@ class Visualizer {
     }
 
     const reverseAnimationFunc = ChangesHandler[change.type][change.animation];
-    reverseAnimationFunc(change)
-
-    // if you got the change from a stack >> create a reverse change and push it
-    // to the other stack
-    [change.old_state, change.new_state] = [change.new_state, change.old_state];
+    reverseAnimationFunc(change)[
+      // if you got the change from a stack >> create a reverse change and push it
+      // to the other stack
+      (change.old_state, change.new_state)
+    ] = [change.new_state, change.old_state];
 
     pushStack.push(change);
   }
@@ -126,7 +129,6 @@ class Visualizer {
   redo() {
     this.reverseChangeFromStack(this.RedoStack, this.changes);
   }
-
 }
 
 export default Visualizer;

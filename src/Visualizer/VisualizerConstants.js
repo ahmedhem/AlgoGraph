@@ -3,7 +3,7 @@
  * change = new Change(type=NODE.CHANGE, )
  * type = "NODE_CHANGE"
  *
-*/
+ */
 
 export const NODE = {
   CHANGE: "NODE_CHANGE",

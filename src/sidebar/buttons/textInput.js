@@ -113,7 +113,7 @@ export const draw_graph_from_text = () => {
   // split the text into array of the lines
   let lines = text.split(/\n/);
   // filter out any empty lines
-  lines = lines.filter(line => line.length > 0)
+  lines = lines.filter((line) => line.length > 0);
 
   // first line should have the 2 Integers
   let [nodesNum, edgesNum] = lines[0].split(" ");

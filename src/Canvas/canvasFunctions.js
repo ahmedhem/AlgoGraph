@@ -44,42 +44,49 @@ export function getCorrectPoints(x, y, x1, y1, size) {
 export function checkIfOppEdgeExist(node1, node2) {
   return node2.getEdge(node1.number);
 }
-export function displayWeight(ctx, edge, desiredWeight){
-
+export function displayWeight(ctx, edge, desiredWeight) {
   const x = graph.getNode(edge.start).position.x,
     y = graph.getNode(edge.start).position.y,
     x1 = graph.getNode(edge.end).position.x,
     y1 = graph.getNode(edge.end).position.y;
-    let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
-  drawWeight(ctx,points,desiredWeight);
-
+  let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
+  drawWeight(ctx, points, desiredWeight);
 }
-function drawWeight(ctx,points,weight){
+function drawWeight(ctx, points, weight) {
   ctx.beginPath();
   ctx.lineWidth = "18";
-  ctx.rect((points[0] + points[2])/2, (points[1] + points[3])/2, 8, 8);
+  ctx.fillStyle = "white";
+
+  ctx.fillRect(
+    (points[0] + points[2]) / 2 - 15,
+    (points[1] + points[3]) / 2 - 15,
+    30,
+    30
+  );
   ctx.stroke();
   ctx.closePath();
   ctx.beginPath();
 
-  ctx.font = "13px arial";
-  ctx.fillStyle = "#fff";
-  ctx.textAlign = "center";
+  ctx.font = "16px arial";
+  ctx.fillStyle = "#111";
+  // ctx.textAlign = "center";
 
-  ctx.fillText(weight, (points[0] + points[2])/2 + 3, (points[1] + points[3])/2 + 3);
+  ctx.fillText(
+    weight,
+    (points[0] + points[2]) / 2,
+    (points[1] + points[3]) / 2
+  );
   ctx.fillStyle = "#111";
   ctx.closePath();
-
 }
-export function drawEdge(ctx, node1, node2, size,color=null) {
-  ctx.strokeStyle = color?color:"#3f3a3a";
+export function drawEdge(ctx, node1, node2, size, color = null) {
+  ctx.strokeStyle = color ? color : "#3f3a3a";
 
   const x = node1.position.x,
     y = node1.position.y,
     x1 = node2.position.x,
     y1 = node2.position.y;
   let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
-  drawWeight(ctx,points,"455");
 
   let xt = points[0],
     yt = points[1],
@@ -97,8 +104,9 @@ export function drawEdge(ctx, node1, node2, size,color=null) {
     checkIfOppEdgeExist(node1, node2),
     size
   );
-  ctx.closePath();
+  drawWeight(ctx, points, "455");
 
+  ctx.closePath();
 }
 
 export function drawLineWithArrows(

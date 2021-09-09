@@ -46,7 +46,10 @@ function handleClick(a_canvas, e) {
   } else {
     // will fire all the subscribed functions (ex. update UI >>> which use drawNode)
     if (!UI.delete)
-      graph.addNode(new GraphPoint(clickedPoint.x, clickedPoint.y),UI.nodeSize);
+      graph.addNode(
+        new GraphPoint(clickedPoint.x, clickedPoint.y),
+        UI.nodeSize
+      );
   }
 }
 

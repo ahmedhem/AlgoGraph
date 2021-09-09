@@ -12,7 +12,7 @@ nodeSizeChange.addEventListener("change", (e) => {
   for (let n of graph.nodes.keys()) {
     n.size = UI.nodeSize;
   }
-    UI.fire();
+  UI.fire();
 });
 
 const weightedGraph = document.querySelector("#isWeighted[type=checkbox]");

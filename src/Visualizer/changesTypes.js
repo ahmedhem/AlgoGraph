@@ -1,46 +1,46 @@
 import { displayWeight } from "../Canvas/canvasFunctions";
 import { ctx } from "../index";
+import { UI } from "../UI";
 
-class swapChange{
-  swapChange(node1, node2){
+class swapChange {
+  constructor(node1, node2) {
     this.node1 = node1;
     this.node2 = node2;
   }
 }
 
-class nodePositionChange{
-  nodePositionChange(node, position){
+class nodePositionChange {
+  constructor(node, position) {
     this.node = node;
     this.position = position;
   }
 }
 
-class nodeColorChange{
-  nodeSizeChange(node, size){
+class nodeColorChange {
+  constructor(node, color) {
     this.node = node;
-    this.size = size;
+    this.size = color;
   }
 }
 
-class edgeColorChange{
-  nodeSizeChange(edge, size){
+class edgeColorChange {
+  constructor(edge, color) {
     this.edge = edge;
-    this.size = size;
+    this.size = color;
   }
 }
 
-class edgeWeightChange{
-  nodeSizeChange(edge, oldWeight, newWeight){
+class edgeWeightChange {
+  constructor(edge, oldWeight, newWeight) {
     this.edge = edge;
     this.oldWeight = oldWeight;
     this.newWeight = newWeight;
   }
-}class show_weight{
-  nodeSizeChange(edge, weight){
-    this.edge = edge;
-    this.weight = weight;
-    displayWeight(ctx,edge,weight);
-  }
 }
 
-
+class show_weight {
+  constructor(edge, weight) {
+    this.edge = edge;
+    this.weight = weight;
+  }
+}
