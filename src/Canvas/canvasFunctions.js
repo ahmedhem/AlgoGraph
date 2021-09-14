@@ -86,7 +86,7 @@ export function drawEdge(ctx, node1, node2, size, color = null) {
     y = node1.position.y,
     x1 = node2.position.x,
     y1 = node2.position.y;
-  let points = getCorrectPoints(x, y, x1, y1, UI.nodeSize);
+  let points = getCorrectPoints(x, y, x1, y1, size);
 
   let xt = points[0],
     yt = points[1],
