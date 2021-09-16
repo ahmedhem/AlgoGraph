@@ -1,7 +1,7 @@
 ## AM
-- change_node_size
-- change_node_color
-- change_edge_weight
+- change_node_size(Done)
+- change_node_color 
+- change_edge_weight(Done)
 
 ## AE
 - swap_nodes

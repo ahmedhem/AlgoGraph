@@ -8,7 +8,15 @@ should be able to reverse any change it has caused
 */
 
 import ChangesHandler from "./ChangesHandler";
-import { displayWeight, drawEdge } from "../Canvas/canvasFunctions";
+import {
+  calcSlope,
+  displayWeight,
+  drawEdge,
+  DrawLine,
+  drawWeight, getCorrectPoints,
+  getDist,
+  tranlsate_point
+} from "../Canvas/canvasFunctions";
 import { UI } from "../UI";
 
 class Visualizer {
@@ -17,7 +25,7 @@ class Visualizer {
     //  state
     this.changes = []; // Stack that have the last […] changes objects to be able to reverse them
     this.RedoStack = []; // store the last […] changes that has been undone
-    this.animation_speed = -1; // number
+    this.animation_speed = -1;
   }
 
   swap_nodes(swapChange) {
@@ -42,7 +50,6 @@ class Visualizer {
   change_node_size(new_size) {
     let Node = new_size.node;
     Node.size = new_size.size
-
   }
 
   change_edge_color(new_color) {

@@ -55,7 +55,7 @@ export function displayWeight(ctx, edge, desiredWeight) {
   drawWeight(ctx, points, desiredWeight);
 }
 
-function drawWeight(ctx, pointStart, pointEnd, weight) {
+export function drawWeight(ctx, pointStart, pointEnd, weight) {
   ctx.beginPath();
   ctx.lineWidth = "18";
   ctx.fillStyle = "white";
@@ -83,8 +83,6 @@ function drawWeight(ctx, pointStart, pointEnd, weight) {
   ctx.fillStyle = "#111";
   ctx.closePath();
 }
-let cur = 0;
-let a,b,c,d;
 
 export function drawEdge(ctx, node1, node2, size, color = null) {
   ctx.strokeStyle = color ? color : "#3f3a3a";
@@ -94,21 +92,18 @@ export function drawEdge(ctx, node1, node2, size, color = null) {
     x1 = node2.position.x,
     y1 = node2.position.y;
   let points = getCorrectPoints(x, y, x1, y1, size);
-  cur = 0;
-  // console.log(points);
   let xt = points[0],
     yt = points[1],
     x1t = points[2],
     y1t = points[3];
-  [a,b,c,d] = [x1t, y1t, xt, yt];
   if (UI.isDirected && checkIfOppEdgeExist(node1, node2)) {
     DrawCurveLine(ctx, xt, yt, x1t, y1t, 1);
     DrawCurveLine(ctx, xt, yt, x1t, y1t, -1);
   } else {
     DrawLine(ctx, xt, yt, x1t, y1t);
   }
-
   ctx.stroke();
+
   ctx.closePath();
 }
 
@@ -156,43 +151,4 @@ export function line_arrow(ctx, fromx, fromy, tox, toy) {
   ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 4), toy - headlen * Math.sin(angle - Math.PI / 4));
   ctx.moveTo(tox, toy);
   ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 4), toy - headlen * Math.sin(angle + Math.PI / 4));
-}
-
-export function animateEdge() {
-  cur+=1;
-  if(cur>=getDist(a,b,c,d))return;
-  let slope = calcSlope(a,b,c,d);
-  console.log(cur);
-  let nextpoint = tranlsate_point(a,b, slope, cur, 1);
-  if(getDist(a,b,c,d) < getDist(c,d,nextpoint[0],nextpoint[1])){
-    nextpoint = tranlsate_point(a, b, slope, cur, -1);
-  }
-  DrawLine(UI.ctx,a,b, nextpoint[0], nextpoint[1]);
-  window.requestAnimationFrame(animateEdge);
-}
-export function animateWeight() {
-  cur+=0.009;
-  if(cur>=1.0)return;
-  console.log(cur);
-  UI.ctx.globalAlpha = cur;
-  drawWeight(UI.ctx, [a,b],[c,d], "455");
-  window.requestAnimationFrame(animateWeight);
-}
-export function animateNode() {
-  cur+=0.009;
-  if(cur>=1.0)return;
-  console.log(cur);
-  UI.ctx.globalAlpha = cur;
-  drawNode();
-  window.requestAnimationFrame(animateWeight);
-}
-
-export function animateNodeSize() {
-  cur+=0.009;
-  if(cur>=1.0)return;
-  console.log(cur);
-  UI.ctx.globalAlpha = cur;
-  drawNode();
-  window.requestAnimationFrame(animateWeight);
-
 }
