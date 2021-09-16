@@ -20,12 +20,23 @@ export let pair = {
         );
 
         //  TODO: remove this
-        // TEST: swap_nodes
-        // const visualizer = new Visualizer()
+        const visualizer = new Visualizer()
+        //
+        // TEST: .change_edge_color
+        // visualizer.change_edge_color({
+        //   edge: UI.popupEdge,
+        //   color: 'red'
+        // })
+        //
+        // // TEST: swap_nodes
         // visualizer.swap_nodes({
         //   node1: this.nodes[1],
         //   node2: this.nodes[0]
         // })
+
+
+
+
       }
 
       /***check if weighted or un weighted ****/

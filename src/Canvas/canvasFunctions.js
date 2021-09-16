@@ -79,7 +79,7 @@ function drawWeight(ctx, points, weight) {
   ctx.fillStyle = "#111";
   ctx.closePath();
 }
-export function drawEdge(ctx, node1, node2, size, color = null) {
+export function drawEdge(ctx, node1, node2, size, color = null, draw_weight=true) {
   ctx.strokeStyle = color ? color : "#3f3a3a";
 
   const x = node1.position.x,
@@ -104,7 +104,10 @@ export function drawEdge(ctx, node1, node2, size, color = null) {
     checkIfOppEdgeExist(node1, node2),
     size
   );
-  drawWeight(ctx, points, "455");
+
+  if (draw_weight) {
+    drawWeight(ctx, points, "455");
+  }
 
   ctx.closePath();
 }

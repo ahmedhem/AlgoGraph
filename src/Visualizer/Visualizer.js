@@ -8,8 +8,9 @@ should be able to reverse any change it has caused
 */
 
 import ChangesHandler from "./ChangesHandler";
-import { displayWeight, drawEdge } from "../Canvas/canvasFunctions";
+import { displayWeight, drawEdge, drawNode } from "../Canvas/canvasFunctions";
 import { UI } from "../UI";
+import { graph } from "../index";
 
 class Visualizer {
   constructor(graph) {
@@ -113,9 +114,74 @@ class Visualizer {
 
   }
 
-  change_edge_color(new_color) {
-    let edge = new_color.node;
-    edge.color = new_color.color;
+  change_edge_color(edgeColorChange, STEP=10000, DELAY=.1) {
+    const edge = edgeColorChange.edge;
+    const old_color = edge.color;
+    const new_color = edgeColorChange.color;
+
+    // animation math
+    const start_node = graph.getNode(edge.start);
+    const end_node = graph.getNode(edge.end);
+
+    const start_point = start_node.position;
+    const end_point = end_node.position;
+
+    const delta_x = Math.abs(start_point.x - end_point.x);
+    const delta_y = Math.abs(start_point.y - end_point.y);
+
+    const x_step = delta_x / STEP;
+    const y_step = delta_y / STEP;
+
+    const x_start_greater_than_end = start_point.x > end_point.x;
+    const y_start_greater_than_end = start_point.y > end_point.y;
+
+    const first_step = STEP * .25;
+
+
+    const end_position = {
+      x: x_start_greater_than_end ?
+          start_point.x - (first_step *  x_step) :
+          start_point.x + (first_step *  x_step),
+      y: y_start_greater_than_end ?
+        start_point.y - (first_step *  y_step) :
+        start_point.y + (first_step *  y_step),
+    }
+    const color_position = end_node.deepCopy();
+    color_position.position = end_position;
+
+    const change_color = (x_start_greater_than_end, y_start_greater_than_end) => {
+      if (x_start_greater_than_end){
+        color_position.position.x -= x_step;
+      } else {
+        color_position.position.x += x_step;
+      }
+
+      if (y_start_greater_than_end) {
+        color_position.position.y -= y_step;
+      } else {
+        color_position.position.y += y_step;
+      }
+
+      drawEdge(UI.ctx, start_node, color_position, 0, new_color, false)
+    }
+
+    for (let i = first_step; i <= STEP; i++) {
+      setTimeout(
+        () => change_color(x_start_greater_than_end, y_start_greater_than_end),
+        DELAY * i
+      )
+    }
+
+    setTimeout(
+      () => drawEdge(UI.ctx, start_node, color_position, 0, new_color),
+
+    DELAY * STEP
+    )
+
+    // reverse the change
+    edgeColorChange.color = old_color;
+
+    return edgeColorChange;
   }
 
   change_edge_weight(weight) {
@@ -152,10 +218,7 @@ class Visualizer {
    */
   reverseChange(change) {
     const reverseAnimationFunc = ChangesHandler[change.type][change.animation];
-    reverseAnimationFunc(change)[(change.old_state, change.new_state)] = [
-      change.new_state,
-      change.old_state
-    ];
+    reverseAnimationFunc(change)
 
     return change;
   }
@@ -176,11 +239,7 @@ class Visualizer {
     }
 
     const reverseAnimationFunc = ChangesHandler[change.type][change.animation];
-    reverseAnimationFunc(change)[
-      // if you got the change from a stack >> create a reverse change and push it
-      // to the other stack
-      (change.old_state, change.new_state)
-      ] = [change.new_state, change.old_state];
+    reverseAnimationFunc(change)
 
     pushStack.push(change);
   }
