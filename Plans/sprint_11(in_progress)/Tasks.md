@@ -4,9 +4,10 @@
 - change_edge_weight
 
 ## AE
-- swap_nodes
-- change_node_position
-- change_edge_color
+- swap_nodes (done)
+- change_node_position (done)
+- change_edge_color (done)
 
 ### TODO:
-- change the undo + todo logic to the new Change desing.
+- change the undo + todo logic to the new Change desing. 
+  (removed the wrong lines)
