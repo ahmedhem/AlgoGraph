@@ -20,19 +20,87 @@ class Visualizer {
     this.animation_speed = -1; // number
   }
 
-  swap_nodes(swapChange) {
-    let firstNode = swapChange.node1;
-    let secondNode = swapChange.node2;
-    [firstNode.position, secondNode.position] = [
-      secondNode.position,
-      firstNode.position,
-    ];
+
+  /**
+   *
+   * @param positionChange: nodePositionChange{node, new_position}
+   * @param STEP: number
+   * @param DELAY: number
+   */
+  change_node_position(positionChange, STEP = 500, DELAY = 1) {
+    const original_position = positionChange.node.position;
+    const new_position = positionChange.new_position;
+
+    // do the animation math
+    let delta_x = Math.abs(original_position.x - new_position.x);
+    let delta_y = Math.abs(original_position.y - new_position.y);
+
+    const x_step = delta_x / STEP;
+    const y_step = delta_y / STEP;
+
+    const increment_position = (is_x_original_bigger, is_y_original_bigger) => {
+      // update x
+      if (is_x_original_bigger) {
+        original_position.x -= x_step;
+        new_position.x += x_step;
+      } else {
+        original_position.x += x_step;
+        new_position.x -= x_step;
+      }
+
+      // update y
+      if (is_y_original_bigger) {
+        original_position.y -= y_step;
+        new_position.y += y_step;
+      } else {
+        original_position.y += y_step;
+        new_position.y -= y_step;
+      }
+
+      // redraw the canvas
+      UI.fire();
+    };
+
+    const x_original_is_bigger = original_position.x > new_position.x;
+    const y_original_is_bigger = original_position.y > new_position.y;
+
+    for (let i = 1; i <= STEP; i++) {
+      setTimeout(
+        () => increment_position(x_original_is_bigger, y_original_is_bigger),
+        DELAY * i
+      );
+    }
+
+    // reverse the change >> it automatically reversed
+    // (new_position = original and original = new)
+    return positionChange;
+
   }
 
-  change_node_position(new_position) {
-    let Node = new_position.node;
-    Node.position = new_position.position;
+
+  swap_nodes(swapChange, STEP = 500, DELAY = 1) {
+    /*
+      * to test the function >> uncomment lines 23 to 27 in pair.js
+    */
+    const first_node = swapChange.node1;
+    const second_node = swapChange.node2;
+
+    /*
+     NOTE: used the second_node.position instead pf copying it
+     so i can update the position of both nodes in one call (better performance)
+    */
+    this.change_node_position({
+        node: first_node,
+        new_position: second_node.position
+      },
+      STEP,
+      DELAY
+    );
+
+    // return the new swapChange
+    return swapChange;
   }
+
 
   change_node_color(new_color) {
     let Node = new_color.node;
@@ -41,7 +109,7 @@ class Visualizer {
 
   change_node_size(new_size) {
     let Node = new_size.node;
-    Node.size = new_size.size
+    Node.size = new_size.size;
 
   }
 
@@ -61,6 +129,7 @@ class Visualizer {
       }
     }
   }
+
   show_edge_weight(show_weight) {
     let edge = show_weight.edge;
     let weight = show_weight.newWeight;
@@ -71,6 +140,7 @@ class Visualizer {
       }
     }
   }
+
   // TODO implement set_animation_speed
   set_animation_speed(number) {
     // to change the animation speed
@@ -84,7 +154,7 @@ class Visualizer {
     const reverseAnimationFunc = ChangesHandler[change.type][change.animation];
     reverseAnimationFunc(change)[(change.old_state, change.new_state)] = [
       change.new_state,
-      change.old_state,
+      change.old_state
     ];
 
     return change;
@@ -110,7 +180,7 @@ class Visualizer {
       // if you got the change from a stack >> create a reverse change and push it
       // to the other stack
       (change.old_state, change.new_state)
-    ] = [change.new_state, change.old_state];
+      ] = [change.new_state, change.old_state];
 
     pushStack.push(change);
   }

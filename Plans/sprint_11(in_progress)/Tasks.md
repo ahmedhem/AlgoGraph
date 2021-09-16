@@ -4,8 +4,8 @@
 - change_edge_weight
 
 ## AE
-- swap_nodes
-- change_node_position
+- swap_nodes (done)
+- change_node_position (done)
 - change_edge_color
 
 ### TODO:

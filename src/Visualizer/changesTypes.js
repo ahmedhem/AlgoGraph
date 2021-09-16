@@ -10,9 +10,9 @@ class swapChange {
 }
 
 class nodePositionChange {
-  constructor(node, position) {
+  constructor(node, new_position) {
     this.node = node;
-    this.position = position;
+    this.new_position = new_position;
   }
 }
 
