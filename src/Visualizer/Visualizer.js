@@ -46,7 +46,7 @@ class Visualizer {
   }
 
   change_edge_color(new_color) {
-    let edge = new_color.node;
+    let edge = new_color.edge;
     edge.color = new_color.color;
   }
 

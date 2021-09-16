@@ -3,8 +3,7 @@ import { GraphPoint } from "./Graph.js";
 import { graph } from "../index.js";
 import {
   checkIfOppEdgeExist,
-  drawEdge,
-  getCorrectPoints,
+  drawEdge, getCorrectPoints
 } from "./canvasFunctions";
 import { UI } from "../UI";
 
@@ -52,13 +51,7 @@ const checkCurve = (point, edge, ctx) => {
 const pointOnEdge = (point, edge) => {
   let start = graph.getNode(edge.start);
   let end = graph.getNode(edge.end);
-  let [startX, startY, endX, endY] = getCorrectPoints(
-    start.position.x,
-    start.position.y,
-    end.position.x,
-    end.position.y,
-    UI.nodeSize
-  );
+  let [startX, startY,endX, endY] = getCorrectPoints(start.position.x,start.position.y,end.position.x,end.position.y,start.size);
   start = new GraphPoint(startX, startY);
   end = new GraphPoint(endX, endY);
 

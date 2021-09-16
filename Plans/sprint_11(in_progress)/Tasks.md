@@ -10,3 +10,10 @@
 
 ### TODO:
 - change the undo + todo logic to the new Change desing.
+
+
+### TODO Global:
+- Reading event loop in js and promises.
+
+
+
