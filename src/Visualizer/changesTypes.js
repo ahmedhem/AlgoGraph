@@ -1,15 +1,9 @@
-import {
-  calcSlope,
-  displayWeight,
-  DrawLine,
-  drawNode,
-  drawWeight,
-  getDist,
-  tranlsate_point
-} from "../Canvas/canvasFunctions";
-import { ctx } from "../index";
+import { calcSlope, DrawLine, drawWeight, getDist, tranlsate_point } from "../Canvas/canvasFunctions";
 import { UI } from "../UI";
-
+/*
+ i have removed timestamp and replace it with Data.now  but works!!
+ ctx.globalpha -> opacity
+ */
 class swapChange {
   constructor(node1, node2) {
     this.node1 = node1;
@@ -22,23 +16,26 @@ class nodePositionChange {
     this.node = node;
     this.position = position;
   }
-
-
-}class nodeSizeChange {
+}
+export class NodeSizeChange {
   constructor(node, size) {
     this.node = node;
     this.size = size;
+    this.startTime = null;
+    this.duration = 1000;
   }
-   animate = function( timestamp) {
-    this.startTime = this.startTime || timestamp;
-    let timeElapsedSinceStart = timestamp - this.startTime;
+    animate =  ( ) => {
+    let time = Date.now();
+    this.startTime = this.startTime || time;
+    console.log(this.startTime);
+    let timeElapsedSinceStart = time - this.startTime;
     let distance = this.size - this.node.size;
-    let progress = timeElapsedSinceStart / duration;
+    let progress = timeElapsedSinceStart / this.duration;
     let safeProgress = Math.min( progress.toFixed(2), 1 ); // 2 decimal points
     let newSIze = safeProgress * distance;
-    console.log(newSIze);
-    drawNode(UI.ctx, node,5,null,  newSIze + node.size);
+    this.node.size += newSIze;
     if( safeProgress !== 1 ){
+      UI.fire();
       requestAnimationFrame( this.animate );
     }else cancelAnimationFrame(this.animate);
   }
@@ -60,8 +57,10 @@ class edgeColorChange {
     this.startTime = null;// 1 second or 1000ms
     this.points = null;
   }
-  animate ( timestamp) {
-    this.startTime = this.startTime || timestamp;
+  animate =  ( ) => {
+    let time = Date.now();
+
+    this.startTime = this.startTime || time;
     let timeElapsedSinceStart = timestamp - this.startTime;
     let [a,b,c,d] =this.points;
     let distance = getDist(a,b,c,d);
@@ -101,14 +100,15 @@ class show_weight {
     this.startTime = null;// 1 second or 1000ms
     this.points = null;
   }
-  animate(timestamp) {
-    this.startTime = this.startTime || timestamp;
-    let timeElapsedSinceStart = timestamp - this.startTime;
+  animate() {
+    let time = Date.now();
+
+    this.startTime = this.startTime || time;
+    let timeElapsedSinceStart = time - this.startTime;
     let distance = 1.0;
     let progress = timeElapsedSinceStart / this.duration;
     let safeProgress = Math.min( progress.toFixed(2), 1 ); // 2 decimal points
-    let newPosition = safeProgress * distance;
-    UI.ctx.globalAlpha = newPosition;
+    UI.ctx.globalAlpha = safeProgress * distance;
     let [a,b,c,d] =this.points;
     drawWeight(UI.ctx, [a,b],[c,d], "455");
     if( safeProgress !== 1 ){

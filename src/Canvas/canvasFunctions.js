@@ -1,5 +1,6 @@
 import { UI } from "../UI";
-import { graph } from "../index";
+// have to be added so promise functuin works
+require("regenerator-runtime/runtime");
 
 export function drawNode(ctx, node, num, color = null, size, isReady = null) {
   const x = node.position.x,
@@ -16,6 +17,7 @@ export function drawNode(ctx, node, num, color = null, size, isReady = null) {
 
   ctx.arc(x, y, size, 0, 2 * Math.PI);
   ctx.fillText(num, x, y);
+
   ctx.stroke();
   // if the node is clicked then change the background
   if (isReady) {
@@ -23,100 +25,115 @@ export function drawNode(ctx, node, num, color = null, size, isReady = null) {
     ctx.fill();
     ctx.fillStyle = "black";
   }
+
   ctx.closePath();
 }
 
+// Calculate the euclidean distance between two nodes.
 export function getDist(x, y, x1, y1) {
   return Math.sqrt((x1 - x) * (x1 - x) + (y1 - y) * (y1 - y));
 }
 
-export function getCorrectPoints(x, y, x1, y1, size) {
-  let d = getDist(x, y, x1, y1);
-  let t = size / d,
-    t1 = (d - size) / d;
-  let xt = (1 - t) * x + t * x1,
-    x1t = (1 - t1) * x + t1 * x1,
-    yt = (1 - t) * y + t * y1,
-    y1t = (1 - t1) * y + t1 * y1;
-  return [xt, yt, x1t, y1t];
-}
 
 export function checkIfOppEdgeExist(node1, node2) {
   return node2.getEdge(node1.number);
 }
 
-export function displayWeight(ctx, edge, desiredWeight) {
-  const x = graph.getNode(edge.start).position.x,
-    y = graph.getNode(edge.start).position.y,
-    x1 = graph.getNode(edge.end).position.x,
-    y1 = graph.getNode(edge.end).position.y;
-  let points = getCorrectPoints(x, y, x1, y1, edge.size);
-
-  drawWeight(ctx, points, desiredWeight);
-}
-
-export function drawWeight(ctx, pointStart, pointEnd, weight) {
+export function drawWeight(ctx, points, weight) {
+  /* drawing the background rectangle*/
   ctx.beginPath();
   ctx.lineWidth = "18";
   ctx.fillStyle = "white";
-
   ctx.fillRect(
-    (pointStart[0] + pointEnd[0]) / 2 - 15,
-    (pointStart[1] + pointEnd[1]) / 2 - 15,
+    (points[0] + points[2]) / 2 - 15,
+    (points[1] + points[3]) / 2 - 15,
     30,
     30
   );
   ctx.stroke();
   ctx.closePath();
-  ctx.beginPath();
 
+  /* drawing the weight text*/
+  ctx.beginPath();
   ctx.font = "16px arial";
   ctx.fillStyle = "#111";
-  // ctx.textAlign = "center";
-
   ctx.fillText(
     weight,
-    (pointStart[0] + pointEnd[0]) / 2,
-
-    (pointStart[1] + pointEnd[1]) / 2
+    (points[0] + points[2]) / 2,
+    (points[1] + points[3]) / 2
   );
   ctx.fillStyle = "#111";
   ctx.closePath();
 }
 
-export function drawEdge(ctx, node1, node2, size, color = null) {
+/*
+  let x, y define the position of the first node of edge.
+  let x1, y1 define the position of the second node of edge.
+  to draw an edge we need to move these position to the edge of the both nodes.
+  this function return the new cordinates as follow :
+
+  let's move the point of each to the edge of the node but we have two cases, moving the new point to the left or the right direction of the original position
+  but as we don't know which direction we should move, we calcluate the distance from the new position to the other node ,and if for example the left direction increase the
+  distance between the two original point we draw the left direction and vuse versa
+
+  we will do the same action for the both node
+ */
+export function getCorrectPoints(x, y, x1, y1, size) {
+  let x_move, y_move, x1_move, y1_move;
+  // first node
+  let p = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, 1);
+  let p2 = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, -1);
+  [x1_move, y1_move] = getDist(x, y, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
+  /************/
+  // second node
+  p = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, 1);
+  p2 = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, -1);
+  [x_move, y_move] = getDist(x1, y1, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
+
+  return [x_move, y_move, x1_move, y1_move];
+};
+
+export async function drawEdge(ctx, node1, node2, size, color = null) {
+
   ctx.strokeStyle = color ? color : "#3f3a3a";
 
   const x = node1.position.x,
     y = node1.position.y,
     x1 = node2.position.x,
     y1 = node2.position.y;
+  /*the correct cordinates to draw the edges*/
   let points = getCorrectPoints(x, y, x1, y1, size);
-  let xt = points[0],
-    yt = points[1],
-    x1t = points[2],
-    y1t = points[3];
+  let [xt, yt, x1t, y1t] = points;
+
   if (UI.isDirected && checkIfOppEdgeExist(node1, node2)) {
     DrawCurveLine(ctx, xt, yt, x1t, y1t, 1);
     DrawCurveLine(ctx, xt, yt, x1t, y1t, -1);
   } else {
     DrawLine(ctx, xt, yt, x1t, y1t);
   }
+  drawWeight(ctx, points, "455");
   ctx.stroke();
-
   ctx.closePath();
 }
+
 
 export function calcSlope(x0, y0, x1, y1) {
   return (y1 - y0) / (x1 - x0);
 }
-
+//https://math.stackexchange.com/a/409737
 export function tranlsate_point(x, y, slope, d, dir) {
   let x_move = x + dir * d / Math.sqrt(1 + slope * slope);
   let y_move = y + slope * (x_move - x);
   return [x_move, y_move];
 }
 
+/*
+drawiung a curve must have three points , start point , end point , controlling point
+to draw a smooth curve, out controll point will be got as follow :
+- let the line fomed by start point , end point be L1
+- then we  will get the mid point of L1 then draw a prependcular line on l1 that passes by this mid point, let 's call the new line be Lp.
+- the controll point will be a point that have a distance (d) between it and the mid point and passes throw the Lp;
+ */
 export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
   ctx.beginPath();
   ctx.lineWidth = 1;

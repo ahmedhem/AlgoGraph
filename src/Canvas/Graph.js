@@ -24,7 +24,6 @@ export class GraphEdge {
   addWeight(weight) {
     return this.weights.add(weight);
   }
-
   removeWeight(weight) {
     this.weights.delete(weight);
     if (this.weights.size === 0) return -1;

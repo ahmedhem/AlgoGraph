@@ -257,7 +257,7 @@ The  Popups
   text-align: center;
 }
 
-.weight-container,
+.weight-container input[type="number"],
 .root-pickup-container input[type="number"] {
   width: 96%;
   padding: 15px;
@@ -265,13 +265,13 @@ The  Popups
   border: 3px solid #009879;
 }
 
-.weight-container,
+.weight-container input[type="number"]:focus,
 .root-pickup-container input[type="number"]:focus {
   background-color: white;
   outline: none;
 }
 
-.weight-container,
+.weight-container button,
 .root-pickup-container button {
   background-color: #009879;
   color: white;
@@ -282,7 +282,7 @@ The  Popups
   margin-bottom: 10px;
 }
 
-.weight-container,
+.weight-container button:hover,
 .root-pickup-container button:hover {
   opacity: 0.8;
 }

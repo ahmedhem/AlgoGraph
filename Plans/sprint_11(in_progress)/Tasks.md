@@ -1,6 +1,6 @@
-## AM
+## AM (Done)
 - change_node_size(Done)
-- change_node_color 
+- change_node_color (Done)
 - change_edge_weight(Done)
 
 ## AE
@@ -14,6 +14,7 @@
 
 ### TODO Global:
 - Reading event loop in js and promises.
+- move the animation into it's related Change-class.
 
 
 
