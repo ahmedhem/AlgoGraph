@@ -1,5 +1,5 @@
 import { UI } from "../UI";
-// have to be added so promise functuin works
+// have to be added so promise function works
 require("regenerator-runtime/runtime");
 
 export function drawNode(ctx, node, num, color = null, size, isReady = null) {
@@ -69,12 +69,12 @@ export function drawWeight(ctx, points, weight) {
 /*
   let x, y define the position of the first node of edge.
   let x1, y1 define the position of the second node of edge.
-  to draw an edge we need to move these position to the edge of the both nodes.
+  to draw an edge we need to move these position to the edge(corner) of the both nodes.
   this function return the new cordinates as follow :
 
-  let's move the point of each to the edge of the node but we have two cases, moving the new point to the left or the right direction of the original position
-  but as we don't know which direction we should move, we calcluate the distance from the new position to the other node ,and if for example the left direction increase the
-  distance between the two original point we draw the left direction and vuse versa
+  let's move the position of each node  to the edge(corner)  but we have two cases, moving the new position to the left or the right direction of the original position
+  but as we don't know which direction we should move, we calcluate the distance from the new position to the other node , for example the if  left direction increase the
+  distance between the two original point we draw the left direction instead and vise versa
 
   we will do the same action for the both node
  */
