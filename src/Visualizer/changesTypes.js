@@ -11,10 +11,10 @@ class swapChange {
   }
 }
 
-class nodePositionChange {
-  constructor(node, position) {
+class NodePositionChange {
+  constructor(node, new_position) {
     this.node = node;
-    this.position = position;
+    this.new_position = new_position;
   }
 }
 export class NodeSizeChange {
@@ -41,7 +41,7 @@ export class NodeSizeChange {
   }
 }
 
-class nodeColorChange {
+class NodeColorChange {
   constructor(node, color) {
     this.node = node;
     this.size = color;
@@ -49,7 +49,7 @@ class nodeColorChange {
 
 }
 
-class edgeColorChange {
+class EdgeColorChange {
   constructor(edge, color) {
     this.edge = edge;
     this.size = color;
