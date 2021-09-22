@@ -8,7 +8,15 @@ should be able to reverse any change it has caused
 */
 
 import ChangesHandler from "./ChangesHandler";
-import { displayWeight, drawEdge, drawNode } from "../Canvas/canvasFunctions";
+import {
+  calcSlope,
+  displayWeight,
+  drawEdge,
+  DrawLine,
+  drawWeight, getCorrectPoints,
+  getDist,
+  tranlsate_point
+} from "../Canvas/canvasFunctions";
 import { UI } from "../UI";
 import { graph } from "../index";
 
@@ -18,7 +26,7 @@ class Visualizer {
     //  state
     this.changes = []; // Stack that have the last […] changes objects to be able to reverse them
     this.RedoStack = []; // store the last […] changes that has been undone
-    this.animation_speed = -1; // number
+    this.animation_speed = -1;
   }
 
 
@@ -78,6 +86,12 @@ class Visualizer {
 
   }
 
+  change_node_position(new_position) {
+    let Node = new_position.node;
+    Node.position = new_position.position;
+    new_position.animate();
+  }
+  // new node color will by only chaned in the Graph  and won't be animated
 
   swap_nodes(swapChange, STEP = 500, DELAY = 1) {
     /*
@@ -111,6 +125,12 @@ class Visualizer {
   change_node_size(new_size) {
     let Node = new_size.node;
     Node.size = new_size.size;
+    new_size.animate();
+  }
+  // new edge color will by only chaned in the Graph  and won't be animated (as it doesn't make sense).
+  change_edge_color(new_color) {
+    let edge = new_color.edge;
+    edge.color = new_color.color;
 
   }
 
@@ -199,12 +219,8 @@ class Visualizer {
   show_edge_weight(show_weight) {
     let edge = show_weight.edge;
     let weight = show_weight.newWeight;
-    for (let w of edge.weight) {
-      if (w === weight) {
-        displayWeight(UI.ctx, edge, weight);
-        break;
-      }
-    }
+    show_weight.animate();
+
   }
 
   // TODO implement set_animation_speed

@@ -52,7 +52,6 @@ function handleClick(a_canvas, e) {
       );
   }
 }
-
 // deals with the canvas-context-menu
 const handleRightClick = (a_canvas, e) => {
   // don`t  show the default context menu

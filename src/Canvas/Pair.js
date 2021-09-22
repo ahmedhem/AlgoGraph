@@ -2,6 +2,7 @@ import { openWeightPopup } from "./Pop-Up/weighted-edge-input-pop-up.js";
 import { graph } from "../index.js";
 import { GraphEdge } from "./Graph.js";
 import { UI } from "../UI";
+import { NodeSizeChange } from "../Visualizer/changesTypes";
 import Visualizer from "../Visualizer/Visualizer";
 export let pair = {
   nodes: [],
@@ -18,6 +19,8 @@ export let pair = {
           this.nodes[0].number,
           this.nodes[1].number
         );
+        // let x = new NodeSizeChange(this.nodes[0],20);
+        // window.requestAnimationFrame(x.animate);
 
         //  TODO: remove this
         const visualizer = new Visualizer()
@@ -50,6 +53,7 @@ export let pair = {
 
       this.nodes = [];
     } else {
+
       this.nodes.push(point);
     }
   },
