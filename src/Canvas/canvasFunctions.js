@@ -93,7 +93,7 @@ export function getCorrectPoints(x, y, x1, y1, size) {
   return [x_move, y_move, x1_move, y1_move];
 };
 
-export async function drawEdge(ctx, node1, node2, size, color = null) {
+export  function drawEdge(ctx, node1, node2, size, color = null) {
 
   ctx.strokeStyle = color ? color : "#3f3a3a";
 
@@ -129,8 +129,8 @@ export function tranlsate_point(x, y, slope, d, dir) {
 
 /*
 drawiung a curve must have three points , start point , end point , controlling point
-to draw a smooth curve, out controll point will be got as follow :
-- let the line fomed by start point , end point be L1
+to draw a smooth curve, our controll point will be got as follow :
+- let the line formed by start point , end point be L1
 - then we  will get the mid point of L1 then draw a prependcular line on l1 that passes by this mid point, let 's call the new line be Lp.
 - the controll point will be a point that have a distance (d) between it and the mid point and passes throw the Lp;
  */
