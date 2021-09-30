@@ -1,5 +1,6 @@
 import { UI } from "../../UI";
-import { drawWeight } from "../../Canvas/canvasFunctions";
+import { drawWeight, getCorrectPoints } from "../../Canvas/canvasFunctions";
+import { graph } from "../../index";
 
 export default class EdgeWeightAnimation {
   constructor(edge, weight) {
@@ -7,8 +8,13 @@ export default class EdgeWeightAnimation {
     this.weight = weight;
     this.startTime = null;
     this.duration = 1000;
-    this.startTime = null;// 1 second or 1000ms
-    this.points = null;
+    this.points = getCorrectPoints(
+      graph.getNode(edge.start).position.x,
+      graph.getNode(edge.start).position.y,
+      graph.getNode(edge.end).position.x,
+      graph.getNode(edge.end).position.y,
+      UI.nodeSize
+    );
   }
 
   animate = (resolve) => {
@@ -20,8 +26,7 @@ export default class EdgeWeightAnimation {
     let progress = timeElapsedSinceStart / this.duration;
     let safeProgress = Math.min(progress.toFixed(2), 1); // 2 decimal points
     UI.ctx.globalAlpha = safeProgress * distance;
-    let [a, b, c, d] = this.points;
-    drawWeight(UI.ctx, [a, b], [c, d], "455");
+    drawWeight(UI.ctx, this.points, this.weight);
     if (safeProgress !== 1) {
       requestAnimationFrame(() => this.animate(resolve));
     } else {
@@ -35,4 +40,5 @@ export default class EdgeWeightAnimation {
       this.animate(resolve);
     });
   };
+
 }

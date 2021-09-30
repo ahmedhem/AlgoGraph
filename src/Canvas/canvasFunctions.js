@@ -111,7 +111,6 @@ export  function drawEdge(ctx, node1, node2, size, color = null) {
   } else {
     DrawLine(ctx, xt, yt, x1t, y1t);
   }
-  drawWeight(ctx, points, "455");
   ctx.stroke();
   ctx.closePath();
 }
@@ -148,7 +147,8 @@ export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
   ctx.stroke();
 }
 
-export function DrawLine(ctx, x0, y0, x1, y1) {
+export function DrawLine(ctx, x0, y0, x1, y1, color= null) {
+  ctx.strokeStyle = color ? color : "#3f3a3a";
   ctx.beginPath();
   ctx.lineWidth = 1;
   ctx.moveTo(x0, y0);

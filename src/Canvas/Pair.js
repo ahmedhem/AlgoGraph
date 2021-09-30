@@ -23,20 +23,6 @@ export let pair = {
           this.nodes[1].number
         );
 
-        //  TODO: remove this
-        const swapAnimation = new NodeSwapAnimation(this.nodes[0], this.nodes[1]);
-        const nodeColorAnimation = new NodeSizeAnimation(this.nodes[0], "blue")
-        const edgeColorAnimation = new EdgeColorAnimation(UI.popupEdge, "red");
-        const edgeWeightAnimation = new EdgeWeightAnimation(UI.popupEdge, 5);
-        // Fix: the animation does not run because points is null
-        edgeWeightAnimation.points = [1, 2, 3, 4]
-        nodeColorAnimation.points = [1, 2, 3, 4]
-
-        swapAnimation.run()
-          .then(edgeColorAnimation.run)
-          .then(edgeWeightAnimation.run)
-          .then(nodeColorAnimation.run)
-          .then(() => console.log("done"))
 
       }
 

@@ -52,7 +52,7 @@ export default class NodeSwapAnimation {
         this.DELAY * i
       );
     }
-    setTimeout(resolve, this.DELAY * this.STEP)
+    setTimeout(resolve, this.DELAY * this.STEP);
   };
 
   run = () => {
