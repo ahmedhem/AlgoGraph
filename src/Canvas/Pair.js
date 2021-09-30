@@ -2,11 +2,14 @@ import { openWeightPopup } from "./Pop-Up/weighted-edge-input-pop-up.js";
 import { graph } from "../index.js";
 import { GraphEdge } from "./Graph.js";
 import { UI } from "../UI";
-import { NodeSizeChange } from "../Visualizer/changesTypes";
-import Visualizer from "../Visualizer/Visualizer";
+import NodeSwapAnimation from "../Visualizer/animations/NodeSwapAnimation";
+import EdgeColorAnimation from "../Visualizer/animations/EdgeColorAnimation";
+import EdgeWeightAnimation from "../Visualizer/animations/EdgeWeightAnimation";
+import NodeSizeAnimation from "../Visualizer/animations/NodeSizeAnimation";
+
 export let pair = {
   nodes: [],
-  add: function (point) {
+  add: function(point) {
 
 
     if (this.nodes.length === 1) {
@@ -19,26 +22,21 @@ export let pair = {
           this.nodes[0].number,
           this.nodes[1].number
         );
-        // let x = new NodeSizeChange(this.nodes[0],20);
-        // window.requestAnimationFrame(x.animate);
 
         //  TODO: remove this
-        const visualizer = new Visualizer()
-        //
-        // TEST: .change_edge_color
-        // visualizer.change_edge_color({
-        //   edge: UI.popupEdge,
-        //   color: 'red'
-        // })
-        //
-        // // TEST: swap_nodes
-        // visualizer.swap_nodes({
-        //   node1: this.nodes[1],
-        //   node2: this.nodes[0]
-        // })
+        const swapAnimation = new NodeSwapAnimation(this.nodes[0], this.nodes[1]);
+        const nodeColorAnimation = new NodeSizeAnimation(this.nodes[0], "blue")
+        const edgeColorAnimation = new EdgeColorAnimation(UI.popupEdge, "red");
+        const edgeWeightAnimation = new EdgeWeightAnimation(UI.popupEdge, 5);
+        // Fix: the animation does not run because points is null
+        edgeWeightAnimation.points = [1, 2, 3, 4]
+        nodeColorAnimation.points = [1, 2, 3, 4]
 
-
-
+        swapAnimation.run()
+          .then(edgeColorAnimation.run)
+          .then(edgeWeightAnimation.run)
+          .then(nodeColorAnimation.run)
+          .then(() => console.log("done"))
 
       }
 
@@ -56,5 +54,5 @@ export let pair = {
 
       this.nodes.push(point);
     }
-  },
+  }
 };
