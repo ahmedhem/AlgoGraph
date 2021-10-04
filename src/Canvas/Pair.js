@@ -31,12 +31,6 @@ export let pair = {
         graph.addEdge(this.nodes[0].number, this.nodes[1].number);
         if (!UI.isDirected)
           graph.addEdge(this.nodes[1].number, this.nodes[0].number);
-
-
-        let a = new EdgeColorAnimation(UI.popupEdge, "red");
-        let b = new NodeSizeAnimation(this.nodes[1],20);
-        let c = new NodeSizeAnimation(this.nodes[1],20);
-        b.run().then(b.undo);
       }
       this.nodes = [];
     } else {
