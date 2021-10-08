@@ -3,6 +3,7 @@ import { pair } from "./Canvas/Pair.js";
 import modal from "./Canvas/Pop-Up/Modal.js";
 import { UI } from "./UI";
 import { drawEdge, drawNode, getDist } from "./Canvas/canvasFunctions";
+import EdgeColorAnimation from "./Visualizer/animations/EdgeColorAnimation";
 /*
  * return x,y in respect to the given canvas (could work with other elements)
  * pass to every function in canvasGunction.js the UI.nodeSIze parameter
@@ -48,7 +49,8 @@ export let drawEdges = function (ctx) {
         ctx,
         graph.getNode(edge.start),
         graph.getNode(edge.end),
-        Math.min(graph.getNode(edge.start).size, graph.getNode(edge.end).size)
+        Math.min(graph.getNode(edge.start).size, graph.getNode(edge.end).size),
+        edge.color
       );
     }
   }

@@ -35,6 +35,10 @@ export default class EdgeWeightAnimation {
     }
   };
 
+  undo = () => {
+      UI.fire();
+  }
+
   run = () => {
     return new Promise((resolve) => {
       this.animate(resolve);

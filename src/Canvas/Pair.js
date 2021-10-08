@@ -22,9 +22,8 @@ export let pair = {
           this.nodes[0].number,
           this.nodes[1].number
         );
-
-
       }
+
 
       /***check if weighted or un weighted ****/
       if (UI.isWighted) openWeightPopup();
@@ -32,12 +31,9 @@ export let pair = {
         graph.addEdge(this.nodes[0].number, this.nodes[1].number);
         if (!UI.isDirected)
           graph.addEdge(this.nodes[1].number, this.nodes[0].number);
-
       }
-
       this.nodes = [];
     } else {
-
       this.nodes.push(point);
     }
   }

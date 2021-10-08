@@ -6,6 +6,7 @@ export default class NodeSizeAnimation {
   constructor(node, size) {
     this.node = node;
     this.size = size;
+    this.oldSize = this.node.size;
     this.startTime = null;
     this.duration = 1000;
   }
@@ -23,11 +24,15 @@ export default class NodeSizeAnimation {
       UI.fire();
       requestAnimationFrame(() =>  this.animate(resolve) );
     }else {
+      this.startTime = null;
       cancelAnimationFrame(this.animate);
       resolve()
     }
   }
-
+  undo = () =>{
+    this.size = this.oldSize;
+    return this.run();
+  }
   run = () => {
     return new Promise((resolve) => {
       this.animate(resolve)

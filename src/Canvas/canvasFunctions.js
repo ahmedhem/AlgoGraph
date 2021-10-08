@@ -95,8 +95,7 @@ export function getCorrectPoints(x, y, x1, y1, size) {
 
 export  function drawEdge(ctx, node1, node2, size, color = null) {
 
-  ctx.strokeStyle = color ? color : "#3f3a3a";
-
+  ctx.strokeStyle = color ? color  : "#000" ;
   const x = node1.position.x,
     y = node1.position.y,
     x1 = node2.position.x,
@@ -109,7 +108,7 @@ export  function drawEdge(ctx, node1, node2, size, color = null) {
     DrawCurveLine(ctx, xt, yt, x1t, y1t, 1);
     DrawCurveLine(ctx, xt, yt, x1t, y1t, -1);
   } else {
-    DrawLine(ctx, xt, yt, x1t, y1t);
+    DrawLine(ctx, xt, yt, x1t, y1t,color);
   }
   ctx.stroke();
   ctx.closePath();
