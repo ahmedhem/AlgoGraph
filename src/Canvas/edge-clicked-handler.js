@@ -44,6 +44,7 @@ const pointOnLine = (point, start, end) => {
 const checkCurve = (point, edge, ctx) => {
   drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), 60);
   const found = ctx.isPointInStroke(point.x, point.y);
+  console.log(found)
   UI.fire();
   return found;
 };

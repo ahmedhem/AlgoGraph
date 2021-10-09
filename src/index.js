@@ -6,7 +6,13 @@ import { UI } from "./UI";
 
 export const the_canvas = document.getElementById("main_canvas");
 
-export const graph = new Graph();
+export let graph = new Graph();
+
+export function changeGraph(new_graph) {
+  const oldGraph = graph;
+  graph = new_graph;
+  return oldGraph;
+}
 
 if (the_canvas && the_canvas.getContext) {
   the_canvas.width = window.innerWidth;
