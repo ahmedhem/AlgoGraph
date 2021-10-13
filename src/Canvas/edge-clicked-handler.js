@@ -42,6 +42,7 @@ const pointOnLine = (point, start, end) => {
 };
 //...check if a point is on a curve (check after refactoring >>> done)
 const checkCurve = (point, edge, ctx) => {
+  console.log(edge)
   drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), 60);
   const found = ctx.isPointInStroke(point.x, point.y);
   console.log(found)

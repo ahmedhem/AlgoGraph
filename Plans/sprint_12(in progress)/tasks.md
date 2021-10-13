@@ -14,6 +14,16 @@
 
 ## AE
 - swap_animation >> refactor [done]
-- visualizer
+
+### Not finished
 - fix: https://github.com/ahmedhem/AlgoGraph/issues/19 (I was not able to fix it)
-- try to visualize one algorithm
+  - solution:
+    - the logic of drawing edges need to be rewritten in a trackable way and in a way which 
+    I should be able to hook into to check the stroke path 
+    - need more explaining on: the direction 
+ 
+- try to visualize one algorithm >> there was no time >>
+  - reason: worked for 4 hours on different solutions for the bug and bad designs for the Visualizer   
+
+- visualizer:
+  - really useless (.....what I built was useless...I maybe wrong) 
