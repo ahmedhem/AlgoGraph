@@ -1,13 +1,12 @@
 import { UI } from "../../UI";
 
 export default class NodeSwapAnimation {
-  constructor(node1, node2, STEP = 500, DELAY = .001) {
+  constructor(node1, node2, STEP = 150, DELAY = 0) {
     this.node1 = node1;
     this.node2 = node2;
     this.STEP = STEP;
     this.DELAY = DELAY;
   }
-
 
   swap_nodes = (resolve) => {
     const first_node = this.node1.position;

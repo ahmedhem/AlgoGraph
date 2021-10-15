@@ -27,7 +27,6 @@ export let pair = {
 
 
 
-
       /***check if weighted or un weighted ****/
       if (UI.isWighted) openWeightPopup();
       else {
