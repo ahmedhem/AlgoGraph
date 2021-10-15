@@ -42,35 +42,10 @@ const pointOnLine = (point, start, end) => {
 };
 //...check if a point is on a curve (check after refactoring >>> done)
 const checkCurve = (point, edge, ctx) => {
-  const node1 = graph.getNode(edge.start)
-  const node2 = graph.getNode(edge.end)
-
-
-  const x = node1.position.x,
-    y = node1.position.y,
-    x1 = node2.position.x,
-    y1 = node2.position.y;
-  let points = getCorrectPoints(x, y, x1, y1, 60);
-  let [xt, yt, x1t, y1t] = points;
-
-  // ctx.beginPath();
-  console.log(node1.number)
-  if (node1.number > node2.number) {
-    console.log("here")
-    DrawCurveLine(ctx, xt, yt, x1t, y1t, 1);
-  } else {
-    console.log("there")
-
-    DrawCurveLine(ctx, xt, yt, x1t, y1t, -1);
-  }
-
-  ctx.stroke();
-  // ctx.closePath();
-
-  // drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), 60);
+  drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), Math.min(graph.getNode(edge.start).size, graph.getNode(edge.end).size));
 
   const found = ctx.isPointInStroke(point.x, point.y);
-  console.log(found)
+  console.log(found);
   UI.fire();
   return found;
 };
@@ -78,7 +53,7 @@ const checkCurve = (point, edge, ctx) => {
 const pointOnEdge = (point, edge) => {
   let start = graph.getNode(edge.start);
   let end = graph.getNode(edge.end);
-  let [startX, startY,endX, endY] = getCorrectPoints(start.position.x,start.position.y,end.position.x,end.position.y,start.size);
+  let [startX, startY, endX, endY] = getCorrectPoints(start.position.x, start.position.y, end.position.x, end.position.y, start.size);
   start = new GraphPoint(startX, startY);
   end = new GraphPoint(endX, endY);
 
