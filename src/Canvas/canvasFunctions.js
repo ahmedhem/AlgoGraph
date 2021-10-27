@@ -91,10 +91,10 @@ export function getCorrectPoints(x, y, x1, y1, size) {
   [x_move, y_move] = getDist(x1, y1, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
 
   return [x_move, y_move, x1_move, y1_move];
-};
+}
 
 export  function drawEdge(ctx, node1, node2, size, color = null) {
-
+  // ctx.beginPath();
   ctx.strokeStyle = color ? color  : "#000" ;
   const x = node1.position.x,
     y = node1.position.y,
@@ -105,13 +105,17 @@ export  function drawEdge(ctx, node1, node2, size, color = null) {
   let [xt, yt, x1t, y1t] = points;
 
   if (UI.isDirected && checkIfOppEdgeExist(node1, node2)) {
-    DrawCurveLine(ctx, xt, yt, x1t, y1t, 1);
-    DrawCurveLine(ctx, xt, yt, x1t, y1t, -1);
+    if (node1.number > node2.number) {
+      DrawCurveLine(ctx, xt, yt, x1t, y1t, 1);
+    } else {
+      DrawCurveLine(ctx, xt, yt, x1t, y1t, -1);
+    }
+
   } else {
     DrawLine(ctx, xt, yt, x1t, y1t,color);
   }
-  ctx.stroke();
-  ctx.closePath();
+  // ctx.stroke();
+  // ctx.closePath();
 }
 
 
@@ -133,6 +137,8 @@ to draw a smooth curve, our controll point will be got as follow :
 - the controll point will be a point that have a distance (d) between it and the mid point and passes throw the Lp;
  */
 export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
+  console.log(x0, y0, x1, y1, dir)
+
   ctx.beginPath();
   ctx.lineWidth = 1;
   let slope = calcSlope(x0, y0, x1, y1);
@@ -156,7 +162,6 @@ export function DrawLine(ctx, x0, y0, x1, y1, color= null) {
     line_arrow(ctx, x0, y0, x1, y1);
   }
   ctx.stroke();
-
 }
 
 export function line_arrow(ctx, fromx, fromy, tox, toy) {

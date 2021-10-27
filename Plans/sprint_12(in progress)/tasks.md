@@ -13,7 +13,6 @@
 
 
 ## AE
-- swap_animation >> refactor
-- visualizer
-- fix: https://github.com/ahmedhem/AlgoGraph/issues/19
-- try to visualize one algorithm
+- swap_animation >> refactor [done]
+- fix: https://github.com/ahmedhem/AlgoGraph/issues/19 (I was not able to fix it)
+  - Done

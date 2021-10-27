@@ -1,13 +1,12 @@
 import { UI } from "../../UI";
 
 export default class NodeSwapAnimation {
-  constructor(node1, node2, STEP = 500, DELAY = 1) {
+  constructor(node1, node2, STEP = 150, DELAY = 0) {
     this.node1 = node1;
     this.node2 = node2;
     this.STEP = STEP;
     this.DELAY = DELAY;
   }
-
 
   swap_nodes = (resolve) => {
     const first_node = this.node1.position;
@@ -46,14 +45,24 @@ export default class NodeSwapAnimation {
     const x_original_is_bigger = first_node.x > second_node.x;
     const y_original_is_bigger = first_node.y > second_node.y;
 
-    for (let i = 1; i <= this.STEP; i++) {
-      setTimeout(
-        () => increment_position(x_original_is_bigger, y_original_is_bigger),
-        this.DELAY * i
-      );
+    // count the number of steps taken
+    let incrementCount = 0;
+
+    // runs every [DELAY] time, and stop after [STEP] time
+    let frame = () => {
+      if (incrementCount > this.STEP) {
+        clearInterval(intervalId);
+        resolve();
+      } else {
+        increment_position(x_original_is_bigger, y_original_is_bigger);
+        incrementCount++;
+      }
     }
-    setTimeout(resolve, this.DELAY * this.STEP);
+
+    const intervalId = setInterval(frame, this.DELAY);
+
   };
+
 
   run = () => {
     return new Promise((resolve) => {
