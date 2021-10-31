@@ -69,7 +69,6 @@ export function DrawAsTree(rootNode) {
   vis.fill(0);
 
   let root = graph.getNode(parseInt(rootNode));
-  console.log(root);
   queue.push(root);
   vis[parseInt(rootNode)] = 1;
   // depth counter and number of node in each depth , intially in first depth there is only one node which is root

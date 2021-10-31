@@ -2,8 +2,9 @@ import { edgePopup } from "./Pop-Up/edge-weights-pop-up.js";
 import { GraphPoint } from "./Graph.js";
 import { graph } from "../index.js";
 import {
-  checkIfOppEdgeExist, DrawCurveLine,
-  drawEdge, getCorrectPoints
+  checkIfOppEdgeExist,
+  drawEdge,
+  getCorrectPoints,
 } from "./canvasFunctions";
 import { UI } from "../UI";
 
@@ -42,10 +43,14 @@ const pointOnLine = (point, start, end) => {
 };
 //...check if a point is on a curve (check after refactoring >>> done)
 const checkCurve = (point, edge, ctx) => {
-  drawEdge(ctx, graph.getNode(edge.start), graph.getNode(edge.end), Math.min(graph.getNode(edge.start).size, graph.getNode(edge.end).size));
+  drawEdge(
+    ctx,
+    graph.getNode(edge.start),
+    graph.getNode(edge.end),
+    Math.min(graph.getNode(edge.start).size, graph.getNode(edge.end).size)
+  );
 
   const found = ctx.isPointInStroke(point.x, point.y);
-  console.log(found);
   UI.fire();
   return found;
 };
@@ -53,7 +58,13 @@ const checkCurve = (point, edge, ctx) => {
 const pointOnEdge = (point, edge) => {
   let start = graph.getNode(edge.start);
   let end = graph.getNode(edge.end);
-  let [startX, startY, endX, endY] = getCorrectPoints(start.position.x, start.position.y, end.position.x, end.position.y, start.size);
+  let [startX, startY, endX, endY] = getCorrectPoints(
+    start.position.x,
+    start.position.y,
+    end.position.x,
+    end.position.y,
+    start.size
+  );
   start = new GraphPoint(startX, startY);
   end = new GraphPoint(endX, endY);
 

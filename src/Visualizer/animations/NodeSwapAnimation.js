@@ -57,16 +57,14 @@ export default class NodeSwapAnimation {
         increment_position(x_original_is_bigger, y_original_is_bigger);
         incrementCount++;
       }
-    }
+    };
 
     const intervalId = setInterval(frame, this.DELAY);
-
   };
-
 
   run = () => {
     return new Promise((resolve) => {
-      this.swap_nodes(resolve)
+      this.swap_nodes(resolve);
     });
   };
 }

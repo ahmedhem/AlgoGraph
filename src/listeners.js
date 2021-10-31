@@ -8,7 +8,6 @@ import {
   toggleColorPicker,
 } from "./sidebar/buttons/color-picker.js";
 import { deleteElements } from "./sidebar/buttons/Delete.js";
-import { DrawAsTree } from "./Algorithms/Draw-as-tree.js";
 import {
   startMoveMode,
   stopMovingMode,
@@ -19,7 +18,6 @@ import {
 } from "./Canvas/ContextMenu/conterxt-menu.js";
 import { UI } from "./UI";
 import { openRootPopup } from "./Canvas/Pop-Up/rootPickUp";
-import modal from "./Canvas/Pop-Up/Modal";
 //...listen to the canvas and handle clicks
 const canvas = document.getElementById("main_canvas");
 

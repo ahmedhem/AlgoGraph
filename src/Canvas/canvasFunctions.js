@@ -34,7 +34,6 @@ export function getDist(x, y, x1, y1) {
   return Math.sqrt((x1 - x) * (x1 - x) + (y1 - y) * (y1 - y));
 }
 
-
 export function checkIfOppEdgeExist(node1, node2) {
   return node2.getEdge(node1.number);
 }
@@ -83,19 +82,21 @@ export function getCorrectPoints(x, y, x1, y1, size) {
   // first node
   let p = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, 1);
   let p2 = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, -1);
-  [x1_move, y1_move] = getDist(x, y, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
+  [x1_move, y1_move] =
+    getDist(x, y, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
   /************/
   // second node
   p = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, 1);
   p2 = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, -1);
-  [x_move, y_move] = getDist(x1, y1, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
+  [x_move, y_move] =
+    getDist(x1, y1, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
 
   return [x_move, y_move, x1_move, y1_move];
 }
 
-export  function drawEdge(ctx, node1, node2, size, color = null) {
+export function drawEdge(ctx, node1, node2, size, color = null) {
   // ctx.beginPath();
-  ctx.strokeStyle = color ? color  : "#000" ;
+  ctx.strokeStyle = color ? color : "#000";
   const x = node1.position.x,
     y = node1.position.y,
     x1 = node2.position.x,
@@ -110,21 +111,19 @@ export  function drawEdge(ctx, node1, node2, size, color = null) {
     } else {
       DrawCurveLine(ctx, xt, yt, x1t, y1t, -1);
     }
-
   } else {
-    DrawLine(ctx, xt, yt, x1t, y1t,color);
+    DrawLine(ctx, xt, yt, x1t, y1t, color);
   }
   // ctx.stroke();
   // ctx.closePath();
 }
-
 
 export function calcSlope(x0, y0, x1, y1) {
   return (y1 - y0) / (x1 - x0);
 }
 //https://math.stackexchange.com/a/409737
 export function tranlsate_point(x, y, slope, d, dir) {
-  let x_move = x + dir * d / Math.sqrt(1 + slope * slope);
+  let x_move = x + (dir * d) / Math.sqrt(1 + slope * slope);
   let y_move = y + slope * (x_move - x);
   return [x_move, y_move];
 }
@@ -137,13 +136,17 @@ to draw a smooth curve, our controll point will be got as follow :
 - the controll point will be a point that have a distance (d) between it and the mid point and passes throw the Lp;
  */
 export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
-  console.log(x0, y0, x1, y1, dir)
-
   ctx.beginPath();
   ctx.lineWidth = 1;
   let slope = calcSlope(x0, y0, x1, y1);
   let slopePre = -1 / slope;
-  let point = tranlsate_point((x0 + x1) / 2, (y0 + y1) / 2, slopePre, getDist(x0, y0, x1, y1) / 4, dir);
+  let point = tranlsate_point(
+    (x0 + x1) / 2,
+    (y0 + y1) / 2,
+    slopePre,
+    getDist(x0, y0, x1, y1) / 4,
+    dir
+  );
   let xControlPoint = point[0];
   let yControlPoint = point[1];
   ctx.moveTo(x0, y0);
@@ -152,7 +155,7 @@ export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
   ctx.stroke();
 }
 
-export function DrawLine(ctx, x0, y0, x1, y1, color= null) {
+export function DrawLine(ctx, x0, y0, x1, y1, color = null) {
   ctx.strokeStyle = color ? color : "#3f3a3a";
   ctx.beginPath();
   ctx.lineWidth = 1;
@@ -169,7 +172,13 @@ export function line_arrow(ctx, fromx, fromy, tox, toy) {
   let dx = tox - fromx;
   let dy = toy - fromy;
   let angle = Math.atan2(dy, dx);
-  ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 4), toy - headlen * Math.sin(angle - Math.PI / 4));
+  ctx.lineTo(
+    tox - headlen * Math.cos(angle - Math.PI / 4),
+    toy - headlen * Math.sin(angle - Math.PI / 4)
+  );
   ctx.moveTo(tox, toy);
-  ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 4), toy - headlen * Math.sin(angle + Math.PI / 4));
+  ctx.lineTo(
+    tox - headlen * Math.cos(angle + Math.PI / 4),
+    toy - headlen * Math.sin(angle + Math.PI / 4)
+  );
 }

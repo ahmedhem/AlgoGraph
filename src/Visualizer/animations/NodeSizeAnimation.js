@@ -1,4 +1,10 @@
-import { calcSlope, DrawLine, getCorrectPoints, getDist, tranlsate_point } from "../../Canvas/canvasFunctions";
+import {
+  calcSlope,
+  DrawLine,
+  getCorrectPoints,
+  getDist,
+  tranlsate_point,
+} from "../../Canvas/canvasFunctions";
 import { UI } from "../../UI";
 import { graph } from "../../index";
 
@@ -11,31 +17,31 @@ export default class NodeSizeAnimation {
     this.duration = 1000;
   }
 
-  animate =  (resolve) => {
+  animate = (resolve) => {
     let time = Date.now();
     this.startTime = this.startTime || time;
     let timeElapsedSinceStart = time - this.startTime;
     let distance = this.size - this.node.size;
     let progress = timeElapsedSinceStart / this.duration;
-    let safeProgress = Math.min( progress.toFixed(2), 1 ); // 2 decimal points
+    let safeProgress = Math.min(progress.toFixed(2), 1); // 2 decimal points
     let newSIze = safeProgress * distance;
     this.node.size += newSIze;
-    if( safeProgress !== 1 ){
+    if (safeProgress !== 1) {
       UI.fire();
-      requestAnimationFrame(() =>  this.animate(resolve) );
-    }else {
+      requestAnimationFrame(() => this.animate(resolve));
+    } else {
       this.startTime = null;
       cancelAnimationFrame(this.animate);
-      resolve()
+      resolve();
     }
-  }
-  undo = () =>{
+  };
+  undo = () => {
     this.size = this.oldSize;
     return this.run();
-  }
+  };
   run = () => {
     return new Promise((resolve) => {
-      this.animate(resolve)
+      this.animate(resolve);
     });
   };
 }

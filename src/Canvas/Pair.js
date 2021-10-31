@@ -2,16 +2,10 @@ import { openWeightPopup } from "./Pop-Up/weighted-edge-input-pop-up.js";
 import { graph } from "../index.js";
 import { GraphEdge } from "./Graph.js";
 import { UI } from "../UI";
-import NodeSwapAnimation from "../Visualizer/animations/NodeSwapAnimation";
-import EdgeColorAnimation from "../Visualizer/animations/EdgeColorAnimation";
-import EdgeWeightAnimation from "../Visualizer/animations/EdgeWeightAnimation";
-import NodeSizeAnimation from "../Visualizer/animations/NodeSizeAnimation";
 
 export let pair = {
   nodes: [],
-  add: function(point) {
-
-
+  add: function (point) {
     if (this.nodes.length === 1) {
       this.nodes.push(point);
       UI.popupEdge = graph.getEdge(this.nodes[0].number, this.nodes[1].number);
@@ -24,9 +18,6 @@ export let pair = {
         );
       }
 
-
-
-
       /***check if weighted or un weighted ****/
       if (UI.isWighted) openWeightPopup();
       else {
@@ -38,5 +29,5 @@ export let pair = {
     } else {
       this.nodes.push(point);
     }
-  }
+  },
 };
