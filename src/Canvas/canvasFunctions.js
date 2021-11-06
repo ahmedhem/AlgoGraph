@@ -119,8 +119,10 @@ export function drawEdge(ctx, node1, node2, size, color = null) {
 }
 
 export function calcSlope(x0, y0, x1, y1) {
+  if (x0 === x1) return y1 - y0;
   return (y1 - y0) / (x1 - x0);
 }
+
 //https://math.stackexchange.com/a/409737
 export function tranlsate_point(x, y, slope, d, dir) {
   let x_move = x + (dir * d) / Math.sqrt(1 + slope * slope);
