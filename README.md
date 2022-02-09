@@ -86,9 +86,8 @@ challenge and opportunity to enhance our skills and to gain some new experience.
       <summary>
       Moving and Deletion
       </summary>
-
-      - ![](assets/Tutorials/)
-
+   
+      - ![](assets/Tutorials/move,%20delete%20nodes.gif)
       </details>
 
       <details>
@@ -96,52 +95,58 @@ challenge and opportunity to enhance our skills and to gain some new experience.
       Change size and color
       </summary>
 
-      - ![](assets/Tutorials/)
+      - ![](assets/Tutorials/change%20a%20node%20color%20or%20its%20size.gif)
 
       </details>
+      </details>
 
+    <details>
+      <summary>
+      Support Saving the graph as an image.
+      </summary>
+
+      - ![](./assets/Tutorials/save%20your%20graph%20as%20image.gif)
+
+    </details>
+    <details>
+      <summary>
+      Support Saving the graph as a text file.
+      </summary>
+
+     - ![](./assets/Tutorials/save%20your%20graph%20as%20text.gif)
+
+     </details>
+     
+     <details>
+          <summary>
+          Entering the graph info in a matrix or a text format.
+          </summary>
+
+   - ![](./assets/Tutorials/)
+
+     </details>
+
+      <details>
+          <summary>
+          Support reorganizing the graph in the shape of a tree.
+          </summary>
+
+     - ![](./assets/Tutorials/Draw%20AS%20Tree.gif)
 
       </details>
 
       <details>
-      <summary>
-      Support Saving the graph as a text file, or an image.
-      </summary>
+          <summary>
+          Support clearing everything on the canvas
+          </summary>
 
-      - ![](./assets/Tutorials/)
-
-      </details>
-
-      <details>
-      <summary>
-      Entering the graph info in a matrix or a text format.
-      </summary>
-
-      - ![](./assets/Tutorials/)
-
-      </details>
-
-      <details>
-      <summary>
-      Support reorganizing the graph in the shape of a tree.
-      </summary>
-
-      - ![](./assets/Tutorials/)
-
-      </details>
-
-      <details>
-      <summary>
-      Support clearing everything on the canvas
-      </summary>
-
-      - ![](./assets/Tutorials/)
+     - ![](./assets/Tutorials/Clear%20Canvas.gif)
 
       </details>
 
 
 2. Algorithm visualizer
-    - ...... (TODO)
+    <!-- - ...... (TODO) -->
     
 ---
 ### Contributors
