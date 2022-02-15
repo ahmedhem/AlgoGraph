@@ -1,15 +1,15 @@
 import { graph } from "../../index";
 import {
-  calcSlope,
+  calcSlope, drawBezierSplit,
   drawEdge,
-  DrawLine,
+  DrawLine, getControllPoint,
   getCorrectPoints,
   getDist,
-  tranlsate_point,
+  tranlsate_point
 } from "../../Canvas/canvasFunctions";
 import { UI } from "../../UI";
 
-export default class EdgeColorAnimation {
+export default class CurveColorAnimation {
   constructor(edge, color) {
     this.edge = edge;
     this.color = color;
@@ -38,24 +38,17 @@ export default class EdgeColorAnimation {
     let progress = timeElapsedSinceStart / this.duration;
 
     let safeProgress = Math.min(progress.toFixed(2), 1); // 2 decimal points
-    let newPosition = safeProgress * distance;
-    let slope = calcSlope(a, b, c, d);
-    let nextpoint = tranlsate_point(a, b, slope, newPosition, 1);
-
-    if (getDist(a, b, c, d) < getDist(c, d, nextpoint[0], nextpoint[1])) {
-      nextpoint = tranlsate_point(a, b, slope, newPosition, -1);
-    }
-    DrawLine(UI.ctx, a, b, nextpoint[0], nextpoint[1], this.color);
-    if (safeProgress !== 1) {
+    let controlPoint = getControllPoint(a, b, c, d, this.edge.start > this.edge.end ? 1 : -1);
+    drawBezierSplit(UI.ctx, a, b, controlPoint[0], controlPoint[1], c, d, safeProgress, this.color);
+    if(safeProgress !== 1) {
       requestAnimationFrame(() => this.animate(resolve));
     } else {
-
       // update color
       let EdgeUpdated = graph.getEdge(this.edge.start, this.edge.end);
       let EdgeUpdated2 = graph.getEdge(this.edge.end, this.edge.start);
       EdgeUpdated.color = this.color;
+      ctx.strokeStyle = "#000";
       if (EdgeUpdated2 != null) EdgeUpdated2.color = this.color;
-      console.log(EdgeUpdated);
       UI.fire();
       this.startTime = null;
       cancelAnimationFrame(this.animate);

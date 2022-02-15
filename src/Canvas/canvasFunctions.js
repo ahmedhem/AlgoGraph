@@ -1,4 +1,5 @@
 import { UI } from "../UI";
+import { graph } from "../index";
 // have to be added so promise function works
 require("regenerator-runtime/runtime");
 
@@ -37,17 +38,24 @@ export function getDist(x, y, x1, y1) {
 export function checkIfOppEdgeExist(node1, node2) {
   return node2.getEdge(node1.number);
 }
-
+export function drawWeightOnEdge(ctx, edge){
+  let u = graph.getNode(edge.start);
+  let v = graph.getNode(edge.end);
+  if(!UI.isDirected || (UI.isDirected && checkIfOppEdgeExist(u.number, v.number) == null)) {
+  //   let points = getCorrectPoints(u.position.x, u.position.y, v.position.x, v.position.y, UI.nodeSize);
+  //   drawWeight(ctx, points, 10);
+  }
+}
 export function drawWeight(ctx, points, weight) {
   /* drawing the background rectangle*/
   ctx.beginPath();
   ctx.lineWidth = "18";
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "#c43838";
   ctx.fillRect(
-    (points[0] + points[2]) / 2 - 15,
-    (points[1] + points[3]) / 2 - 15,
-    30,
-    30
+    (points[0] + points[2]) / 2 - 12,
+    (points[1] + points[3]) / 2 - 12,
+    25,
+    25
   );
   ctx.stroke();
   ctx.closePath();
@@ -55,7 +63,7 @@ export function drawWeight(ctx, points, weight) {
   /* drawing the weight text*/
   ctx.beginPath();
   ctx.font = "16px arial";
-  ctx.fillStyle = "#111";
+  ctx.fillStyle = "#fff";
   ctx.fillText(
     weight,
     (points[0] + points[2]) / 2,
@@ -137,9 +145,8 @@ to draw a smooth curve, our controll point will be got as follow :
 - then we  will get the mid point of L1 then draw a prependcular line on l1 that passes by this mid point, let 's call the new line be Lp.
 - the controll point will be a point that have a distance (d) between it and the mid point and passes throw the Lp;
  */
-export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
-  ctx.beginPath();
-  ctx.lineWidth = 1;
+
+export function getControllPoint( x0, y0, x1, y1, dir){
   let slope = calcSlope(x0, y0, x1, y1);
   let slopePre = -1 / slope;
   let point = tranlsate_point(
@@ -149,8 +156,12 @@ export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
     getDist(x0, y0, x1, y1) / 4,
     dir
   );
-  let xControlPoint = point[0];
-  let yControlPoint = point[1];
+  return [point[0], point[1]];
+}
+export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
+  ctx.beginPath();
+  ctx.lineWidth = 1;
+  let [xControlPoint, yControlPoint] = getControllPoint(x0, y0, x1, y1, dir);
   ctx.moveTo(x0, y0);
   ctx.quadraticCurveTo(xControlPoint, yControlPoint, x1, y1);
   line_arrow(ctx, x0, y0, x1, y1);
@@ -184,3 +195,62 @@ export function line_arrow(ctx, fromx, fromy, tox, toy) {
     toy - headlen * Math.sin(angle + Math.PI / 4)
   );
 }
+
+
+/**
+ * Animates bezier-curve
+ *
+ * @param ctx       The canvas context to draw to
+ * @param x0        The x-coord of the start point
+ * @param y0        The y-coord of the start point
+ * @param x1        The x-coord of the control point
+ * @param y1        The y-coord of the control point
+ * @param x2        The x-coord of the end point
+ * @param y2        The y-coord of the end point
+ * @param duration  The duration in milliseconds
+ */
+
+
+/**
+ * Draws a splitted bezier-curve
+ *
+ * @param ctx       The canvas context to draw to
+ * @param x0        The x-coord of the start point
+ * @param y0        The y-coord of the start point
+ * @param x1        The x-coord of the control point
+ * @param y1        The y-coord of the control point
+ * @param x2        The x-coord of the end point
+ * @param y2        The y-coord of the end point
+ * @param t1        The start ratio of the splitted bezier from 0.0 to 1.0
+ * @param color        color of the edge
+
+
+ */
+
+export function drawBezierSplit(ctx, x0, y0, x1, y1, x2, y2, t1, color= null) {
+  ctx.strokeStyle = color == null ?"#000": color;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+
+  if( t1 === 1.0 ) {
+    ctx.moveTo( x0, y0 );
+    ctx.quadraticCurveTo( x1, y1, x2, y2 );
+  } else {
+    let u = 1.0 - t1;
+    let nx1 = lerp(x0, x1, t1),
+      ny1 = lerp(y0, y1, t1),
+      nx2 = u * u * x0 + 2.0 * u * t1 * x1 + t1 * t1 * x2,
+      ny2 = u * u * y0 + 2.0 * u * t1 * y1 + t1 * t1 * y2;
+    ctx.moveTo( x0, y0);
+    ctx.quadraticCurveTo(  nx1, ny1, nx2, ny2 );
+  }
+  ctx.stroke();
+}
+/**
+ * Linearly interpolate between two numbers v0, v1 by t
+ */
+export function lerp(v0, v1, t) {
+  return ( 1.0 - t ) * v0 + t * v1;
+}
+
+
