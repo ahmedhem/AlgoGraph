@@ -25,6 +25,7 @@ export default class CurveColorAnimation {
       UI.nodeSize
     );
   }
+
   animate = (resolve) => {
     let time = Date.now();
 
@@ -37,7 +38,8 @@ export default class CurveColorAnimation {
 
     let progress = timeElapsedSinceStart / this.duration;
 
-    let safeProgress = Math.min(progress.toFixed(2), 1); // 2 decimal points
+    let safeProgress = Math.min(progress.toFixed(2), 1);
+
     let controlPoint = getControllPoint(a, b, c, d, this.edge.start > this.edge.end ? 1 : -1);
     drawBezierSplit(UI.ctx, a, b, controlPoint[0], controlPoint[1], c, d, safeProgress, this.color);
     if(safeProgress !== 1) {
