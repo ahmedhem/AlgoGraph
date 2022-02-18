@@ -12,6 +12,7 @@ class UiNotifier {
     this.MENU_STATUS = 0;
     this.ContextMenuNode = null;
     this.MovingMode = false;
+    this.WeightVisibe = true;
     //default size
     this.nodeSize = 15;
     this.nodePicked = null;

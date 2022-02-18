@@ -3,6 +3,56 @@ import { graph } from "../index";
 // have to be added so promise function works
 require("regenerator-runtime/runtime");
 
+
+
+/**
+ * Linearly interpolate between two numbers v0, v1 by t
+ */
+export function lerp(v0, v1, t) {
+  return ( 1.0 - t ) * v0 + t * v1;
+}
+
+
+export function calcSlope(x0, y0, x1, y1) {
+  if (x0 === x1) return y1 - y0;
+  return (y1 - y0) / (x1 - x0);
+}
+
+//https://math.stackexchange.com/a/409737
+export function tranlsate_point(x, y, slope, d, dir) {
+  let x_move = x + (dir * d) / Math.sqrt(1 + slope * slope);
+  let y_move = y + slope * (x_move - x);
+  return [x_move, y_move];
+}
+
+// Calculate the euclidean distance between two nodes.
+export function getDist(x, y, x1, y1) {
+  return Math.sqrt((x1 - x) * (x1 - x) + (y1 - y) * (y1 - y));
+}
+
+export function checkIfOppEdgeExist(node1, node2) {
+  return node2.getEdge(node1.number);
+}
+
+export function getCorrectPoints(x, y, x1, y1, size) {
+  let x_move, y_move, x1_move, y1_move;
+  // first node
+  let p = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, 1);
+  let p2 = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, -1);
+  [x1_move, y1_move] =
+    getDist(x, y, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
+  /************/
+  // second node
+  p = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, 1);
+  p2 = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, -1);
+  [x_move, y_move] =
+    getDist(x1, y1, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
+
+  return [x_move, y_move, x1_move, y1_move];
+}
+
+
+
 export function drawNode(ctx, node, num, color = null, size, isReady = null) {
   const x = node.position.x,
     y = node.position.y;
@@ -30,44 +80,44 @@ export function drawNode(ctx, node, num, color = null, size, isReady = null) {
   ctx.closePath();
 }
 
-// Calculate the euclidean distance between two nodes.
-export function getDist(x, y, x1, y1) {
-  return Math.sqrt((x1 - x) * (x1 - x) + (y1 - y) * (y1 - y));
-}
 
-export function checkIfOppEdgeExist(node1, node2) {
-  return node2.getEdge(node1.number);
+export function drawWeightOnEdge(ctx, edge, weight){
+    let p1 = graph.getNode(edge.start).position;
+    let p2 = graph.getNode(edge.end).position;
+    if(UI.isDirected && checkIfOppEdgeExist(graph.getNode(edge.start), graph.getNode(edge.end)) !== null){
+      let t1 = 0.5;
+      let u = 0.5;
+    let controlPoint = getControllPoint(p1.x, p1.y, p2.x, p2.y, edge.start > edge.end ? 1: -1),
+      nx2 = u * u * p1.x + 2.0 * u * t1 * controlPoint[0] + t1 * t1 * p2.x ,
+        ny2 = u * u * p1.y + 2.0 * u * t1 * controlPoint[1] + t1 * t1 * p2.y;
+      drawWeight(ctx, [nx2, ny2], weight);
+    }else {
+      drawWeight(ctx, [(p1.x + p2.x) / 2, (p1.y + p2.y) / 2], weight);
+    }
+
 }
-export function drawWeightOnEdge(ctx, edge){
-  let u = graph.getNode(edge.start);
-  let v = graph.getNode(edge.end);
-  if(!UI.isDirected || (UI.isDirected && checkIfOppEdgeExist(u.number, v.number) == null)) {
-  //   let points = getCorrectPoints(u.position.x, u.position.y, v.position.x, v.position.y, UI.nodeSize);
-  //   drawWeight(ctx, points, 10);
-  }
-}
-export function drawWeight(ctx, points, weight) {
+export function drawWeight(ctx, point, weight) {
   /* drawing the background rectangle*/
   ctx.beginPath();
   ctx.lineWidth = "18";
   ctx.fillStyle = "#c43838";
   ctx.fillRect(
-    (points[0] + points[2]) / 2 - 12,
-    (points[1] + points[3]) / 2 - 12,
-    25,
-    25
+    point[0] - 10,
+    point[1] - 10,
+    20,
+    20
   );
   ctx.stroke();
   ctx.closePath();
 
   /* drawing the weight text*/
   ctx.beginPath();
-  ctx.font = "16px arial";
+  ctx.font = "13px arial";
   ctx.fillStyle = "#fff";
   ctx.fillText(
     weight,
-    (points[0] + points[2]) / 2,
-    (points[1] + points[3]) / 2
+    point[0],
+    point[1],
   );
   ctx.fillStyle = "#111";
   ctx.closePath();
@@ -85,22 +135,7 @@ export function drawWeight(ctx, points, weight) {
 
   we will do the same action for the both node
  */
-export function getCorrectPoints(x, y, x1, y1, size) {
-  let x_move, y_move, x1_move, y1_move;
-  // first node
-  let p = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, 1);
-  let p2 = tranlsate_point(x1, y1, calcSlope(x, y, x1, y1), size, -1);
-  [x1_move, y1_move] =
-    getDist(x, y, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
-  /************/
-  // second node
-  p = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, 1);
-  p2 = tranlsate_point(x, y, calcSlope(x, y, x1, y1), size, -1);
-  [x_move, y_move] =
-    getDist(x1, y1, p[0], p[1]) < getDist(x, y, x1, y1) ? p : p2;
 
-  return [x_move, y_move, x1_move, y1_move];
-}
 
 export function drawEdge(ctx, node1, node2, size, color = null) {
   // ctx.beginPath();
@@ -126,17 +161,6 @@ export function drawEdge(ctx, node1, node2, size, color = null) {
   // ctx.closePath();
 }
 
-export function calcSlope(x0, y0, x1, y1) {
-  if (x0 === x1) return y1 - y0;
-  return (y1 - y0) / (x1 - x0);
-}
-
-//https://math.stackexchange.com/a/409737
-export function tranlsate_point(x, y, slope, d, dir) {
-  let x_move = x + (dir * d) / Math.sqrt(1 + slope * slope);
-  let y_move = y + slope * (x_move - x);
-  return [x_move, y_move];
-}
 
 /*
 drawiung a curve must have three points , start point , end point , controlling point
@@ -245,12 +269,6 @@ export function drawBezierSplit(ctx, x0, y0, x1, y1, x2, y2, t1, color= null) {
     ctx.quadraticCurveTo(  nx1, ny1, nx2, ny2 );
   }
   ctx.stroke();
-}
-/**
- * Linearly interpolate between two numbers v0, v1 by t
- */
-export function lerp(v0, v1, t) {
-  return ( 1.0 - t ) * v0 + t * v1;
 }
 
 
