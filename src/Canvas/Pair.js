@@ -2,7 +2,6 @@ import { openWeightPopup } from "./Pop-Up/weighted-edge-input-pop-up.js";
 import { graph } from "../index.js";
 import { GraphEdge } from "./Graph.js";
 import { UI } from "../UI";
-import CurveColorAnimation from "../Visualizer/animations/CurveColorAnimation";
 import { edge_direction } from "../sidebar/buttons/GraphSetting";
 
 export let pair = {

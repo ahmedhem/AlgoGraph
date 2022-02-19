@@ -152,7 +152,7 @@ export function drawNode(ctx, node, num, color = null, size, isReady = null) {
 export function drawWeightOnEdge(ctx, edge, weight){
     let p1 = graph.getNode(edge.start).position;
     let p2 = graph.getNode(edge.end).position;
-    if(UI.isDirected && checkIfOppEdgeExist(graph.getNode(edge.start), graph.getNode(edge.end)) !== null){
+    if(UI.isDirected && checkIfOppEdgeExist(graph.getNode(edge.start), graph.getNode(edge.end))){
       let t1 = 0.5;
       let u = 0.5;
     let controlPoint = getControllPoint(p1.x, p1.y, p2.x, p2.y, edge.start > edge.end ? 1: -1),
@@ -296,7 +296,6 @@ export function DrawCurveLine(ctx, x0, y0, x1, y1, dir) {
  * @param x1 The x-coord of the end point
  * @param y1 The y-coord of the start point
  * @param color
- * @constructor
  */
 export function DrawLine(ctx, x0, y0, x1, y1, color = null) {
   ctx.strokeStyle = color ? color : "#3f3a3a";
@@ -309,7 +308,14 @@ export function DrawLine(ctx, x0, y0, x1, y1, color = null) {
   }
   ctx.stroke();
 }
-
+export function DrawLineWithoutArrow(ctx, x0, y0, x1, y1, color = null) {
+  ctx.strokeStyle = color ? color : "#3f3a3a";
+  ctx.beginPath();
+  ctx.lineWidth = 1;
+  ctx.moveTo(x0, y0);
+  ctx.lineTo(x1, y1);
+  ctx.stroke();
+}
 /**
  * draw a line arrow between two points
  * @param ctx

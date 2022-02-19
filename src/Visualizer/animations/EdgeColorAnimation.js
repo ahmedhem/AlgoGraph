@@ -1,11 +1,11 @@
 import { graph } from "../../index";
 import {
-  calcSlope,
+  calcSlope, checkIfOppEdgeExist, drawBezierSplit,
   drawEdge,
-  DrawLine,
+  DrawLine, DrawLineWithoutArrow, getControllPoint,
   getCorrectPoints,
   getDist,
-  tranlsate_point,
+  tranlsate_point
 } from "../../Canvas/canvasFunctions";
 import { UI } from "../../UI";
 
@@ -14,7 +14,7 @@ export default class EdgeColorAnimation {
     this.edge = edge;
     this.color = color;
     this.oldColor = this.edge.color;
-    this.duration = 1000;
+    this.duration = 1500;
     this.reverse = null;
     this.startTime = null; // 1 second or 1000ms
     this.points = getCorrectPoints(
@@ -38,14 +38,21 @@ export default class EdgeColorAnimation {
     let progress = timeElapsedSinceStart / this.duration;
 
     let safeProgress = Math.min(progress.toFixed(2), 1); // 2 decimal points
-    let newPosition = safeProgress * distance;
-    let slope = calcSlope(a, b, c, d);
-    let nextpoint = tranlsate_point(a, b, slope, newPosition, 1);
-
-    if (getDist(a, b, c, d) < getDist(c, d, nextpoint[0], nextpoint[1])) {
-      nextpoint = tranlsate_point(a, b, slope, newPosition, -1);
+    // handling curve and normal lines
+    if(!UI.isDirected || (UI.isDirected && !checkIfOppEdgeExist(graph.getNode(this.edge.start), graph.getNode(this.edge.end)))) {
+      let newPosition = safeProgress * distance;
+      let slope = calcSlope(a, b, c, d);
+      let nextpoint = tranlsate_point(a, b, slope, newPosition, 1);
+      if (getDist(a, b, c, d) < getDist(c, d, nextpoint[0], nextpoint[1])) {
+        nextpoint = tranlsate_point(a, b, slope, newPosition, -1);
+      }
+      DrawLineWithoutArrow(UI.ctx, a, b, nextpoint[0], nextpoint[1], this.color);
+    }else {
+      let controlPoint = getControllPoint(a, b, c, d, this.edge.start > this.edge.end ? 1 : -1);
+      drawBezierSplit(UI.ctx, a, b, controlPoint[0], controlPoint[1], c, d, safeProgress, this.color);
     }
-    DrawLine(UI.ctx, a, b, nextpoint[0], nextpoint[1], this.color);
+
+
     if (safeProgress !== 1) {
       requestAnimationFrame(() => this.animate(resolve));
     } else {
@@ -54,7 +61,10 @@ export default class EdgeColorAnimation {
       let EdgeUpdated = graph.getEdge(this.edge.start, this.edge.end);
       let EdgeUpdated2 = graph.getEdge(this.edge.end, this.edge.start);
       EdgeUpdated.color = this.color;
-      if (EdgeUpdated2 != null) EdgeUpdated2.color = this.color;
+      /*
+        this conition has been added to fix a bug during animating the curve as it was cloloring both EdgeUpdated and EdgeUpdated2
+       */
+      if (!UI.isDirected && EdgeUpdated2 != null) EdgeUpdated2.color = this.color;
       console.log(EdgeUpdated);
       UI.fire();
       this.startTime = null;
