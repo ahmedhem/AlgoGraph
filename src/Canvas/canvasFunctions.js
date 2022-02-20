@@ -198,6 +198,21 @@ export function drawWeight(ctx, point, weight) {
   ctx.closePath();
 }
 
+export function drawText(ctx, point, weight) {
+  /* drawing the background rectangle*/
+  ctx.beginPath();
+
+  ctx.font = "16px arial";
+  ctx.fillStyle = "red";
+  ctx.fillText(
+    weight,
+    point[0],
+    point[1],
+  );
+  ctx.fillStyle = "#111";
+  ctx.closePath();
+}
+
 /*
  */
 

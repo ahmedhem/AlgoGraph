@@ -10,11 +10,11 @@ import {
 import { UI } from "../../UI";
 
 export default class EdgeColorAnimation {
-  constructor(edge, color) {
+  constructor(edge, color, duration = 1000) {
     this.edge = edge;
     this.color = color;
+    this.duration = duration;
     this.oldColor = this.edge.color;
-    this.duration = 1500;
     this.reverse = null;
     this.startTime = null; // 1 second or 1000ms
     this.points = getCorrectPoints(
@@ -66,7 +66,7 @@ export default class EdgeColorAnimation {
        */
       if (!UI.isDirected && EdgeUpdated2 != null) EdgeUpdated2.color = this.color;
       console.log(EdgeUpdated);
-      UI.fire();
+      // UI.fire();
       this.startTime = null;
       cancelAnimationFrame(this.animate);
       resolve();

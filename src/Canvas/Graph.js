@@ -211,4 +211,17 @@ export class Graph {
 
     return newGraph;
   }
+  // because i couldn't assign the old graph due to some problems with setters in javascript with "import" i added this method
+  setGraph(newGraph){
+    this.nodes = new Set();
+    newGraph.nodes.forEach((node) => {
+      if (node) this.nodes.add(node.deepCopy());
+    });
+    this.nodes = newGraph.nodes;
+    this.nodeCount = newGraph.nodeCount;
+    this.availableNum = [...newGraph.availableNum];
+
+    return newGraph;
+
+  }
 }

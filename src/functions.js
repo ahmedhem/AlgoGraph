@@ -33,7 +33,6 @@ export function isPointInNode(x, y) {
   return false;
 }
 
-// (check after refactoring >>> done)
 export let drawNodes = function (ctx) {
   for (let node of graph.nodes.keys()) {
     drawNode(ctx, node, node.number, node.color, node.size);
@@ -45,7 +44,6 @@ export let drawEdges = function (ctx) {
   for (let node of graph.nodes.keys()) {
 
     for (let edge of node.edges) {
-      console.log(edge.weights.values().next());
       if(UI.WeightVisibe)drawWeightOnEdge(ctx,edge, edge.weights.values().next().value);
       drawEdge(
         ctx,

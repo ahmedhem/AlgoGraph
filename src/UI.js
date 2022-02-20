@@ -7,6 +7,7 @@ class UiNotifier {
     this.isDirected = false;
     this.isWighted = false;
     this.popupEdge = null;
+    this.VisualizerMode = false;
     this.observers = [];
     // context menu
     this.MENU_STATUS = 0;
