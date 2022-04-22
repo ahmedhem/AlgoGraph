@@ -17,7 +17,10 @@ import {
   position_menu,
 } from "./Canvas/ContextMenu/conterxt-menu.js";
 import { UI } from "./UI";
-import { openRootPopup } from "./Canvas/Pop-Up/rootPickUp";
+import { openRootPopup, openSourcePopup } from "./Canvas/Pop-Up/rootPickUp";
+import { bfs } from "./Visualizer/Algorithems/Breadth First Search";
+import { depthFirstSearch } from "./Visualizer/Algorithems/Depth First Search";
+import { toggleMode } from "./Visualizer/visualizer";
 //...listen to the canvas and handle clicks
 const canvas = document.getElementById("main_canvas");
 
@@ -79,8 +82,23 @@ canvas.addEventListener("contextmenu", (e) => handleRightClick(the_canvas, e));
 canvas.addEventListener("click", (e) => handleClick(the_canvas, e));
 
 // choosing between Directed and undirected edge
-const BFSAlgo = document.querySelector(".DrawAsTree");
+const DrawTree = document.querySelector(".DrawAsTree");
 
-BFSAlgo.addEventListener("click", () => {
+DrawTree.addEventListener("click", () => {
   openRootPopup();
+});
+
+const BFS = document.querySelector(".BFS");
+
+BFS.addEventListener("click", () => {
+  if (toggleMode()) {
+    openSourcePopup(bfs);
+  }
+});
+const DFS = document.querySelector(".DFS");
+
+DFS.addEventListener("click", () => {
+  if (toggleMode()) {
+    openSourcePopup(depthFirstSearch);
+  }
 });

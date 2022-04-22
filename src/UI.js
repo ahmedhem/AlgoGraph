@@ -7,11 +7,14 @@ class UiNotifier {
     this.isDirected = false;
     this.isWighted = false;
     this.popupEdge = null;
+    this.VisualizerMode = false;
     this.observers = [];
     // context menu
     this.MENU_STATUS = 0;
     this.ContextMenuNode = null;
     this.MovingMode = false;
+    // set it to true to change make the weights visible
+    this.WeightVisibe = false;
     //default size
     this.nodeSize = 15;
     this.nodePicked = null;

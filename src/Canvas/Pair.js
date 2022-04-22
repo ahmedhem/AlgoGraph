@@ -2,6 +2,7 @@ import { openWeightPopup } from "./Pop-Up/weighted-edge-input-pop-up.js";
 import { graph } from "../index.js";
 import { GraphEdge } from "./Graph.js";
 import { UI } from "../UI";
+import { edge_direction } from "../sidebar/buttons/GraphSetting";
 
 export let pair = {
   nodes: [],
@@ -16,7 +17,7 @@ export let pair = {
           this.nodes[0].number,
           this.nodes[1].number
         );
-      }
+        }
 
       /***check if weighted or un weighted ****/
       if (UI.isWighted) openWeightPopup();

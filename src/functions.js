@@ -2,7 +2,7 @@ import { graph } from "./index.js";
 import { pair } from "./Canvas/Pair.js";
 import modal from "./Canvas/Pop-Up/Modal.js";
 import { UI } from "./UI";
-import { drawEdge, drawNode, getDist } from "./Canvas/canvasFunctions";
+import { drawEdge, drawNode, drawWeight, drawWeightOnEdge, getDist } from "./Canvas/canvasFunctions";
 /*
  * return x,y in respect to the given canvas (could work with other elements)
  * pass to every function in canvasGunction.js the UI.nodeSIze parameter
@@ -33,7 +33,6 @@ export function isPointInNode(x, y) {
   return false;
 }
 
-// (check after refactoring >>> done)
 export let drawNodes = function (ctx) {
   for (let node of graph.nodes.keys()) {
     drawNode(ctx, node, node.number, node.color, node.size);
@@ -43,7 +42,9 @@ export let drawNodes = function (ctx) {
 // (check after refactoring >>> done)
 export let drawEdges = function (ctx) {
   for (let node of graph.nodes.keys()) {
+
     for (let edge of node.edges) {
+      if(UI.WeightVisibe)drawWeightOnEdge(ctx,edge, edge.weights.values().next().value);
       drawEdge(
         ctx,
         graph.getNode(edge.start),
