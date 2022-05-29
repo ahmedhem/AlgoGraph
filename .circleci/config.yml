@@ -23,7 +23,7 @@ jobs:
           command: |
             git config --global user.email "f.ahmadhem@gmail.com"
             git config --global user.name "ahmedhem"
-            git merge master
+            git merge master && git commit -m "Merge"
 
       - run:
           name: Build the Frontend
